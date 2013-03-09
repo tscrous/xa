@@ -1,6 +1,7 @@
 package com.xa.webui.persistence.domain.resource.resolution;
 
 import com.xa.webui.persistence.domain.IdentifiableEntity;
+import com.xa.webui.persistence.domain.resource.ResolvableObject;
 import java.util.Arrays;
 import javax.enterprise.inject.ResolutionException;
 import javax.persistence.Column;
@@ -15,7 +16,7 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name="resolution_descriptor")
-public class ResolutionDescriptor extends IdentifiableEntity {
+public class ResolutionDescriptor extends IdentifiableEntity implements ResolvableObject {
     
     public ResolutionDescriptor() {
     }

@@ -7,19 +7,19 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 @Entity
-public class Option extends Item {
+public class OptionItem extends Item {
 
-    public Option() {
+    public OptionItem() {
     }
     
-    public Option(String name, String label, String description, int itemIndex) {
+    public OptionItem(String name, String label, String description, int itemIndex) {
         this.name = name;
         this.label = label;
         this.description = description;
         this.itemIndex = itemIndex;
     }
     
-    public Option(String name, String label, String description, int itemIndex, boolean disabled) {
+    public OptionItem(String name, String label, String description, int itemIndex, boolean disabled) {
         this.name = name;
         this.label = label;
         this.description = description;
@@ -27,19 +27,19 @@ public class Option extends Item {
         this.disabled = disabled;
     }
 
-    public Option(String name, String label, String description, WebResource<?> content, int itemIndex) {
+    public OptionItem(String name, String label, String description, WebResource<?> value, int itemIndex) {
         this.name = name;
         this.label = label;
         this.description = description;
-        this.content = content;
+        this.value = value;
         this.itemIndex = itemIndex;
     }
 
-    public Option(String name, String label, String description, WebResource<?> content, int itemIndex, boolean disabled) {
+    public OptionItem(String name, String label, String description, WebResource<?> value, int itemIndex, boolean disabled) {
         this.name = name;
         this.label = label;
         this.description = description;
-        this.content = content;
+        this.value = value;
         this.itemIndex = itemIndex;
         this.disabled = disabled;
     }
@@ -52,11 +52,11 @@ public class Option extends Item {
     }
 
     @Override
-    public WebResource<?> getContent() {
-        return content;
+    public WebResource getValue() {
+        return value;
     }
-    public void setContent(WebResource<?> content) {
-        this.content = content;
+    public void setValue(WebResource value) {
+        this.value = value;
     }
 
     @Column(name="item_index")
@@ -64,6 +64,6 @@ public class Option extends Item {
     
     @ManyToOne
     @JoinColumn(name="content_resource_id", referencedColumnName="id")
-    private WebResource<?> content;
+    private WebResource value;
     
 }

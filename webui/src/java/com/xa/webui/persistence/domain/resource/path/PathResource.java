@@ -11,23 +11,23 @@ import javax.persistence.Enumerated;
  * @author theo-alaganze
  */
 @Entity
-public class PathResource extends WebResource<String> {
+public class PathResource extends WebResource<Path> {
 
     public PathResource() {
     }
     
-    public PathResource(PathResourceType type, String name, String path) {
+    public PathResource(PathResourceType type, String name, Path path) {
         this.type = type;
         this.name = name;
-        this.path = path;
+        this.path = path.getValue();
     }
     
     @Override
-    public String getValue() {
-        return path;
+    public Path getValue() {
+        return new Path(path);
     }
-    public void setValue(String path) {
-        this.path = path;
+    public void setValue(Path path) {
+        this.path = path.getValue();
     }
 
     public PathResourceType getType() {

@@ -1,45 +1,21 @@
-package com.xa.webui.persistence.domain.component;
+package com.xa.webui.persistence.domain.component.page;
 
+import com.xa.webui.persistence.domain.component.FooterMenu;
+import com.xa.webui.persistence.domain.component.Menu;
+import com.xa.webui.persistence.domain.resource.ResolvableObject;
 import com.xa.webui.persistence.domain.resource.path.PathResource;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.MappedSuperclass;
 
-@MappedSuperclass
-public abstract class Page extends WebComponent {
+public interface PageDescriptor extends ResolvableObject {
 
-    public Menu getTopMenu() {
-        return topMenu;
-    }
-    public void setTopMenu(Menu topMenu) {
-        this.topMenu = topMenu;
-    }
+    public String getName();
 
-    public FooterMenu getFooterMenu() {
-        return footerMenu;
-    }
-    public void setFooterMenu(FooterMenu footerMenu) {
-        this.footerMenu = footerMenu;
-    }
+    public Menu getTopMenu();
+    public void setTopMenu(Menu topMenu);
 
-    @Override
-    public PathResource getContent() {
-        return content;
-    }
-    public void setContent(PathResource content) {
-        this.content = content;
-    }
+    public FooterMenu getFooterMenu();
+    public void setFooterMenu(FooterMenu footerMenu);
+
+    public PathResource getValue();
+    public void setValue(PathResource value);
     
-    @ManyToOne
-    @JoinColumn(name="top_menu_id", referencedColumnName="id")
-    protected Menu topMenu;
-
-    @ManyToOne
-    @JoinColumn(name="footer_menu_id", referencedColumnName="id")
-    protected FooterMenu footerMenu;
-
-    @ManyToOne
-    @JoinColumn(name="web_resource_id", referencedColumnName="id")
-    protected PathResource content;
-
 }

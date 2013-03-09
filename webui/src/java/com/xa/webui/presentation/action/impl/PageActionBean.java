@@ -1,15 +1,12 @@
 package com.xa.webui.presentation.action.impl;
 
-import com.xa.webui.persistence.domain.component.Page;
-import com.xa.webui.persistence.domain.resource.resolution.ResolutionResource;
+import com.xa.webui.persistence.domain.component.page.PageSingleDescriptor;
 import com.xa.webui.persistence.domain.user.UserSession;
 import com.xa.webui.presentation.action.SessionActionBean;
 import com.xa.webui.service.api.SessionManager;
+import com.xa.webui.service.api.WebComponentManager;
 import com.xa.webui.service.factory.ResolutionFactory;
-import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Transient;
+import com.xa.webui.system.Constants;
 import net.sourceforge.stripes.action.ActionBeanContext;
 import net.sourceforge.stripes.action.Resolution;
 
@@ -17,19 +14,11 @@ import net.sourceforge.stripes.action.Resolution;
  *
  * @author theo-alaganze
  */
-@Entity
-public class PageActionBean extends Page implements SessionActionBean {
+public class PageActionBean implements SessionActionBean {
 
     public PageActionBean() {
     }
     
-    public ResolutionResource getResource() {
-        return resource;
-    }
-    private void setResource(ResolutionResource resource) {
-        this.resource = resource;
-    }
-
     @Override
     public ActionBeanContext getContext() {
         return context;
@@ -38,7 +27,14 @@ public class PageActionBean extends Page implements SessionActionBean {
     public void setContext(ActionBeanContext context) {
         this.context = context;
     }
-    
+
+    public PageSingleDescriptor getDescriptor() {
+        return descriptor;
+    }
+    public void setDescriptor(PageSingleDescriptor descriptor) {
+        this.descriptor = descriptor;
+    }
+
     @Override
     public UserSession getUserSession() {
         return SessionManager.getInstance().getSession(context.getRequest());
@@ -46,14 +42,19 @@ public class PageActionBean extends Page implements SessionActionBean {
 
     @Override
     public Resolution view() {
-        return ResolutionFactory.getResolution(resource.getValue());
+        descriptor = retrievePageDescriptor();
+        return ResolutionFactory.getResolution(descriptor.getValue().getValue());
     }
     
-    @Transient
-    protected ActionBeanContext context;
+    /* Utilities */
     
-    @ManyToOne
-    @JoinColumn(name="resolution_resource_id", referencedColumnName="id")
-    protected ResolutionResource resource;
+    protected PageSingleDescriptor retrievePageDescriptor() {
+        WebComponentManager webComponentManager = new WebComponentManager();
+        String name = context.getRequest().getParameter(Constants.PARM_PAGE_DESCRIPTOR_NAME);
+        return (PageSingleDescriptor) webComponentManager.getPageDescriptorByName(name);
+    }
+    
+    private ActionBeanContext context;
+    private PageSingleDescriptor descriptor;
     
 }

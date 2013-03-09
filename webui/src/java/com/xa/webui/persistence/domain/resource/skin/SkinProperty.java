@@ -1,12 +1,13 @@
-package com.xa.webui.persistence.domain.resource.resolution;
+package com.xa.webui.persistence.domain.resource.skin;
 
 import com.xa.webui.persistence.domain.IdentifiableEntity;
-import java.util.Arrays;
-import javax.enterprise.inject.ResolutionException;
+import com.xa.webui.persistence.domain.resource.path.PathResource;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 /**
@@ -14,114 +15,43 @@ import javax.persistence.Table;
  * @author theo-alaganze
  */
 @Entity
-@Table(name="resolution_descriptor")
-public class ResolutionDescriptor extends IdentifiableEntity {
+@Table(name="skin_property")
+public class SkinProperty extends IdentifiableEntity {
     
-    public ResolutionDescriptor() {
+    public SkinProperty() {
     }
 
-    public ResolutionDescriptor(ResolutionType type) {
-        this.type = type;
-    }
-
-    /* Getters & Setters */
-    
-    public ResolutionType getType() {
+    public SkinPropertyType getType() {
         return type;
     }
-    protected void setType(ResolutionType type) {
+    public void setType(SkinPropertyType type) {
         this.type = type;
     }
 
-    public int getErrorCode() {
-        return errorCode;
+    public PathResource getValue() {
+        return value;
     }
-    public void setErrorCode(int errorCode) {
-        ensureResolutionType(ResolutionType.ERROR);
-        this.errorCode = errorCode;
-    }
-
-    public String getErrorMessage() {
-        return errorMessage;
-    }
-    public void setErrorMessage(String errorMessage) {
-        ensureResolutionType(ResolutionType.ERROR);
-        this.errorMessage = errorMessage;
+    public void setValue(PathResource value) {
+        this.value = value;
     }
 
-    public String getBeanType() {
-        return beanType;
+    public Skin getSkin() {
+        return skin;
     }
-    public void setBeanType(String beanType) {
-        ensureResolutionType(ResolutionType.FORWARD, ResolutionType.REDIRECT);
-        this.beanType = beanType;
+    public void setSkin(Skin skin) {
+        this.skin = skin;
     }
-
-    public String getEvent() {
-        return event;
-    }
-    public void setEvent(String event) {
-        ensureResolutionType(ResolutionType.FORWARD, ResolutionType.REDIRECT);
-        this.event = event;
-    }
-
-    public String getPath() {
-        return path;
-    }
-    public void setPath(String path) {
-        ensureResolutionType(ResolutionType.FORWARD);
-        this.path = path;
-    }
-
-    public String getUrl() {
-        return url;
-    }
-    public void setUrl(String url) {
-        ensureResolutionType(ResolutionType.REDIRECT);
-        this.url = url;
-    }
-
-    public boolean isPrependContext() {
-        return prependContext;
-    }
-    public void setPrependContext(boolean prependContext) {
-        ensureResolutionType(ResolutionType.REDIRECT);
-        this.prependContext = prependContext;
-    }
-
-    /* utilities */
-
-    private void ensureResolutionType(ResolutionType...types) {
-        if (!Arrays.asList(types).contains(type)) {
-            throw new ResolutionException("Method call not allowed for a descriptor of type "+ this.type +"!");
-        }
-    }
-    
-    /* properties */
 
     @Enumerated(EnumType.STRING)
-    @Column(name="type")
-    private ResolutionType type; 
+    @Column(name="name")
+    private SkinPropertyType type; 
 
-    @Column(name="error_code")
-    private int errorCode;
+    @ManyToOne
+    @JoinColumn(name="value", referencedColumnName="id", nullable=false)
+    private PathResource value;
     
-    @Column(name="error_message")
-    private String errorMessage;
-    
-    @Column(name="bean_type")
-    private String beanType;
-    
-    @Column(name="event")
-    private String event;
-    
-    @Column(name="resource_path")
-    private String path;
-    
-    @Column(name="url")
-    private String url;
-    
-    @Column(name="prepend_context")
-    private boolean prependContext;
+    @ManyToOne
+    @JoinColumn(name="skin", referencedColumnName="id", nullable=false)
+    private Skin skin;
     
 }

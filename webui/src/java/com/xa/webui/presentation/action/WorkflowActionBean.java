@@ -1,21 +1,22 @@
 package com.xa.webui.presentation.action;
 
 import com.xa.webui.exception.persistence.PersistenceWorkflowException;
+import com.xa.webui.persistence.domain.component.page.PageDescriptor;
+import com.xa.webui.persistence.domain.resource.ResolvableObject;
 import com.xa.webui.persistence.domain.resource.WebResource;
-import com.xa.webui.persistence.domain.resource.path.PathResource;
-import com.xa.webui.persistence.domain.resource.resolution.ResolutionDescriptor;
-import com.xa.webui.persistence.domain.resource.resolution.ResolutionResource;
 import com.xa.webui.persistence.domain.system.SystemOrchestrator;
 import com.xa.webui.persistence.domain.user.UserSession;
 import com.xa.webui.persistence.domain.user.UserSessionRuntime;
 import com.xa.webui.persistence.domain.workflow.Workflow;
 import com.xa.webui.persistence.domain.workflow.WorkflowRule;
 import com.xa.webui.service.api.SessionManager;
+import com.xa.webui.service.api.WebComponentManager;
 import com.xa.webui.service.api.WebResourceManager;
 import com.xa.webui.service.api.WorkflowManager;
 import com.xa.webui.service.factory.ResolutionFactory;
 import com.xa.webui.system.Constants;
 import com.xa.webui.system.SystemError;
+import com.xa.webui.system.utils.ValidationUtils;
 import java.util.List;
 import javax.persistence.Transient;
 import net.sourceforge.stripes.action.ActionBeanContext;
@@ -30,6 +31,7 @@ public class WorkflowActionBean implements SessionActionBean {
     public WorkflowActionBean() {
         workflowManager = new WorkflowManager();
         webResourceManager = new WebResourceManager();
+        webComponentManager = new WebComponentManager();
     }
     
     /* Implementation for: SessionActionBean */
@@ -54,14 +56,12 @@ public class WorkflowActionBean implements SessionActionBean {
         try {
             UserSessionRuntime runtime = getUserSession().getRuntime();
             WorkflowRule rule = determineRule(runtime.getCurrentWorkflow(), getWorkflowTriggerId());
-            WebResource<?> resource = webResourceManager.getResourceByName(rule.getTarget());
-System.out.println("selected rule: id="+ rule.getId() +", trigger="+ rule.getTrigger() +", target="+ rule.getTarget() +" >> target resource="+ resource.getName());
-            if (resource instanceof PathResource) {
-                String path = ((PathResource) resource).getValue();
-                resolution = ResolutionFactory.getResolution(path);
-            } else if (resource instanceof ResolutionResource) {
-                ResolutionDescriptor descriptor = ((ResolutionResource) resource).getValue();
-                resolution = ResolutionFactory.getResolution(descriptor);
+            Object targetObject = getTargetObject(rule);
+            if (targetObject instanceof PageDescriptor) {
+                return ResolutionFactory.getResolution((PageDescriptor) targetObject);
+            } else if (targetObject instanceof WebResource) {
+                ResolvableObject resource = ((WebResource) targetObject).getValue();
+                resolution = ResolutionFactory.getResolution(resource);
             }
             if (resolution == null) {
                 resolution = ResolutionFactory.getResolution(SystemError.WORKFLOW_VIEW_RESOLUTION_ERROR);
@@ -91,7 +91,6 @@ System.out.println("selected rule: id="+ rule.getId() +", trigger="+ rule.getTri
     
     protected WorkflowRule determineRule(Workflow currentWorkflow, String trigger) {
         List<WorkflowRule> rules = workflowManager.getRulesByTrigger(trigger, currentWorkflow.getName());
-System.out.println("\ndetermine rule: workflow="+ currentWorkflow.getName() +", trigger="+ trigger +", rules found="+ rules.size());
         /* determine rule */
         if (rules.isEmpty()) {
             return getSystemDefinedRule(trigger);
@@ -102,13 +101,22 @@ System.out.println("\ndetermine rule: workflow="+ currentWorkflow.getName() +", 
         }
     }
 
-    /* Utilities */
-    
     private WorkflowRule getSystemDefinedRule(String trigger) {
         WorkflowRule rule = new WorkflowRule();
         rule.setTrigger(SystemOrchestrator.getInstance().getName());
         rule.setTarget(Constants.LANDING_PAGE_TARGET_ID);
         return rule;
+    }
+    
+    private Object getTargetObject(WorkflowRule rule) {
+        Object targetObject = null;
+        if (ValidationUtils.isNotNull(rule) && ValidationUtils.isNotNullAndNotEmpty(rule.getTarget())) {
+            targetObject = webComponentManager.getPageDescriptorByName(rule.getTarget());
+            if (targetObject == null) {
+                targetObject = webResourceManager.getResourceByName(rule.getTarget());
+            }
+        }
+        return targetObject;
     }
     
 
@@ -122,5 +130,8 @@ System.out.println("\ndetermine rule: workflow="+ currentWorkflow.getName() +", 
     
     @Transient
     private WebResourceManager webResourceManager;
+    
+    @Transient
+    private WebComponentManager webComponentManager;
     
 }

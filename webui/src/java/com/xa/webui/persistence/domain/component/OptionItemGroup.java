@@ -4,17 +4,17 @@ import java.util.List;
 import javax.persistence.Entity;
 
 @Entity
-public class Options extends ItemGroup<Option> {
+public class OptionItemGroup extends ItemGroup<OptionItem> {
 
-    public Options() {
+    public OptionItemGroup() {
     }
     
-    public Options(String name, String description) {
+    public OptionItemGroup(String name, String description) {
         this.name = name;
         this.description = description;
     }
     
-    public Options(String name, String description, List<Option> items) {
+    public OptionItemGroup(String name, String description, List<OptionItem> items) {
         this.name = name;
         this.description = description;
         this.items = items;

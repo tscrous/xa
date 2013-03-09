@@ -9,7 +9,7 @@ import javax.persistence.Entity;
  * @author theo-alaganze
  */
 @Entity
-public abstract class Item extends WebComponent {
+public abstract class Item extends WebComponent<WebResource> {
     
     public String getLabel() {
         return label;
@@ -19,7 +19,7 @@ public abstract class Item extends WebComponent {
     }
     
     @Override
-    public WebResource<?> getContent() {
+    public WebResource getValue() {
         throw new UnsupportedOperationException("Not supported!");
     }
 

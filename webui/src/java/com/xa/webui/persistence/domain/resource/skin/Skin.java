@@ -1,36 +1,57 @@
-package com.xa.webui.persistence.domain.resource.resolution;
+package com.xa.webui.persistence.domain.resource.skin;
 
-import com.xa.webui.persistence.domain.resource.WebResource;
+import com.xa.webui.exception.NotSupportedException;
+import com.xa.webui.persistence.domain.IdentifiableEntity;
+import com.xa.webui.persistence.domain.resource.Resource;
+import com.xa.webui.persistence.domain.resource.path.PathResource;
+import java.util.List;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 /**
  *
  * @author theo-alaganze
  */
 @Entity
-public class ResolutionResource extends WebResource<ResolutionDescriptor> {
+@Table(name="skin")
+public class Skin extends IdentifiableEntity implements Resource {
 
-    public ResolutionResource() {
+    public Skin() {
     }
     
-    public ResolutionResource(String name, ResolutionDescriptor descriptor) {
+    public Skin(String name) {
         this.name = name;
-        this.descriptor = descriptor;
     }
     
     @Override
-    public ResolutionDescriptor getValue() {
-        return descriptor;
+    public String getName() {
+        return name;
     }
-    public void setValue(ResolutionDescriptor descriptor) {
-        this.descriptor = descriptor;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    @ManyToOne(fetch= FetchType.EAGER)
-    @JoinColumn(name="resolution_descriptor_id", referencedColumnName="id")
-    private ResolutionDescriptor descriptor;
+    @Override
+    public Object getValue() {
+        throw new NotSupportedException();
+    }
+    
+    public PathResource getProperty(SkinPropertyType type) {
+        for (SkinProperty property : properties) {
+            if (property.getType() == type) {
+                return property.getValue();
+            }
+        }
+        return null;
+    }
+    
+    @Column(name="name", unique=true)
+    private String name;
+
+    @OneToMany(fetch= FetchType.EAGER, mappedBy="skin")
+    private List<SkinProperty> properties;
 
 }

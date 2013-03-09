@@ -14,18 +14,18 @@ import javax.persistence.ManyToMany;
  * @author theo-alaganze
  */
 @Entity
-public abstract class ItemGroup<T extends Item> extends WebComponent {
-
-    @Override
-    public WebResource<?> getContent() {
-        throw new UnsupportedOperationException("Not supported!");
-    }
+public abstract class ItemGroup<T extends Item> extends WebComponent<WebResource> {
 
     public List<T> getItems() {
         return items;
     }
     public void setItems(List<T> items) {
         this.items = items;
+    }
+
+    @Override
+    public WebResource getValue() {
+        throw new UnsupportedOperationException("Not supported!");
     }
 
     @ManyToMany(fetch=FetchType.EAGER, cascade=CascadeType.ALL)

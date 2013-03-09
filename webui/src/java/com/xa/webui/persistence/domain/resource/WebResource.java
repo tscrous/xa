@@ -15,12 +15,8 @@ import javax.persistence.Table;
 @Entity
 @Table(name="web_resource")
 @Inheritance(strategy= InheritanceType.SINGLE_TABLE)
-public class WebResource<T extends Object> extends WebObject implements Resource<T> {
+public class WebResource<T extends ResolvableObject> extends WebObject<T> implements Resource<T> {
 
-    public WebResource() {
-        
-    }
-    
     @Override
     public T getValue() {
         throw new NotImplementedException("Method not supported on current level of hierarchy. Implementation in subclass required!");

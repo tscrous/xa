@@ -10,9 +10,9 @@ import net.sourceforge.stripes.action.Resolution;
  *
  * @author theo-alaganze
  */
-public class MultiplePageActionBean extends PageActionBean {
+public class PageGroupActionBean extends PageActionBean {
 
-    public MultiplePageActionBean() {
+    public PageGroupActionBean() {
         
     }
     

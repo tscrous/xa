@@ -1,6 +1,7 @@
-package com.xa.webui.persistence.domain;
+package com.xa.webui.persistence.domain.resource.skin;
 
 import com.xa.webui.exception.NotSupportedException;
+import com.xa.webui.persistence.domain.WebObject;
 import com.xa.webui.system.cache.Cache;
 import com.xa.webui.system.cache.CacheKey;
 
@@ -8,29 +9,29 @@ import com.xa.webui.system.cache.CacheKey;
  *
  * @author theo-alaganze
  */
-public class WebObjectCache extends Cache<WebObject> {
+public class SkinCache extends Cache<WebObject> {
 
-    public static WebObjectCache getInstance() {
+    public static SkinCache getInstance() {
         if (cache == null) {
-            cache = new WebObjectCache();
+            cache = new SkinCache();
         }
         return cache;
     }
     
-    private WebObjectCache() {
+    private SkinCache() {
     }
     
     @Override
     public CacheKey generateCacheKey(Object obj) {
         if (obj instanceof String) {
-            return new WebObjectCacheKey((String) obj);
-        } else if (obj instanceof WebObject) {
-            WebObject webObject = (WebObject) obj;
-            return new WebObjectCacheKey(webObject.getName());
+            return new SkinCacheKey((String) obj);
+        } else if (obj instanceof Skin) {
+            Skin skin = (Skin) obj;
+            return new SkinCacheKey(skin.getName());
         }
         throw new NotSupportedException("Object ("+ obj.getClass() +") not supported by CacheKey instance!");
     }
-    
-    private static WebObjectCache cache;
+
+    private static SkinCache cache;
 
 }

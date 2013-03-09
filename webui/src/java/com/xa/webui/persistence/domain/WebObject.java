@@ -8,7 +8,7 @@ import javax.persistence.MappedSuperclass;
  * @author theo-alaganze
  */
 @MappedSuperclass
-public abstract class WebObject extends IdentifiableEntity {
+public abstract class WebObject<T extends Object> extends IdentifiableEntity {
     
     public String getName() {
         return name;
@@ -23,7 +23,9 @@ public abstract class WebObject extends IdentifiableEntity {
     public void setDescription(String description) {
         this.description = description;
     }
-    
+
+    public abstract T getValue();
+
     @Column(name="name", unique=true, nullable=false)
     protected String name;
     

@@ -3,13 +3,13 @@ package test;
 import com.xa.webui.persistence.domain.WebObject;
 import com.xa.webui.persistence.domain.component.Menu;
 import com.xa.webui.persistence.domain.component.MenuItem;
-import com.xa.webui.persistence.domain.component.Page;
+import com.xa.webui.persistence.domain.component.page.PageGroupDescriptor;
+import com.xa.webui.persistence.domain.component.page.PageSingleDescriptor;
+import com.xa.webui.persistence.domain.resource.path.Path;
 import com.xa.webui.persistence.domain.resource.path.PathResource;
 import com.xa.webui.persistence.domain.resource.path.PathResourceType;
 import com.xa.webui.persistence.domain.workflow.Workflow;
 import com.xa.webui.persistence.domain.workflow.WorkflowRule;
-import com.xa.webui.presentation.action.impl.MultiplePageActionBean;
-import com.xa.webui.presentation.action.impl.PageActionBean;
 import com.xa.webui.system.Alignment;
 import java.util.List;
 import org.hibernate.Session;
@@ -68,19 +68,27 @@ public class TestDataFactory {
     /* RESOURCES */
     
     public PathResource createPathResource(PathResourceType type, String name, String path) {
-        PathResource resource = new PathResource(type, name, path);
+        PathResource resource = new PathResource(type, name, new Path(path));
         session.save(resource);
         return resource;
     }
     
     /* PAGES */
     
-    public Page createPage(String name, String description, PathResource resource, boolean isTappedPage) {
-        Page page = isTappedPage ? new MultiplePageActionBean() : new PageActionBean();
-        page = new PageActionBean();
+    public PageSingleDescriptor createPage(String name, String description, PathResource resource) {
+        PageSingleDescriptor page = new PageSingleDescriptor();
         page.setName(name);
         page.setDescription(description);
-        page.setContent(resource);
+        page.setValue(resource);
+        session.save(page);
+        return page;
+    }
+    
+    public PageGroupDescriptor createPageGroup(String name, String description, List<PathResource> resources) {
+        PageGroupDescriptor page = new PageGroupDescriptor();
+        page.setName(name);
+        page.setDescription(description);
+//        page.setContent(resource);
         session.save(page);
         return page;
     }

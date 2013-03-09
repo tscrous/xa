@@ -2,7 +2,7 @@ package test;
 
 import com.xa.webui.persistence.domain.component.Menu;
 import com.xa.webui.persistence.domain.component.MenuItem;
-import com.xa.webui.persistence.domain.component.Page;
+import com.xa.webui.persistence.domain.component.page.PageSingleDescriptor;
 import com.xa.webui.persistence.domain.resource.path.PathResource;
 import com.xa.webui.persistence.domain.resource.path.PathResourceType;
 import com.xa.webui.persistence.domain.system.SystemOrchestrator;
@@ -49,8 +49,8 @@ public class PrepareTestData {
     private void createPages(Session session) {
         PathResource resource;
         /* landing page */
-        resource = factory.createPathResource(PathResourceType.JSP, Constants.LANDING_PAGE_TARGET_ID, "/WEB-INF/jsp/LandingPage.jsp");
-        landingPage = factory.createPage(Constants.LANDING_PAGE_TARGET_ID, "XA Home Page", resource, false);
+        resource = factory.createPathResource(PathResourceType.JSP, Constants.LANDING_PAGE_TARGET_ID +".jsp", "/WEB-INF/jsp/LandingPage.jsp");
+        landingPage = factory.createPage(Constants.LANDING_PAGE_TARGET_ID, "XA Home Page", resource);
         landingPage.setTopMenu(topMenu);
     }
     
@@ -88,7 +88,7 @@ public class PrepareTestData {
     private MenuItem openCasesItem;
     private MenuItem contactItem;
     
-    private Page landingPage;
+    private PageSingleDescriptor landingPage;
     
     private Workflow defaultWorkflow;
     

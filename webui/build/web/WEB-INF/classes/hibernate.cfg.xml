@@ -10,7 +10,7 @@
         <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/webui?zeroDateTimeBehavior=convertToNull</property>
         <property name="hibernate.connection.username">xaadmin</property>
         <property name="hibernate.connection.password">password</property>
-        <property name="hibernate.hbm2ddl.auto">create</property>
+        <property name="hibernate.hbm2ddl.auto">update</property>
 
         <!-- mappings -->
 
@@ -21,11 +21,11 @@
         <mapping class="com.xa.webui.persistence.domain.component.MenuItem"/>
         <mapping class="com.xa.webui.persistence.domain.component.FooterMenu"/>
         <mapping class="com.xa.webui.persistence.domain.component.FooterMenuItem"/>
-        <mapping class="com.xa.webui.persistence.domain.component.Options"/>
-        <mapping class="com.xa.webui.persistence.domain.component.Option"/>
+        <mapping class="com.xa.webui.persistence.domain.component.OptionItemGroup"/>
+        <mapping class="com.xa.webui.persistence.domain.component.OptionItem"/>
 
-        <mapping class="com.xa.webui.presentation.action.impl.PageActionBean"/>
-        <mapping class="com.xa.webui.presentation.action.impl.MultiplePageActionBean"/>
+        <mapping class="com.xa.webui.persistence.domain.component.page.PageSingleDescriptor"/>
+        <mapping class="com.xa.webui.persistence.domain.component.page.PageGroupDescriptor"/>
 
         <mapping class="com.xa.webui.persistence.domain.resource.WebResource"/>
         <mapping class="com.xa.webui.persistence.domain.resource.path.PathResource"/>
@@ -34,6 +34,9 @@
 
         <mapping class="com.xa.webui.persistence.domain.workflow.Workflow"/>
         <mapping class="com.xa.webui.persistence.domain.workflow.WorkflowRule"/>
+
+        <mapping class="com.xa.webui.persistence.domain.resource.skin.Skin"/>
+        <mapping class="com.xa.webui.persistence.domain.resource.skin.SkinProperty"/>
 
         <!-- events -->
 

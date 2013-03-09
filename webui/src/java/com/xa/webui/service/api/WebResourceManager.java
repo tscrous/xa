@@ -41,7 +41,6 @@ public class WebResourceManager extends AbstractEntityService {
         if (resource != null) {
             webObjectCache.add(resource);
         }
-System.out.println("lookup resource: "+ name +" => "+ resource);
         return resource;
     }
     

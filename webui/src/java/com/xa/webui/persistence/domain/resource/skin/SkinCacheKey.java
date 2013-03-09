@@ -1,4 +1,4 @@
-package com.xa.webui.persistence.domain;
+package com.xa.webui.persistence.domain.resource.skin;
 
 import com.xa.webui.exception.NotSupportedException;
 import com.xa.webui.system.cache.CacheKey;
@@ -7,9 +7,9 @@ import com.xa.webui.system.cache.CacheKey;
  *
  * @author theo-alaganze
  */
-public class WebObjectCacheKey extends CacheKey {
+public class SkinCacheKey extends CacheKey {
 
-    public WebObjectCacheKey(String name) {
+    public SkinCacheKey(String name) {
         setObject(name);
     }
     

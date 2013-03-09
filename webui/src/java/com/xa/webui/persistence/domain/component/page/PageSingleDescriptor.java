@@ -1,33 +1,41 @@
-package com.xa.webui.persistence.domain.component;
+package com.xa.webui.persistence.domain.component.page;
 
+import com.xa.webui.persistence.domain.component.FooterMenu;
+import com.xa.webui.persistence.domain.component.Menu;
+import com.xa.webui.persistence.domain.component.WebComponent;
 import com.xa.webui.persistence.domain.resource.path.PathResource;
+import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.MappedSuperclass;
 
-@MappedSuperclass
-public abstract class Page extends WebComponent {
+@Entity
+public class PageSingleDescriptor extends WebComponent<PathResource> implements PageDescriptor {
 
+    @Override
     public Menu getTopMenu() {
         return topMenu;
     }
+    @Override
     public void setTopMenu(Menu topMenu) {
         this.topMenu = topMenu;
     }
 
+    @Override
     public FooterMenu getFooterMenu() {
         return footerMenu;
     }
+    @Override
     public void setFooterMenu(FooterMenu footerMenu) {
         this.footerMenu = footerMenu;
     }
 
     @Override
-    public PathResource getContent() {
-        return content;
+    public PathResource getValue() {
+        return value;
     }
-    public void setContent(PathResource content) {
-        this.content = content;
+    @Override
+    public void setValue(PathResource value) {
+        this.value = value;
     }
     
     @ManyToOne
@@ -40,6 +48,6 @@ public abstract class Page extends WebComponent {
 
     @ManyToOne
     @JoinColumn(name="web_resource_id", referencedColumnName="id")
-    protected PathResource content;
+    protected PathResource value;
 
 }
