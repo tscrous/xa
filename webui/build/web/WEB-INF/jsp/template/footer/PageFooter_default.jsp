@@ -1,12 +1,12 @@
 <!-- jsp:useBean id="menu" scope="page" class="com.xa.webui.domain.menu.Menu"/-->
 
 <style type="text/css">
-    #footer {
+/*    #footer {
         height: 60px;
     }
     .footer {
         background-color:#F0F0F0;
-    }
+    }*/
 </style>
 
 <div id="footer">

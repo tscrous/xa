@@ -7,12 +7,12 @@
     body,html{
         height:100%;
     }
-	#push,#footer {
-	    height: 60px;
-	}
-	.footer {
-	    background-color:#F0F0F0;
-	}
+/*    #push,#footer {
+        height: 60px;
+    }
+    .footer {
+        background-color:#F0F0F0;
+    }*/
 </style>
 
 <html>
