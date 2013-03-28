@@ -45,22 +45,6 @@ body {
     display: none;
 }
 
-/*.span1,.span2,.span3,.span4,.span5,.span6,.span7,.span8,.span9,.span10,.span11,.span12 {
-    border: 1px gray groove;
-    border-top: none;
-    border-bottom: none;
-    border-color: white;
-}
-.span1 {
-    height: 100%;
-    background-color: blue;
-}
-.span2 {
-    height: 100%;
-    background-color: red;
-}*/
-
-
 /* ---------- Top Navigator ---------- */
 
 .topnav {
@@ -199,6 +183,8 @@ body {
     background: url("../image/landing_header.jpeg") repeat scroll #393939;
     background-color: #121212;
     border-bottom: 1px solid #FFE0BF;
+    -webkit-box-shadow: inset 0px -3px 15px 0px rgba(0, 0, 0, 1);
+    box-shadow: inset 0px -3px 15px 0px rgba(0, 0, 0, 1);
 }
 
 .navbar .brand {
@@ -238,6 +224,8 @@ body {
     border-left: 1px solid #FFE0BF;
     border-bottom: none;
     border-right: 1px solid #FFE0BF;
+    -webkit-box-shadow:  0px -3px 15px 1px rgba(0, 0, 0, 1);
+    box-shadow:  0px -5px 10px 0px rgba(0, 0, 0, 1);
 }
 .navbar .nav .active > a:hover {
     background-color: #1B1B1B;
@@ -282,25 +270,26 @@ body {
     padding-right: 20px;
 }
 .options .option-container {
+    z-index: 2000;
     -webkit-user-select: none;  /* Chrome/Safari */
     -moz-user-select: none;  /* Firefox */
     -ms-user-select: none;  /* IE10+ */
     display: inline-block;
     position: relative;
-    width: 20%;
-    height: 20%;
-    min-width: 205px;
-    min-height: 100px;
+    width: 212px;
+    height: 140px;
     padding: 5px;
-    margin: 15px;
     margin: 15px;
     border: 1px solid rgb(0, 0, 0);
     border-radius: 5px;
     border-color: rgb(45, 45, 45);
     background-color: rgb(60, 60, 60);
-    z-index: 2000;
+    cursor: pointer;
 }
 .options .option-container:focus {
+    outline: none;
+}
+.options .option-container:active {
     outline: none;
     z-index: 2001;
     transform: scale(1.4,1.8);
@@ -312,26 +301,36 @@ body {
     opacity: 1; 
     -webkit-box-shadow:  0px 0px 5px 2px rgba(0, 0, 0, 0.1);
     box-shadow:  0px 0px 5px 2px rgba(0, 0, 0, 0.1);
-}
-.options .option-container:focus .option-content {
-    background-color: #0B5369;
-}
-.options .option-container:hover .option-content {
-    background-color: #0B5369;
+    cursor: default;
 }
 
 .options .option-container .option-content {
     display: block;
     position: absolute;
-    margin: 2%; 
+    margin: 2%;
     top: 0;
-    left: 0;
-    width: 96%;
+    left: 1;
+    width: 95.5%;
     height: 94%;
     background-color: #C7C8CA;
+    border-radius: 3px;
+    -webkit-box-shadow: inset 0px 0px 5px 5px rgba(0, 0, 0, 0.3);
+    box-shadow: inset 0px 0px 10px 5px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+}
+.options .option-container:active .option-content {
+    background-color: #0B5369;
     -webkit-box-shadow: inset 0px 0px 5px 5px rgba(0, 0, 0, 0.4);
     box-shadow: inset 0px 0px 10px 5px rgba(0, 0, 0, 0.4);
-    border-radius: 3px;
+    cursor: default;
+}
+.options .option-container:hover .option-content {
+    background-color: #0B5369;
+    -webkit-box-shadow: inset 0px 0px 5px 5px rgba(0, 0, 0, 0.4);
+    box-shadow: inset 0px 0px 10px 5px rgba(0, 0, 0, 0.4);
+    cursor: pointer;
+}
+.options .option-container:hover:active .option-content {
     cursor: default;
 }
 
@@ -348,7 +347,7 @@ body {
     opacity: 0.1;
     filter: alpha(opacity=0.1); 
 }
-.options .option-container:focus .option-content .option-watermark span {
+.options .option-container:active .option-content .option-watermark span {
     display: none;
 }
 
@@ -370,7 +369,7 @@ body {
     text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
     filter: dropshadow(color=rgba(0, 0, 0, 0.3), offx=0, offy=0);
 }
-.options .option-container:focus .option-content .option-name span {
+.options .option-container:active .option-content .option-name span {
     color: #ad5808;
     border-color: #ad5808;
     border-bottom: 5px;
@@ -391,8 +390,8 @@ body {
     font-weight: normal;
     word-break: keep-all;
     word-wrap: break-word;
-    padding-left: 20px;
-    padding-right: 20px;
+    padding-left: 30px;
+    padding-right: 30px;
     height: 30px;
     line-height: 10px;
     text-align: left;
@@ -400,7 +399,7 @@ body {
     text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.15);
     filter: dropshadow(color=rgba(0, 0, 0, 0.15), offx=0, offy=0);
 }
-.options .option-container:focus .option-content .option-description {
+.options .option-container:active .option-content .option-description {
     display: block;
 }
 
@@ -423,7 +422,7 @@ body {
     box-shadow:  -5px -1px 10px 0px rgba(0, 0, 0, 0.35);
     cursor: pointer;
 }
-.options .option-container:hover .option-content .option-actions {
+.options .option-container:active .option-content .option-actions {
     display: block;
 }
 .options .option-container .option-content .option-actions span a {
@@ -451,10 +450,9 @@ body {
     position: absolute;
     left: -3px;
     bottom: -3px;
-    height: 18px;
-    padding-top: 0px;
-    padding-left: 3px;
-    padding-right: 3px;
+    padding-top: 8px;
+    padding-left: 4px;
+    padding-right: 7px;
     padding-bottom: 0px;
     border-top-right-radius: 5px;
     border-bottom-left-radius: 4px;
@@ -467,109 +465,74 @@ body {
     -webkit-box-shadow:  6px -5px 10px 0px rgba(0, 0, 0, 0.1);
     box-shadow:  5px -4px 10px 0px rgba(0, 0, 0, 0.35);
 }
-.options .option-container:focus .option-stats {
+.options .option-container:active .option-stats {
     display: block;
 }
-.options .option-container .option-stats .options-stats-item a {
+.options .option-container .option-stats .option-stats-item a {
     cursor: pointer;
     color: #a8a8a8;
 }
-.options .option-container .option-stats .options-stats-item a:hover {
+.options .option-container .option-stats .option-stats-item a:hover {
     color: #FFFFFF; 
 }
-.options .option-container .option-stats .options-stats-item .disabled {
+.options .option-container .option-stats .option-stats-item .disabled {
     color: #454647;
     pointer-events: none;
     cursor: default;
 }
-
-
-/* ---------- Topics \ Tooltip ---------- */
-
-.tooltip {
+.options .option-container .option-stats .option-stats-item .option-stats-info {
+    display: none;
     position: absolute;
-    z-index: 1030;
+    bottom: 11px;
+    left: 26px;
+    width: 180px;
+    font-size: 9px;
+    text-align: left;
+    font-weight: bold;
+    line-height: 10px;
+    white-space: nowrap;
+    overflow: hidden;
+}
+.options .option-container .option-stats .option-stats-item:hover .option-stats-info {
     display: block;
-    visibility: visible;
-    padding: 5px;
-    font-size: 11px;
-    opacity: 0;
-    filter: alpha(opacity=0); 
-}
-.tooltip.in {
-    opacity: 0.8;
-    filter: alpha(opacity=80); 
-}
-.tooltip.top {
-    margin-top: -3px; 
-}
-.tooltip.right {
-    margin-left: 3px; 
-}
-.tooltip.bottom {
-    margin-top: 3px; 
-}
-.tooltip.left {
-    margin-left: -3px; 
 }
 
-.tooltip-inner {
-    max-width: 200px;
-    padding: 3px 8px;
-    color: white;
+
+/* ---------- Vertically aligned groups ---------- */
+
+.item-group-vertical {
+    display: block;
+    position: relative;
+    top: 1px;
+    left: 1px;
+}
+.item-group-vertical + .item-group-vertical {
+    margin-top: 5px;
+}
+
+.item-group-vertical .group-item {
+    display: block;
+    width: 100%;
+    height: 100%;
+    padding: 0px;
+    margin: 0px;
+    margin-top: -8px;
+    font-size: 12px;
     text-align: center;
-    text-decoration: none;
-    background-color: black;
-    -webkit-border-radius: 4px;
-    -moz-border-radius: 4px;
-    border-radius: 4px; 
-}
-
-.tooltip-arrow {
-    position: absolute;
-    width: 0;
-    height: 0;
-    border-color: transparent;
-    border-style: solid; 
-}
-.tooltip.top .tooltip-arrow {
-    bottom: 0;
-    left: 50%;
-    margin-left: -5px;
-    border-width: 5px 5px 0;
-    border-top-color: black; 
-}
-.tooltip.right .tooltip-arrow {
-    top: 50%;
-    left: 0;
-    margin-top: -5px;
-    border-width: 5px 5px 5px 0;
-    border-right-color: black; 
-}
-.tooltip.left .tooltip-arrow {
-    top: 50%;
-    right: 0;
-    margin-top: -5px;
-    border-width: 5px 0 5px 5px;
-    border-left-color: black; 
-}
-.tooltip.bottom .tooltip-arrow {
-    top: 0;
-    left: 50%;
-    margin-left: -5px;
-    border-width: 0 5px 5px;
-    border-bottom-color: black; 
 }
 
 
 /* ---------- Footer ---------- */
 
-.foot {
-    position: absolute;
-    top: 200px; 
-    height: 100px;
+.footer {
     width: 100%;
-    background-color: red;
+    height: 120px;
+    background: url("../image/landing_header.jpeg") repeat scroll #393939;
+    background-color: #121212;
+    border-top: 1px solid #404040;
+    /*border-top: 1px solid #FFE0BF;*/
+    -webkit-box-shadow: inset 0px 3px 15px 0px rgba(0, 0, 0, 1);
+    box-shadow: inset 0px 3px 15px 0px rgba(0, 0, 0, 1);
 }
 
 
@@ -582,12 +545,10 @@ body {
 
 
 #wrap {
-    min-height: 100%;
-}
-
-#main {
-    overflow:auto;
-    padding-bottom:150px; /* this needs to be bigger than footer height*/
+min-height: 100%;
+height: auto !important;
+height: 100%;
+margin: 0 auto -1px;
 }
 
 
