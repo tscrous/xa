@@ -140,10 +140,9 @@
 
                 <div class="option-container">
                     <div class="option-content">
-                        <input type="button" style="color: transparent; background-color: transparent; border-color: transparent; cursor: default;">
                         <div class="option-name"><span>Facing import competition ?</span></div>
                         <div class="option-description"><p>Are you struggling to compete with low priced imports?<br/><br/>Would you like to access protection against such imports?</p></div>
-                        <div class="option-actions  action-tooltip"><span><a href="#">TELL ME MORE <i class="icon-arrow-right icon-white"></i></a></span></div>
+                        <div class="option-actions"><span><a href="#">TELL ME MORE <i class="icon-arrow-right icon-white"></i></a></span></div>
                         <div class="option-watermark"><span>?</span></div>
                         <div class="option-stats">
                             <div class="item-group-vertical">
@@ -152,6 +151,7 @@
                                 <span class="option-stats-item group-item"><a href="#"><i class="icon-folder-open"></i></a><div class="option-stats-info">10 open cases related to topic</div></span>
                             </div>
                         </div>
+                        <div class="option-exit"><span><a href=""><i class="icon-resize-small"></i></a></span></div>
                     </div>
                 </div>
 
@@ -168,6 +168,7 @@
                                 <span class="option-stats-item group-item"><a href="#" class="disabled"><i class="icon-folder-open"></i></a><div class="option-stats-info"></div></span>
                             </div>
                         </div>
+                        <div class="option-exit"><span><a href=""><i class="icon-resize-small"></i></a></span></div>
                     </div>
                 </div>
 
@@ -184,6 +185,7 @@
                                 <span class="option-stats-item group-item"><a href="#" class="disabled"><i class="icon-folder-open"></i></a><div class="option-stats-info"></div></span>
                             </div>
                         </div>
+                        <div class="option-exit"><span><a href=""><i class="icon-resize-small"></i></a></span></div>
                     </div>
                 </div>
 
@@ -200,6 +202,7 @@
                                 <span class="option-stats-item group-item"><a href="#"><i class="icon-folder-open"></i></a><div class="option-stats-info">1 open case related to topic</div></span>
                             </div>
                         </div>
+                        <div class="option-exit"><span><a href=""><i class="icon-resize-small"></i></a></span></div>
                     </div>
                 </div>
 
@@ -338,6 +341,25 @@
                 $(".navbar").show();
             }
         }
+    </script>
+
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $(".option-container").click(function(){
+                $(".option-container").removeClass('option-container-selected');
+                $(this).addClass("option-container-selected");
+                return false;
+            });
+            $(".option-container").hover(function(){
+                $(".option-container").removeClass('option-container-hover');
+                $(this).addClass("option-container-hover");
+                return false;
+            });
+            $(".option-container .option-exit a").click(function(){
+                $(".option-container").removeClass('option-container-selected');
+                return false;
+            });
+        });
     </script>
 
 </div>
