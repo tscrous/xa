@@ -20,7 +20,7 @@
             <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
         <![endif]-->
 
-        <link rel="shortcut icon" href="favicon.ico">
+        <link rel="shortcut icon" href="favicon.png">
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
         <title>XA - International Trade Advisors</title>
@@ -48,36 +48,28 @@
         <div class="topnav">
             <div class="offset1 span10">
 
-                <div class="container center">
+                <div class="container">
                     <div class="span2">
                         <div class="brand">
                             <a class="brand_small" href=""><img src="image/xalogo_small.png" al alt="XA -"><span>&nbsp;International Trade Advisors</span></a>
                         </div>
                     </div>
                     <div class="span1"></div>
-                    <div class="span6">
+                    <div class="span7">
                         <div class="main-menu-alt nav-collapse collapse navbar-responsive-collapse">
                             <ul class="nav nav-tabs">
                                 <li class="active"><a href="index.jsp"><i class="icon-home"></i> Home</a></li>
                                 <li><a href="#">About XA</a></li>
-                                <li class="dropdown">
-                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Open cases <b class="caret"></b></a>
-                                    <ul class="dropdown-menu">
-                                        <li><a href="about.html">Case 1</a></li>
-                                        <li><a href="services.html">Case 2</a></li>
-                                        <li><a href="full_width.html">Case 3</a></li>
-                                        <li><a href="sidebar_right.html">Case 4</a></li>
-                                    </ul>
-                                </li>
+                                <li><a href="open_cases.html">Open Cases</a></li>
+                                <li><a href="our_team.html">Our Team</a></li>
                                 <li><a href="contact.html">Contact us</a></li>
                             </ul>
                         </div>
                     </div>
-                    <div class="span3">
+                    <div class="span2">
                         <div class="top-menu">
                             <ul class="pull-right">
                                 <li><a href="#"><i class="icon-user"></i><t>Login</t></a></li>
-                                <li><a href="#"><i class="icon-group"></i><t>Our Team</t></a></li>
                             </ul>
                         </div>
                     </div>
@@ -99,29 +91,20 @@
                     <div class="container">
                         <div class="span2">
                             <div class="brand">
-                                    <a class="brand_large" href=""><img src="image/xalogo.png" al alt="XA - International Trade Advisors"></a>
+                                <a class="brand_large" href=""><img src="image/xalogo.png" al alt="XA - International Trade Advisors"></a>
                             </div>
                         </div>
                         <div class="span1"></div>
                         <div class="span9">
-
                             <div class="nav-collapse collapse navbar-responsive-collapse">
                                 <ul class="nav nav-tabs">
                                     <li class="active"><a href="index.jsp"><i class="icon-home"></i> Home</a></li>
                                     <li><a href="#">About XA</a></li>
-                                    <li class="dropdown">
-                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Open cases <b class="caret"></b></a>
-                                        <ul class="dropdown-menu">
-                                            <li><a href="about.html">Case 1</a></li>
-                                            <li><a href="services.html">Case 2</a></li>
-                                            <li><a href="full_width.html">Case 3</a></li>
-                                            <li><a href="sidebar_right.html">Case 4</a></li>
-                                        </ul>
-                                    </li>
+                                    <li><a href="open_cases.html">Open Cases</a></li>
+                                    <li><a href="our_team.html">Our Team</a></li>
                                     <li><a href="contact.html">Contact us</a></li>
                                 </ul>
                             </div>
-
                         </div>
                     </div>
 
@@ -350,13 +333,17 @@
                 $(this).addClass("option-container-selected");
                 return false;
             });
+            $(".option-container .option-exit a").click(function(){
+                $(".option-container").removeClass('option-container-selected');
+                return false;
+            });
+
             $(".option-container").hover(function(){
                 $(".option-container").removeClass('option-container-hover');
                 $(this).addClass("option-container-hover");
                 return false;
-            });
-            $(".option-container .option-exit a").click(function(){
-                $(".option-container").removeClass('option-container-selected');
+            }, function () {
+                $(".option-container").removeClass('option-container-hover');
                 return false;
             });
         });
