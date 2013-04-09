@@ -117,7 +117,7 @@
 
     <div class="row-fluid">
 
-        <img class="body-background-img" src="image/xa_herobanner_3.png"/>
+        <img class="body-background-img" src="image/business-background_2.jpg"/>
         <div class="offset1 span10">
             <div class="offset1 options center">
 
