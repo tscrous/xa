@@ -104,7 +104,7 @@ public class WorkflowActionBean implements SessionActionBean {
     private WorkflowRule getSystemDefinedRule(String trigger) {
         WorkflowRule rule = new WorkflowRule();
         rule.setTrigger(SystemOrchestrator.getInstance().getName());
-        rule.setTarget(Constants.LANDING_PAGE_TARGET_ID);
+        rule.setTarget(Constants.HOME_PAGE_TARGET_ID);
         return rule;
     }
     

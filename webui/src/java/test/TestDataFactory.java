@@ -3,8 +3,7 @@ package test;
 import com.xa.webui.persistence.domain.WebObject;
 import com.xa.webui.persistence.domain.component.Menu;
 import com.xa.webui.persistence.domain.component.MenuItem;
-import com.xa.webui.persistence.domain.component.page.PageGroupDescriptor;
-import com.xa.webui.persistence.domain.component.page.PageSingleDescriptor;
+import com.xa.webui.persistence.domain.component.page.BasicPageDescriptor;
 import com.xa.webui.persistence.domain.resource.path.Path;
 import com.xa.webui.persistence.domain.resource.path.PathResource;
 import com.xa.webui.persistence.domain.resource.path.PathResourceType;
@@ -75,22 +74,14 @@ public class TestDataFactory {
     
     /* PAGES */
     
-    public PageSingleDescriptor createPage(String name, String description, PathResource resource) {
-        PageSingleDescriptor page = new PageSingleDescriptor();
-        page.setName(name);
-        page.setDescription(description);
-        page.setValue(resource);
-        session.save(page);
-        return page;
-    }
-    
-    public PageGroupDescriptor createPageGroup(String name, String description, List<PathResource> resources) {
-        PageGroupDescriptor page = new PageGroupDescriptor();
-        page.setName(name);
-        page.setDescription(description);
-//        page.setContent(resource);
-        session.save(page);
-        return page;
+    public BasicPageDescriptor createPage(PathResource page, String name, String description, PathResource content) {
+        BasicPageDescriptor basicPage = new BasicPageDescriptor();
+        basicPage.setPage(page);
+        basicPage.setName(name);
+        basicPage.setDescription(description);
+        basicPage.setContent(content);
+        session.save(basicPage);
+        return basicPage;
     }
     
     private Session session;

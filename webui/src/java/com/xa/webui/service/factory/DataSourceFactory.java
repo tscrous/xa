@@ -20,8 +20,8 @@ public class DataSourceFactory {
             mySqlDataSource = new MySqlDataSource();
             mySqlDataSource.setHost("localhost");
             mySqlDataSource.setPort(3306);
-            mySqlDataSource.setHost("xaadmin");
-            mySqlDataSource.setHost("xaadmin");
+            mySqlDataSource.setUsername("xaadmin");
+            mySqlDataSource.setPassword("xaadmin");
         }
         return mySqlDataSource;
     }

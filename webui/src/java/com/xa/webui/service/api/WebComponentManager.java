@@ -8,9 +8,8 @@ import com.xa.webui.persistence.domain.component.FooterMenu;
 import com.xa.webui.persistence.domain.component.ItemGroup;
 import com.xa.webui.persistence.domain.component.Menu;
 import com.xa.webui.persistence.domain.component.OptionItemGroup;
+import com.xa.webui.persistence.domain.component.page.BasicPageDescriptor;
 import com.xa.webui.persistence.domain.component.page.PageDescriptor;
-import com.xa.webui.persistence.domain.component.page.PageGroupDescriptor;
-import com.xa.webui.persistence.domain.component.page.PageSingleDescriptor;
 
 /**
  *
@@ -20,8 +19,7 @@ public class WebComponentManager extends AbstractEntityService {
     
     public WebComponentManager() {
         webObjectCache = WebObjectCache.getInstance();
-        pageDao = new CrudDao<PageSingleDescriptor>(PageSingleDescriptor.class);
-        pageGroupDao = new CrudDao<PageGroupDescriptor>(PageGroupDescriptor.class);
+        pageDao = new CrudDao<BasicPageDescriptor>(BasicPageDescriptor.class);
         menuDao = new CrudDao<Menu>(Menu.class);
         footerMenuDao = new CrudDao<FooterMenu>(FooterMenu.class);
         optionsDao = new CrudDao<OptionItemGroup>(OptionItemGroup.class);
@@ -33,7 +31,7 @@ public class WebComponentManager extends AbstractEntityService {
         QueryParameters parameters = createQueryParameters("name", name);
         PageDescriptor page;
         try {
-            page = (PageSingleDescriptor) webObjectCache.get(name);
+            page = (BasicPageDescriptor) webObjectCache.get(name);
         } catch (ClassCastException e) {
             page = null;
         }
@@ -42,14 +40,7 @@ public class WebComponentManager extends AbstractEntityService {
             page = getSingle(pageDao.getByValues(parameters));
             /* update cache & return */
             if (page != null) {
-                webObjectCache.add((PageSingleDescriptor) page);
-            }
-        }
-        if (page == null) {
-            page = getSingle(pageGroupDao.getByValues(parameters));
-            /* update cache & return */
-            if (page != null) {
-                webObjectCache.add((PageGroupDescriptor) page);
+                webObjectCache.add((BasicPageDescriptor) page);
             }
         }
         return page;
@@ -82,8 +73,7 @@ public class WebComponentManager extends AbstractEntityService {
     
     private WebObjectCache webObjectCache;
     
-    private CrudDao<PageSingleDescriptor> pageDao;
-    private CrudDao<PageGroupDescriptor> pageGroupDao;
+    private CrudDao<BasicPageDescriptor> pageDao;
     
     private CrudDao<Menu> menuDao;
     private CrudDao<FooterMenu> footerMenuDao;

@@ -183,6 +183,18 @@ body {
 }
 
 
+
+.topnav .main-menu-alt .nav > li > stripes:link {
+    float: none;
+    border: none;
+    display: block;
+    padding: 3px 10px 6px;
+    color: white;
+    text-shadow: none;
+}
+
+
+
 /* ---------- Main Navigation ---------- */
 
 .navbar {

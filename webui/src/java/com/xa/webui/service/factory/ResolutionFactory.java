@@ -1,6 +1,7 @@
 package com.xa.webui.service.factory;
 
 import com.xa.webui.exception.service.ServiceEventException;
+import com.xa.webui.persistence.domain.component.page.BasicPageDescriptor;
 import com.xa.webui.persistence.domain.component.page.PageDescriptor;
 import com.xa.webui.persistence.domain.resource.ResolvableObject;
 import com.xa.webui.persistence.domain.resource.path.Path;

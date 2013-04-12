@@ -1,6 +1,6 @@
 package com.xa.webui.presentation.action.impl;
 
-import com.xa.webui.persistence.domain.component.page.PageSingleDescriptor;
+import com.xa.webui.persistence.domain.component.page.BasicPageDescriptor;
 import com.xa.webui.persistence.domain.user.UserSession;
 import com.xa.webui.presentation.action.SessionActionBean;
 import com.xa.webui.service.api.SessionManager;
@@ -28,10 +28,10 @@ public class PageActionBean implements SessionActionBean {
         this.context = context;
     }
 
-    public PageSingleDescriptor getDescriptor() {
+    public BasicPageDescriptor getDescriptor() {
         return descriptor;
     }
-    public void setDescriptor(PageSingleDescriptor descriptor) {
+    public void setDescriptor(BasicPageDescriptor descriptor) {
         this.descriptor = descriptor;
     }
 
@@ -43,18 +43,18 @@ public class PageActionBean implements SessionActionBean {
     @Override
     public Resolution view() {
         descriptor = retrievePageDescriptor();
-        return ResolutionFactory.getResolution(descriptor.getValue().getValue());
+        return ResolutionFactory.getResolution(descriptor.getPage().getValue());
     }
     
     /* Utilities */
     
-    protected PageSingleDescriptor retrievePageDescriptor() {
+    protected BasicPageDescriptor retrievePageDescriptor() {
         WebComponentManager webComponentManager = new WebComponentManager();
         String name = context.getRequest().getParameter(Constants.PARM_PAGE_DESCRIPTOR_NAME);
-        return (PageSingleDescriptor) webComponentManager.getPageDescriptorByName(name);
+        return (BasicPageDescriptor) webComponentManager.getPageDescriptorByName(name);
     }
     
     private ActionBeanContext context;
-    private PageSingleDescriptor descriptor;
+    private BasicPageDescriptor descriptor;
     
 }

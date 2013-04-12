@@ -7,6 +7,9 @@ import com.xa.webui.persistence.domain.resource.path.PathResource;
 
 public interface PageDescriptor extends ResolvableObject {
 
+    public PathResource getPage();
+    public void setPage(PathResource page);
+    
     public String getName();
 
     public Menu getTopMenu();
@@ -15,7 +18,7 @@ public interface PageDescriptor extends ResolvableObject {
     public FooterMenu getFooterMenu();
     public void setFooterMenu(FooterMenu footerMenu);
 
-    public PathResource getValue();
-    public void setValue(PathResource value);
+    public PathResource getContent();
+    public void setContent(PathResource content);
     
 }
