@@ -52,7 +52,7 @@
                     <div class="container">
                         <div class="span2">
                             <div class="brand">
-                                <a class="brand_large" href=""><img src="image/xalogo.png" al alt="XA - International Trade Advisors"></a>
+                                <a class="brand_large" href=""><img src="image/xalogo_2.png" al alt="XA - International Trade Advisors"></a>
                             </div>
                         </div>
                         <div class="span1"></div>
