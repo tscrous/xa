@@ -20,16 +20,41 @@ body {
     line-height: 20px;
     margin: 0;
     padding: 0;
+    ;
 }
 .body-background-img {
     position: absolute;
-    bottom: 0;
+    /*top: 145px;*/
+    top: 20%;
     left: 0;
     width: 100%;
     height: 80%;
     opacity: 1.0;
     z-index: -10;
 }
+
+
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  visibility: hidden; /* doesn't seem to work */
+  background-color: rgba(80, 13, 13, 0);
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background: rgba(30, 30, 30, 0.8);
+    border-width: 1px;
+}
+
+::-webkit-scrollbar:window-inactive {
+    visibility: hidden;
+}
+    
+
 
 .row-fluid [class*="span"] {
     margin: 0;
@@ -108,23 +133,24 @@ body {
     vertical-align: middle;
 }
 .topnav .top-menu ul > li {
+    list-style:none;
     float: left;
     line-height: 8px;
     padding-left: 15px;
     padding-top: 7px;
 }
-.topnav .top-menu ul li > a{
+.topnav .top-menu ul li > a {
     color: #CCCCCC;
 }
-.topnav .top-menu ul li > a:hover{
+.topnav .top-menu ul li > a:hover {
     color: white;
 }
-.topnav .top-menu ul li a > i{
+.topnav .top-menu ul li a > i {
     font-size: 14px;
     padding-right: 2px;
     color: #D46D00;
 }
-.topnav .top-menu ul li a > t{
+.topnav .top-menu ul li a > t {
     font-size: 14px;
     padding-top: 10px;
 }
@@ -164,7 +190,11 @@ body {
     border-right: 1px solid #FFE0BF;
 }   
 
+.topnav .main-menu-alt .nav > ul {
+    list-style:none;
+}
 .topnav .main-menu-alt .nav > li {
+    list-style:none;
     float: left;
 }
 .topnav .main-menu-alt .nav > li > a {
@@ -174,15 +204,15 @@ body {
     padding: 3px 10px 6px;
     color: white;
     text-shadow: none;
+    list-style:none;
 }
 .topnav .main-menu-alt .nav > li > a:hover {
     background-color: #423628;
     color: white;
     text-shadow: none;
     border: none;
+    list-style:none;
 }
-
-
 
 .topnav .main-menu-alt .nav > li > stripes:link {
     float: none;
@@ -192,7 +222,6 @@ body {
     color: white;
     text-shadow: none;
 }
-
 
 
 /* ---------- Main Navigation ---------- */
@@ -213,6 +242,7 @@ body {
     color: white;
     font-size: 50px;
     text-shadow: 0 1px 0 #FFFFFF;
+    cursor: default;
 }
 .navbar .brand > img {
     width: auto;
@@ -261,6 +291,9 @@ body {
 
 .navbar .nav > li {
     float: left;
+    list-style:none;
+    min-width: 80px;
+    text-align: center;
 }
 .navbar .nav > li > a {
     float: none;
@@ -284,272 +317,164 @@ body {
     position: relative;
     overflow: hidden;
     width: 100%;
-    margin-top: 100px;
-    margin-bottom: 20px;
-    padding-top: 50px;
-    padding-bottom: 50px;
-    padding-left: 20px;
-    padding-right: 20px;
+    padding-top: 20px;
 }
 .options .option-container,
 .options .option-container-hover {
-    z-index: 2000;
+    z-index: 2002;
+    outline: none;
     -webkit-user-select: none;  /* Chrome/Safari */
     -moz-user-select: none;  /* Firefox */
     -ms-user-select: none;  /* IE10+ */
     display: inline-block;
     position: relative;
-    width: 212px;
-    height: 140px;
+    width: 300px;
+    height: 180px;
     padding: 5px;
-    margin: 15px;
-    border: 1px solid rgb(0, 0, 0);
+    margin: 20px;
+    border: 7px solid rgb(40, 40, 40);
     border-radius: 5px;
-    border-color: rgb(45, 45, 45);
-    background-color: rgb(60, 60, 60);
+    -webkit-box-shadow:  0px 0px 30px 15px rgba(0, 0, 0, 0.5);
+    box-shadow:  0px 0px 30px 15px rgba(0, 0, 0, 0.5);
     cursor: pointer;
-}
-.options .option-container-selected {
-    outline: none;
-    transform: scale(1.4,1.8);
-    -ms-transform: scale(1.4,1.8);
-    -webkit-transform: scale(1.4,1.8);
-    -o-transform: scale(1.4,1.8);
-    -moz-transform: scale(1.4,1.8);
-    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
-    opacity: 1; 
-    -webkit-box-shadow:  0px 0px 5px 2px rgba(0, 0, 0, 0.1);
-    box-shadow:  0px 0px 5px 2px rgba(0, 0, 0, 0.1);
-    cursor: default;
-    z-index: 2002;
 }
 
 .options .option-container .option-content {
     display: block;
     position: absolute;
-    margin: 2%;
     top: 0;
-    left: 1;
-    width: 95.5%;
-    height: 94%;
-    background-color: #C7C8CA;
-    border-radius: 3px;
-    -webkit-box-shadow: inset 0px 0px 5px 5px rgba(0, 0, 0, 0.3);
-    box-shadow: inset 0px 0px 10px 5px rgba(0, 0, 0, 0.3);
-    cursor: pointer;
-}
-.options .option-container-hover .option-content {
-    background-color: #0B5369;
-    -webkit-box-shadow: inset 0px 0px 5px 5px rgba(0, 0, 0, 0.4);
-    box-shadow: inset 0px 0px 10px 5px rgba(0, 0, 0, 0.4);
-    cursor: pointer;
-}
-.options .option-container-selected .option-content,
-.options .option-container-hover .option-container-selected .option-content {
-    background-color: #0B5369;
-    -webkit-box-shadow: inset 0px 0px 5px 5px rgba(0, 0, 0, 0.4);
-    box-shadow: inset 0px 0px 10px 5px rgba(0, 0, 0, 0.4);
-    cursor: default;
-}
-
-.options .option-container .option-content .option-watermark span {
-    z-index: 1;
+    left: 0;
     width: 100%;
     height: 100%;
+    background-color: rgba(11, 83, 105, 0.85);
+    -webkit-box-shadow: inset 0px 0px 15px 5px rgba(0, 0, 0, 0.3);
+    box-shadow: inset 0px 0px 15px 5px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+}
+
+.options .option-container .option-content .option-watermark {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+}
+.options .option-container .option-content .option-watermark span {
+    z-index: 1;
     color: #688970;
-    font-size: 140px;
+    font-size: 200px;
     font-weight: bold;
     text-align: center;
     vertical-align: middle;
-    padding-bottom: 15px;
     opacity: 0.1;
     filter: alpha(opacity=0.1); 
-}
-.options .option-container-selected .option-content .option-watermark span {
-    display: none;
 }
 
 .options .option-container .option-content .option-name span {
     z-index: 2;
     display: inline-block;
-    color: #b25900;
-    font-size: 20px;
+    color: #ad5808;
+    font-size: 23px;
     font-weight: bold;
     word-break: keep-all;
     word-wrap: break-word;    
-    padding-top: 35px;
+    padding-top: 15px;
     padding-left: 15px;
     padding-right: 15px;
-    height: 30px;
-    line-height: 30px;
-    text-align: center;
-    vertical-align: middle;
-    text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
-    filter: dropshadow(color=rgba(0, 0, 0, 0.3), offx=0, offy=0);
-}
-.options .option-container-selected .option-content .option-name span {
-    color: #ad5808;
+    height: 25px;
     border-color: #ad5808;
     border-bottom: 5px;
-    font-size: 12px;
-    padding-top: 10px;
-    height: 25px;
-    line-height: 13px;
+    line-height: 25px;
+    text-align: center;
     vertical-align: top;
-    text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
-    filter: dropshadow(color=rgba(0, 0, 0, 0.5), offx=0, offy=0);
+    text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.8);
+    filter: dropshadow(color=rgba(0, 0, 0, 0.8), offx=0, offy=0);
 }
 
 .options .option-container .option-content .option-description {
     z-index: 2;
-    display: none;
     color: #DDDDDD;
-    font-size: 9px;
+    font-size: 15px;
     font-weight: normal;
     word-break: keep-all;
     word-wrap: break-word;
+    padding-top: 20px;
     padding-left: 30px;
     padding-right: 30px;
     height: 30px;
-    line-height: 10px;
+    line-height: 17px;
     text-align: left;
     vertical-align: middle;
     text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.15);
     filter: dropshadow(color=rgba(0, 0, 0, 0.15), offx=0, offy=0);
 }
-.options .option-container-selected .option-content .option-description {
-    display: block;
-}
-
-.options .option-container .option-content .option-actions {
-    z-index: 3;
-    display: none;
-    cursor: default;
-    position: absolute;
-    right: -3px;
-    bottom: 15%;
-    height: 15px;
-    padding-top: 0px;
-    padding-left: 7px;
-    padding-bottom: 3px;
-    padding-right: 5px;
-    border-top-left-radius: 5px;
-    border-bottom-left-radius: 5px;
-    background-color: rgb(60, 60, 60);
-    -webkit-box-shadow:  6px -5px 10px 0px rgba(0, 0, 0, 0.1);
-    box-shadow:  -5px -1px 10px 0px rgba(0, 0, 0, 0.35);
-    cursor: pointer;
-}
-.options .option-container-selected .option-content .option-actions {
-    display: block;
-}
-.options .option-container .option-content .option-actions span a {
-    cursor: pointer;
-    color: #BBBBBB;
-    font-weight: bold;
-    font-size: 7px;
-    text-align: right;
-    text-shadow: 1px 0px 1px rgba(255, 255, 255, 0.9), 1px 0px 1px 1px rgba(255, 255, 255, 0.9);
-    text-shadow: 1px 0px 1px 1px rgba(255, 255, 255, 0.9), 1px 0px 1px 1px rgba(255, 255, 255, 0.9); 
-}
-.options .option-container .option-content .option-actions:hover span a {
-    color: #FFFFFF;
-}
-.options .option-container .option-content .option-actions span .disabled {
-    color: #4E4F51;
-    pointer-events: none;
-    cursor: default;
-}
-
-.options .option-container .option-stats {
-    z-index: 3;
-    display: none;
-    cursor: default;
-    position: absolute;
-    left: -3px;
-    bottom: -3px;
-    padding-top: 8px;
-    padding-left: 4px;
-    padding-right: 7px;
-    padding-bottom: 0px;
-    border-top-right-radius: 5px;
-    border-bottom-left-radius: 4px;
-    background-color: rgb(60, 60, 60);
-    font-weight: bold;
-    font-size: 12px;
-    text-align: right;
-    text-shadow: 0px 0px 1px rgba(0, 0, 0, 0.9), 0px 0px 1px 1px rgba(0, 0, 0, 0.9);
-    text-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.9), 0px 0px 1px 1px rgba(0, 0, 0, 0.9); 
-    -webkit-box-shadow:  6px -5px 10px 0px rgba(0, 0, 0, 0.1);
-    box-shadow:  5px -4px 10px 0px rgba(0, 0, 0, 0.35);
-}
-.options .option-container-selected .option-stats {
-    display: block;
-}
-.options .option-container .option-stats .option-stats-item a {
-    cursor: pointer;
-    color: #a8a8a8;
-}
-.options .option-container .option-stats .option-stats-item a:hover {
-    color: #FFFFFF; 
-}
-.options .option-container .option-stats .option-stats-item .disabled {
-    color: #454647;
-    pointer-events: none;
-    cursor: default;
-}
-.options .option-container .option-stats .option-stats-item .option-stats-info {
-    display: none;
-    position: absolute;
-    bottom: 11px;
-    left: 26px;
-    width: 180px;
-    font-size: 9px;
-    text-align: left;
-    font-weight: bold;
-    line-height: 10px;
-    white-space: nowrap;
-    overflow: hidden;
-}
-.options .option-container .option-stats .option-stats-item:hover .option-stats-info {
-    display: block;
-}
-
-.options .option-container .option-exit {
-    display: none;
-    z-index: 3;
-    cursor: pointer;
-    position: absolute;
-    right: -3px;
-    top: -3px;
-    width: 13px;
-    height: 13px;
-    border-top-right-radius: 4px;
-    border-bottom-left-radius: 6px;
-    background-color: rgb(60, 60, 60);
-    font-weight: bold;
-    font-size: 9px;
-    text-align: right;
-    text-shadow: 0px 0px 1px rgba(0, 0, 0, 0.9), 0px 0px 1px 1px rgba(0, 0, 0, 0.9);
-    text-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.9), 0px 0px 1px 1px rgba(0, 0, 0, 0.9); 
-    -webkit-box-shadow:  -5px 4px 10px 0px rgba(0, 0, 0, 0.35);
-    box-shadow:  -5px 4px 10px 0px rgba(0, 0, 0, 0.35);
-}
-.options .option-container .option-exit span {
-    position: absolute;
-    top: -2px;
-    right: 2px;
-}
-.options .option-container-selected .option-exit {
-    display: block;
-}
-.options .option-container .option-exit span a {
-    color: #a8a8a8;
-}
-.options .option-container .option-exit span a:hover {
-    color: red;
-}
     
+/* ---------- Canvas ---------- */
+
+.canvas {
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    height: 67%;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    border: 1px solid rgba(80, 80, 80, 1.0);
+    -webkit-box-shadow:  0px 0px 20px 15px rgba(0, 0, 0, 0.1);
+    box-shadow:  0px 0px 20px 15px rgba(0, 0, 0, 0.5);
+    background-color: rgba(45, 45, 45, 0.7);
+    cursor: default;
+}
+.canvas .scroll-pane {
+    position:absolute; 
+    top: 10px; 
+    bottom: 10px; 
+    left: 10px; 
+    right: 10px; 
+    overflow-y: auto;
+}
+
+.canvas h1 {
+    color: rgb(75, 187, 224);
+    margin-left: 20px;
+    margin-bottom: 0;
+    text-align: center;
+    text-shadow: 0px 0px 30px rgba(0, 0, 0, 0.8);
+    filter: dropshadow(color= rgba(0, 0, 0, 0.8), offx=0, offy=0);    
+}
+.canvas h1:first-child {
+    margin: 0;
+}
+
+.canvas h2 {
+    color: rgb(105, 116, 122);
+    margin-left: 40px;
+    margin-bottom: 0;
+    text-align: left;
+    text-shadow: 0px 0px 30px rgba(0, 0, 0, 0.8);
+    filter: dropshadow(color= rgba(0, 0, 0, 0.8), offx=0, offy=0);    
+}
+
+.canvas p {
+    color: rgb(180, 180, 180);
+    margin: 7;
+    margin-left: 10px;
+}
+
+
+/* ---------- Open Cases ---------- */
+
+.open-case-table {
+    position: absolute;
+    top: 10px;
+    bottom: 10px;
+    left: 10px;
+    right: 10px;
+}
+.open-case-table .table {
+    width: 100%;
+}
+
+
 /* ---------- Vertically aligned groups ---------- */
 
 .item-group-vertical {
@@ -589,18 +514,11 @@ body {
 
 
 
-
-
-
-
-
-
-
 #wrap {
-min-height: 100%;
-height: auto !important;
-height: 100%;
-margin: 0 auto -1px;
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+    margin: 0 auto -1px;
 }
 
 

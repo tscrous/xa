@@ -11,8 +11,8 @@
     boolean isHome = currentPage == null || currentPage.contains("home");
     boolean isAbout = currentPage.contains("about");
     boolean isOpenCases = currentPage.contains("open");
-    boolean isOurTeam = currentPage.contains("team");
     boolean isContactUs = currentPage.contains("contact");
+    boolean isHomeOption = currentPage.contains("q_");
 %>
     <!-------------------------- Start: Top Nav -------------------------->
     <div class="row-fluid">
@@ -31,7 +31,7 @@
                     <div class="span2">
                         <div class="top-menu">
                             <ul class="pull-right">
-                                <li><a href="#"><i class="icon-user"></i><t>Login</t></a></li>
+                                <!--<li><a href="#"><i class="icon-user"></i><t>Login</t></a></li>-->
                             </ul>
                         </div>
                     </div>
@@ -59,11 +59,11 @@
                         <div class="span9">
                             <div class="nav-collapse collapse navbar-responsive-collapse">
                                 <ul class="nav nav-tabs">
-                                    <li <%=isHome ? "class='active'":""%>><stripes:link href="/Workflow.action"><i class="icon-home"></i> Home<stripes:param name="parm.trigger.workflow" value="default.navbar.home"/></stripes:link></li>
-                                    <li <%=isAbout ? "class='active'":""%>><stripes:link href="/Workflow.action">About XA<stripes:param name="parm.trigger.workflow" value="navbar.about"/></stripes:link></li>
-                                    <li <%=isOpenCases ? "class='active'":""%>><stripes:link href="/Workflow.action">Open cases<stripes:param name="parm.trigger.workflow" value="navbar.opencases"/></stripes:link></li>
-                                    <li <%=isOurTeam ? "class='active'":""%>><stripes:link href="/Workflow.action">Our team<stripes:param name="parm.trigger.workflow" value="navbar.ourteam"/></stripes:link></li>
-                                    <li <%=isContactUs ? "class='active'":""%>><stripes:link href="/Workflow.action">Contact us<stripes:param name="parm.trigger.workflow" value="navbar.contact"/></stripes:link></li>
+                                    <li <%=isHome ? "class='active'":""%>><stripes:link href="/Workflow.action"><i class="icon-home"></i> Home<stripes:param name="mediate" value="navbar.home"/></stripes:link></li>
+                                    <li <%=isAbout ? "class='active'":""%>><stripes:link href="/Workflow.action">About XA<stripes:param name="mediate" value="navbar.about"/></stripes:link></li>
+                                    <li <%=isOpenCases ? "class='active'":""%>><stripes:link href="/Workflow.action">Cases<stripes:param name="mediate" value="navbar.opencases"/></stripes:link></li>
+                                    <li <%=isContactUs ? "class='active'":""%>><stripes:link href="/Workflow.action">Contact us<stripes:param name="mediate" value="navbar.contact"/></stripes:link></li>
+                                    <% if (isHomeOption) { %><li class='active'><stripes:link href="#">Other</stripes:link></li><% } %>
                                 </ul>
                             </div>
                         </div>

@@ -1,7 +1,6 @@
 package com.xa.webui.service.factory;
 
 import com.xa.webui.exception.service.ServiceEventException;
-import com.xa.webui.persistence.domain.component.page.BasicPageDescriptor;
 import com.xa.webui.persistence.domain.component.page.PageDescriptor;
 import com.xa.webui.persistence.domain.resource.ResolvableObject;
 import com.xa.webui.persistence.domain.resource.path.Path;
@@ -25,7 +24,7 @@ public abstract class ResolutionFactory {
     public static Resolution getResolution(ResolvableObject object) {
         if (object instanceof PageDescriptor) {
             ForwardResolution resolution = new ForwardResolution(Constants.PAGE_ACTION_BEAN_CLASS, null);
-            resolution.addParameter(Constants.PARM_PAGE_DESCRIPTOR_NAME, ((PageDescriptor) object).getName());
+            resolution.addParameter(Constants.PAGE_DESCRIPTOR_NAME, ((PageDescriptor) object).getName());
             return resolution;
         } else if (object instanceof SystemError) {
             SystemError error = (SystemError) object;

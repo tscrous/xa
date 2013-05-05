@@ -50,7 +50,7 @@ public class PageActionBean implements SessionActionBean {
     
     protected BasicPageDescriptor retrievePageDescriptor() {
         WebComponentManager webComponentManager = new WebComponentManager();
-        String name = context.getRequest().getParameter(Constants.PARM_PAGE_DESCRIPTOR_NAME);
+        String name = context.getRequest().getParameter(Constants.PAGE_DESCRIPTOR_NAME);
         return (BasicPageDescriptor) webComponentManager.getPageDescriptorByName(name);
     }
     

@@ -4,3 +4,6 @@
 *.jar
 *.war
 *.ear
+/webui_jboss/nbproject/private/
+/webui_jboss/dist/
+/webui_jboss/build/

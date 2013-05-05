@@ -2,6 +2,8 @@ package test;
 
 import com.xa.webui.persistence.domain.component.Menu;
 import com.xa.webui.persistence.domain.component.MenuItem;
+import com.xa.webui.persistence.domain.component.OptionItem;
+import com.xa.webui.persistence.domain.component.OptionItemGroup;
 import com.xa.webui.persistence.domain.component.page.BasicPageDescriptor;
 import com.xa.webui.persistence.domain.resource.path.PathResource;
 import com.xa.webui.persistence.domain.resource.path.PathResourceType;
@@ -25,63 +27,101 @@ public class PrepareTestData {
         System.out.println("\nDone!");
     }
     
+    public PrepareTestData() {
+    }
+    
     public void execute() {
         Session session = startSession();
-        factory = new TestDataFactory(session);
-        
+        prepare(session);
         createTopMenu(session);
-        createPages(session);
+        createMenuPages(session);
+        createOptions(session);
+        createOptionPages(session);
         createWorkflows(session);
-        
         endSession(session);
-     }
+    }
+    
+    private void prepare(Session session) {
+        factory = new TestDataFactory(session);
+        BASIC_PAGE = factory.createPathResource(PathResourceType.JSP, Constants.BASIC_PAGE_ID, "/WEB-INF/jsp/template/page/page.jsp");
+        CANVAS_PAGE = factory.createPathResource(PathResourceType.JSP, Constants.CANVAS_PAGE_ID, "/WEB-INF/jsp/template/page/canvas_page.jsp");
+    }
     
     private void createTopMenu(Session session) {
         /* DEFAULT TopMenu */
         List<MenuItem> items = new LinkedList<MenuItem>();
         items.add(homeMenuItem = factory.createMenuItem(1, "navbar.home", "Home", "Website's home page", null));
-        items.add(aboutXAMenuItem = factory.createMenuItem(2, "navbar.about", "About XA", "More about the company behind the name", null));
+        items.add(aboutMenuItem = factory.createMenuItem(2, "navbar.about", "About XA", "More about the company behind the name", null));
         items.add(openCasesMenuItem = factory.createMenuItem(3, "navbar.opencases", "Open cases", "More about the cases XA is currently involved with", null));
-        items.add(ourTeamMenuItem = factory.createMenuItem(4, "navbar.ourteam", "Our Team", "Meet the XA team", null));
-        items.add(contactUsMenuItem = factory.createMenuItem(5, "navbar.contact", "Contact us", "Contact information", null));
+        items.add(contactMenuItem = factory.createMenuItem(4, "navbar.contact", "Contact us", "Contact information", null));
         topMenu = factory.createMenu("navbar", "Default NavBar", items);
     }
     
-    private void createPages(Session session) {
-        final PathResource BASIC_PAGE = factory.createPathResource(PathResourceType.JSP, Constants.BASIC_PAGE_ID, "/WEB-INF/jsp/template/page.jsp");
+    private void createOptions(Session session) {
+        /* DEFAULT TopMenu */
+        List<OptionItem> options = new LinkedList<OptionItem>();
+        options.add(competitionOption = factory.createOptionItem(1, "home.option.competition", "Facing import competition ?", "Some description here..."));
+        options.add(dutyIncreaseOption = factory.createOptionItem(2, "home.option.duty_increase", "Facing duty increases ?", "Some description here..."));
+        options.add(competitivenessOption = factory.createOptionItem(3, "home.option.competitiveness", "Trying to improve competitiveness ?", "Some description here..."));
+        options.add(incentivesOption = factory.createOptionItem(4, "home.option.incentives", "Looking for incentives ?", "Some description here..."));
+        homeOptions = factory.createOptions("home.options", "Home options", options);
+    }
+    
+    private void createMenuPages(Session session) {
         PathResource content;
         /* home */
         content = factory.createPathResource(PathResourceType.JSP, Constants.HOME_PAGE_TARGET_ID +".jsp", "/WEB-INF/jsp/home.jsp");
-        homePage = factory.createPage(BASIC_PAGE, Constants.HOME_PAGE_TARGET_ID, "XA Home Page", content);
+        homePage = factory.createPage(BASIC_PAGE, Constants.HOME_PAGE_TARGET_ID, "Home", content);
         homePage.setTopMenu(topMenu);
-        /* about xa */
+        /* about */
         content = factory.createPathResource(PathResourceType.JSP, Constants.ABOUT_XA_PAGE_TARGET_ID +".jsp", "/WEB-INF/jsp/about.jsp");
-        aboutXAPage = factory.createPage(BASIC_PAGE, Constants.ABOUT_XA_PAGE_TARGET_ID, "About XA", content);
-        aboutXAPage.setTopMenu(topMenu);
+        aboutPage = factory.createPage(CANVAS_PAGE, Constants.ABOUT_XA_PAGE_TARGET_ID, "About XA", content);
+        aboutPage.setTopMenu(topMenu);
         /* open cases */
         content = factory.createPathResource(PathResourceType.JSP, Constants.OPEN_CASES_PAGE_TARGET_ID +".jsp", "/WEB-INF/jsp/open_cases.jsp");
-        openCasesPage = factory.createPage(BASIC_PAGE, Constants.OPEN_CASES_PAGE_TARGET_ID, "Open Cases", content);
+        openCasesPage = factory.createPage(CANVAS_PAGE, Constants.OPEN_CASES_PAGE_TARGET_ID, "Open cases", content);
         openCasesPage.setTopMenu(topMenu);
-        /* our team */
-        content = factory.createPathResource(PathResourceType.JSP, Constants.OUR_TEAM_PAGE_TARGET_ID +".jsp", "/WEB-INF/jsp/our_team.jsp");
-        ourTeamPage = factory.createPage(BASIC_PAGE, Constants.OUR_TEAM_PAGE_TARGET_ID, "Our Team", content);
-        ourTeamPage.setTopMenu(topMenu);
-        /* contact us */
+        /* contact */
         content = factory.createPathResource(PathResourceType.JSP, Constants.CONTACT_US_PAGE_TARGET_ID +".jsp", "/WEB-INF/jsp/contact.jsp");
-        contactUsPage = factory.createPage(BASIC_PAGE, Constants.CONTACT_US_PAGE_TARGET_ID, "Our Team", content);
-        contactUsPage.setTopMenu(topMenu);
+        contactPage = factory.createPage(CANVAS_PAGE, Constants.CONTACT_US_PAGE_TARGET_ID, "Contact us", content);
+        contactPage.setTopMenu(topMenu);
+    }
+    
+    private void createOptionPages(Session session) {
+        PathResource content;
+        /* competition */
+        content = factory.createPathResource(PathResourceType.JSP, Constants.Q_COMPETITION_PAGE_TARGET_ID +".jsp", "/WEB-INF/jsp/q_competition.jsp");
+        competitionPage = factory.createPage(CANVAS_PAGE, Constants.Q_COMPETITION_PAGE_TARGET_ID, "Facing import competition", content);
+        competitionPage.setTopMenu(topMenu);
+        /* duty increases */
+        content = factory.createPathResource(PathResourceType.JSP, Constants.Q_DUTY_INCREASE_PAGE_TARGET_ID +".jsp", "/WEB-INF/jsp/q_duty_increase.jsp");
+        dutyIncreasePage = factory.createPage(CANVAS_PAGE, Constants.Q_DUTY_INCREASE_PAGE_TARGET_ID, "Facing duty increases", content);
+        dutyIncreasePage.setTopMenu(topMenu);
+        /* improve competitiveness */
+        content = factory.createPathResource(PathResourceType.JSP, Constants.Q_COMPETITIVENESS_PAGE_TARGET_ID +".jsp", "/WEB-INF/jsp/q_competitiveness.jsp");
+        competitivenessPage = factory.createPage(CANVAS_PAGE, Constants.Q_COMPETITIVENESS_PAGE_TARGET_ID, "Trying to improve competitiveness", content);
+        competitivenessPage.setTopMenu(topMenu);
+        /* incentives */
+        content = factory.createPathResource(PathResourceType.JSP, Constants.Q_INCENTIVES_PAGE_TARGET_ID +".jsp", "/WEB-INF/jsp/q_incentives.jsp");
+        incentivesPage = factory.createPage(CANVAS_PAGE, Constants.Q_INCENTIVES_PAGE_TARGET_ID, "Looking for incentives", content);
+        incentivesPage.setTopMenu(topMenu);
     }
     
     private void createWorkflows(Session session) {
         WorkflowRule rule;
         /* default workflow */
         List<WorkflowRule> rules = new LinkedList<WorkflowRule>();
+        /* ----> navbar rules */
         rules.add(rule = factory.createWorkflowRule(SystemOrchestrator.getInstance(), homePage));
         rules.add(rule = factory.createWorkflowRule(homeMenuItem, homePage));
-        rules.add(rule = factory.createWorkflowRule(aboutXAMenuItem, aboutXAPage));
+        rules.add(rule = factory.createWorkflowRule(aboutMenuItem, aboutPage));
         rules.add(rule = factory.createWorkflowRule(openCasesMenuItem, openCasesPage));
-        rules.add(rule = factory.createWorkflowRule(ourTeamMenuItem, ourTeamPage));
-        rules.add(rule = factory.createWorkflowRule(contactUsMenuItem, contactUsPage));
+        rules.add(rule = factory.createWorkflowRule(contactMenuItem, contactPage));
+        /* ----> home-question rules */
+        rules.add(rule = factory.createWorkflowRule(competitionOption, competitionPage));
+        rules.add(rule = factory.createWorkflowRule(dutyIncreaseOption, dutyIncreasePage));
+        rules.add(rule = factory.createWorkflowRule(competitivenessOption, competitivenessPage));
+        rules.add(rule = factory.createWorkflowRule(incentivesOption, incentivesPage));
         defaultWorkflow = Defaults.getDefaultWorkflow();
         defaultWorkflow.setRules(rules);
         session.save(defaultWorkflow);
@@ -98,24 +138,36 @@ public class PrepareTestData {
     }
     private void endSession(Session session) {
         session.getTransaction().commit();
+        session.close();
     }
     
     
     private TestDataFactory factory;
+    private PathResource BASIC_PAGE;
+    private PathResource CANVAS_PAGE;
+    
 
-    /* instance recerences */
     private Menu topMenu;
     private MenuItem homeMenuItem;
-    private MenuItem aboutXAMenuItem;
+    private MenuItem aboutMenuItem;
     private MenuItem openCasesMenuItem;
-    private MenuItem ourTeamMenuItem;
-    private MenuItem contactUsMenuItem;
+    private MenuItem contactMenuItem;
+    
+    private OptionItemGroup homeOptions;
+    private OptionItem competitionOption;
+    private OptionItem dutyIncreaseOption;
+    private OptionItem competitivenessOption;
+    private OptionItem incentivesOption;
     
     private BasicPageDescriptor homePage;
-    private BasicPageDescriptor aboutXAPage;
+    private BasicPageDescriptor aboutPage;
     private BasicPageDescriptor openCasesPage;
-    private BasicPageDescriptor ourTeamPage;
-    private BasicPageDescriptor contactUsPage;
+    private BasicPageDescriptor contactPage;
+    
+    private BasicPageDescriptor competitionPage;
+    private BasicPageDescriptor dutyIncreasePage;
+    private BasicPageDescriptor competitivenessPage;
+    private BasicPageDescriptor incentivesPage;
     
     private Workflow defaultWorkflow;
     

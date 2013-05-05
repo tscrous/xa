@@ -24,11 +24,13 @@
         <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
         <title>XA - International Trade Advisors</title>
 
+        <link href="css/bootstrap.css" media="all" rel="stylesheet" type="text/css">
         <link href="css/bootstrap-responsive.css" media="all" rel="stylesheet" type="text/css">
         <link href="css/font-awesome.css" media="all" rel="stylesheet" type="text/css">
-            <link href="css/application.css" media="all" rel="stylesheet" type="text/css">
+    <link href="css/application.css" media="all" rel="stylesheet" type="text/css">
         <link href="css/style.css" media="all" rel="stylesheet" type="text/css">
         <link href="css/style-responsive.css" media="all" rel="stylesheet" type="text/css">
+        <link href="css/jquery.jscrollpane.css" media="all" rel="stylesheet" type="text/css">
     </head>
     <body>
 		

@@ -3,6 +3,8 @@ package test;
 import com.xa.webui.persistence.domain.WebObject;
 import com.xa.webui.persistence.domain.component.Menu;
 import com.xa.webui.persistence.domain.component.MenuItem;
+import com.xa.webui.persistence.domain.component.OptionItem;
+import com.xa.webui.persistence.domain.component.OptionItemGroup;
 import com.xa.webui.persistence.domain.component.page.BasicPageDescriptor;
 import com.xa.webui.persistence.domain.resource.path.Path;
 import com.xa.webui.persistence.domain.resource.path.PathResource;
@@ -62,6 +64,27 @@ public class TestDataFactory {
         menuItem.setAlignment(Alignment.LEFT);
         session.save(menuItem);
         return menuItem;
+    }
+    
+    /* OPTIONS */
+    
+    public OptionItemGroup createOptions(String name, String desc, List<OptionItem> items) {
+        OptionItemGroup options = new OptionItemGroup();
+        options.setName(name);
+        options.setDescription(desc);
+        options.setItems(items);
+        session.save(options);
+        return options;
+    }
+    
+    public OptionItem createOptionItem(int index, String name, String label, String desc) {
+        OptionItem optionItem = new OptionItem();
+        optionItem.setName(name);
+        optionItem.setLabel(label);
+        optionItem.setDescription(desc);
+        optionItem.setItemIndex(index);
+        session.save(optionItem);
+        return optionItem;
     }
     
     /* RESOURCES */

@@ -1,6 +1,7 @@
 <!-- Javascripts  -->
 <script src="js/jquery.js"></script>
 <script src="js/jquery.fitvids.js"></script>
+<script src="js/jquery.jscrollpane.min.js"></script>
 <script src="js/bootstrap.js"></script>
 <script src="js/bootstrap-tab.js"></script>
 <script src="js/bootstrap-transition.js"></script>
@@ -8,7 +9,7 @@
 
 <!-- Screen maximization via LOGO -->
 
-<script type="text/javascript">
+<!--<script type="text/javascript">
     $(document).ready(function(){
         $(".brand_large").click(function(){
             maximiseScreen(true);
@@ -33,7 +34,7 @@
             $(".navbar").show();
         }
     }
-</script>
+</script>-->
 
 <script>
     $.fn.extend({ 
@@ -56,7 +57,7 @@
     });
 </script>
 
-<script type="text/javascript">
+<!--<script type="text/javascript">
     $(document).ready(function(){
         $(".brand_large").click(function(){
             maximiseScreen(true);
@@ -81,9 +82,9 @@
             $(".navbar").show();
         }
     }
-</script>
+</script>-->
 
-<script type="text/javascript">
+<!--<script type="text/javascript">
     $(document).ready(function(){
         $(".option-container").click(function(){
             $(".option-container").removeClass('option-container-selected');
@@ -104,4 +105,4 @@
             return false;
         });
     });
-</script>
+</script>-->
