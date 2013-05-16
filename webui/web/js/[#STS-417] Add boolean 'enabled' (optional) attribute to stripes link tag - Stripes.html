@@ -1,0 +1,1712 @@
+
+
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html>
+<head>
+    <title>[#STS-417] Add boolean &#39;enabled&#39; (optional) attribute to stripes:link tag - Stripes </title>
+
+    <meta content="general" name="decorator" />
+    <link rel="index" href="/jira/secure/IssueNavigator.jspa?atl_token=dd81ab1b3170c5ac7ec6b8e92ac6a6d575512412"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="-1" />
+    
+
+    
+<meta id="atlassian-token" name="atlassian-token" content="dd81ab1b3170c5ac7ec6b8e92ac6a6d575512412">
+
+
+    <link rel="shortcut icon" href="/jira/s/587/6/_/favicon.ico">
+    <link rel="icon" type="image/png" href="/jira/s/587/6/_/images/icons/favicon.png">
+
+    
+    <script type="text/javascript">var contextPath = '/jira';</script>
+<link type="text/css" rel="stylesheet" href="/jira/s/587/6/3.0.9/_/download/batch/com.atlassian.auiplugin:ajs/com.atlassian.auiplugin:ajs.css" media="all">
+<!--[if IE]>
+<link type="text/css" rel="stylesheet" href="/jira/s/587/6/3.0.9/_/download/batch/com.atlassian.auiplugin:ajs/com.atlassian.auiplugin:ajs.css?ieonly=true" media="all">
+<![endif]-->
+<link type="text/css" rel="stylesheet" href="/jira/s/587/6/1.0/_/download/batch/jira.webresources:jira-global/jira.webresources:jira-global.css" media="all">
+<link type="text/css" rel="stylesheet" href="/jira/s/587/6/1.0/_/download/batch/jira.webresources:jquery-fancybox/jira.webresources:jquery-fancybox.css" media="all">
+<link type="text/css" rel="stylesheet" href="/jira/s/587/6/1.0/_/download/resources/jira.webresources:calendar/calendar.css" media="all">
+<link type="text/css" rel="stylesheet" href="/jira/s/587/6/1.0/_/download/batch/jira.webresources:autocomplete/jira.webresources:autocomplete.css" media="all">
+<link type="text/css" rel="stylesheet" href="/jira/s/587/6/1.0/_/download/batch/jira.webresources:global-static/jira.webresources:global-static.css" media="all">
+<!--[if IE]>
+<link type="text/css" rel="stylesheet" href="/jira/s/587/6/1.0/_/download/batch/jira.webresources:global-static/jira.webresources:global-static.css?ieonly=true" media="all">
+<![endif]-->
+<link type="text/css" rel="stylesheet" href="/jira/s/587/6/1.0/_/download/batch/jira.webresources:global-static/jira.webresources:global-static.css?media=print" media="print">
+<link type="text/css" rel="stylesheet" href="/jira/s/587/6/1.0/_/download/resources/jira.webresources:global-static/global.css" media="all">
+<script type="text/javascript" src="/jira/s/587/6/3.0.9/_/download/batch/com.atlassian.auiplugin:ajs/com.atlassian.auiplugin:ajs.js" ></script>
+<script type="text/javascript" src="/jira/s/587/6/1.0/_/download/batch/jira.webresources:jira-global/jira.webresources:jira-global.js" ></script>
+<script type="text/javascript" src="/jira/s/587/6/1.0/_/download/batch/jira.webresources:jquery-fancybox/jira.webresources:jquery-fancybox.js" ></script>
+<script type="text/javascript" src="/jira/s/587/6/1.0/_/download/batch/jira.webresources:calendar/jira.webresources:calendar.js" ></script>
+<script type="text/javascript" src="/jira/s/587/6/1.0/_/download/batch/jira.webresources:viewissue/jira.webresources:viewissue.js" ></script>
+<script type="text/javascript" src="/jira/s/587/6/1.0/_/download/batch/jira.webresources:autocomplete/jira.webresources:autocomplete.js" ></script>
+<script type="text/javascript" src="/jira/s/587/6/1.0/_/download/batch/jira.webresources:jira-fields/jira.webresources:jira-fields.js" ></script>
+<script type="text/javascript" src="/jira/s/587/6/1.0/_/download/batch/jira.webresources:calendar-en/jira.webresources:calendar-en.js" ></script>
+<script type="text/javascript" src="/jira/s/587/6/1.0/_/download/batch/jira.webresources:key-commands/jira.webresources:key-commands.js" ></script>
+<script type="text/javascript" src="/jira/s/587/6/1.0/_/download/batch/jira.webresources:header/jira.webresources:header.js" ></script>
+<script type="text/javascript" src="/jira/s/587/6/1.0/_/download/batch/jira.webresources:set-focus/jira.webresources:set-focus.js" ></script>
+
+    
+        <script type="text/javascript" src="/jira/rest/api/1.0/shortcuts/587/d0150b9eb77f814bb2f50f9f9bb468c0/shortcuts.js?context=issueaction&context=issuenavigation"></script>
+    
+    <link rel="search" type="application/opensearchdescription+xml" href="/jira/osd.jsp" title="Stripes"/>
+</head>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<body id="jira" class="nl type-ab stalker">
+
+
+
+
+
+
+
+  
+
+
+<div id="header">
+    <div id="header-top">
+        <a id="logo" href="/jira/secure/Dashboard.jspa">
+                        <img class="logo" src="http://www.stripesframework.org/download/attachments/367/stripes" width="120" height="32" border="0" alt="Stripes" />
+                    </a>
+                <form id="quicksearch" action="/jira/secure/QuickSearch.jspa" method="post" class="dont-default-focus">
+            <div>
+                <label for="quickSearchInput" title="Go directly to an issue by typing a valid issue key, or run a free-text search." class="overlabel">Quick Search</label>
+                <input id="quickSearchInput" class="quickSearchInput" type="text" size="25" title="Go directly to an issue by typing a valid issue key, or run a free-text search." name="searchString" accessKey="q" />
+            </div>
+        </form>
+                
+        <div id="header-details-user" class="aui-dd-parent header-link-container">
+         <a class="lnk" rel="nofollow" href="/jira/login.jsp?os_destination=%2Fbrowse%2FSTS-417">Log In</a>
+        <span class="drop-wrap">
+        <a class="drop aui-dd-link"
+                        href="#"><span>Access more options</span>
+        </a>
+    </span>
+    <div class="aui-dropdown standard hidden">
+                                                                <ul id="jira-help" class="  first     last  ">
+                                            <li class="dropdown-item"><a  id="view_help"   class="item-link "  title="Goto the online documentation for JIRA" href="http://docs.atlassian.com/jira/docs-042/JIRA+Documentation?clicked=jirahelp">Online Help</a></li>
+                                            <li class="dropdown-item"><a  id="keyshortscuthelp"   class="item-link "  title="Get more information about JIRA's Keyboard Shortcuts" href="/jira/secure/ViewKeyboardShortcuts!default.jspa">Keyboard Shortcuts</a></li>
+                                            <li class="dropdown-item"><a  id="view_about"   class="item-link "  title="Get more information about JIRA" href="http://www.atlassian.com/software/jira">About JIRA</a></li>
+                                    </ul>
+                        </div>
+</div>
+
+        
+    </div>
+    <div id="header-bottom">
+                <div id="menu">
+            
+            
+<ul id="main-nav" class="menu-bar">
+                        <li class="aui-dd-parent lazy  ">
+                    <a class="lnk"
+                href="/jira/secure/Dashboard.jspa"
+                 id="home_link"                 accessKey="h"                 title="View your current Dashboard"                >Dashboards</a>
+
+                    <span class="drop-wrap">
+            <a class="drop aui-dd-link"
+                                    id="home_link_drop"
+                    rel="home_link"
+                    accessKey="d"
+                    title="Access more options (Ctrl+Alt+d)"
+                                href="#"><span>Access more options (Ctrl+Alt+d)</span></a></span>
+            <div class="aui-dropdown standard hidden"></div>
+                </li>
+                        <li class="aui-dd-parent lazy  ">
+                    <a class="lnk"
+                href="/jira/browse/STS"
+                 id="browse_link"                 accessKey="b"                 title="Browse currently active project 'Stripes'"                >Projects</a>
+
+                    <span class="drop-wrap">
+            <a class="drop aui-dd-link"
+                                    id="browse_link_drop"
+                    rel="browse_link"
+                    accessKey="p"
+                    title="Access more options (Ctrl+Alt+p)"
+                                href="#"><span>Access more options (Ctrl+Alt+p)</span></a></span>
+            <div class="aui-dropdown standard hidden"></div>
+                </li>
+                        <li class="aui-dd-parent lazy  selected  ">
+                    <a class="lnk"
+                href="/jira/secure/IssueNavigator.jspa"
+                 id="find_link"                 accessKey="f"                 title="View your current filter"                >Issues</a>
+
+                    <span class="drop-wrap">
+            <a class="drop aui-dd-link"
+                                    id="find_link_drop"
+                    rel="find_link"
+                    accessKey="i"
+                    title="Access more options (Ctrl+Alt+i)"
+                                href="#"><span>Access more options (Ctrl+Alt+i)</span></a></span>
+            <div class="aui-dropdown standard hidden"></div>
+                </li>
+    </ul>
+
+            
+        </div>
+
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<fieldset class="hidden parameters">
+    <input type="hidden" title="ajaxTimeout" value="The call to the JIRA server did not complete within the timeout period.  We are unsure of the result of this operation.">
+    <input type="hidden" title="ajaxUnauthorised" value="You are not authorized to perform this operation.  Please try to <a href='/jira/login.jsp?os_destination=%2Fbrowse%2FSTS-417'>log in</a>
+       or <a href='/jira/secure/Signup!default.jspa'>sign up</a> for an account.
+       
+    ">
+    <input type="hidden" title="ajaxCommsError" value="The JIRA server could not be contacted.  This may be a temporary glitch or the server may be down.">
+    <input type="hidden" title="ajaxServerError" value="The JIRA server was contacted but has returned an error response. We are unsure of the result of this operation.">
+    <input type="hidden" title="ajaxErrorCloseDialog" value="Close this dialog and press refresh in your browser">
+    <input type="hidden" title="ajaxErrorDialogHeading" value="Communications Breakdown">
+
+    <input type="hidden" title="dirtyMessage" value="You have entered new data on this page. If you navigate away from this page without first saving your data, the changes will be lost.">
+    <input type="hidden" title="dirtyDialogMessage" value="You have entered new data in this dialog. If you navigate away from this dialog without first saving your data, the changes will be lost. Click cancel to return to the dialog.">
+    <input type="hidden" title="keyType" value="Type">
+    <input type="hidden" title="keyThen" value="then">
+    <input type="hidden" title="dblClickToExpand" value="Double click to expand">
+    <input type="hidden" title="actions" value="Actions">
+    <input type="hidden" title="removeItem" value="Remove">
+    <input type="hidden" title="workflow" value="Workflow">
+    <input type="hidden" title="labelNew" value="New Label">
+    <input type="hidden" title="enterIssueKey" value="Enter issue key">
+    <input type="hidden" title="issueActionsHint" value="Begin typing for available operations or press down to see all">
+    <input type="hidden" title="closelink" value="Close">
+    <input type="hidden" title="dotOperations" value="Operations">
+    <input type="hidden" title="dotLoading" value="Loading...">
+    <input type="hidden" title="frotherSuggestions" value="Suggestions">
+    <input type="hidden" title="frotherNomatches" value="No Matches">
+    <input type="hidden" title="attachmentsUnknownError" value="Unknown error occurred uploading file.">
+    <input type="hidden" title="attachmentsXsrfTimeout" value="Your session has timed out or you were logged out. Please save your work and reload the page.">
+    <input type="hidden" title="multiselectVersionsError" value="{0} is not a valid version.">
+    <input type="hidden" title="multiselectComponentsError" value="{0} is not a valid component.">
+    <input type="hidden" title="multiselectGenericError" value="The value {0} is invalid.">
+</fieldset>
+
+
+
+
+
+
+
+<fieldset class="hidden parameters">
+    <input type="hidden" id="viewMoreMsg" value="Click to view {0} more">
+    <input type="hidden" id="hideMsg" value="Hide" >
+    <input type="hidden" id="error-401" value="Cannot perform this operation. You are not logged in." >
+    <input type="hidden" id="issueOpTitleUnvote" value="Remove vote for this issue" >
+    <input type="hidden" id="issueOpTitleVote" value="Vote for this issue" >
+    <input type="hidden" id="issueOpTitleWatch" value="Start watching this issue" >
+    <input type="hidden" id="issueOpTitleUnwatch" value="Stop watching this issue" >
+    <input type="hidden" id="issueOpUnvote" value="Remove Vote" >
+    <input type="hidden" id="issueOpVote" value="Add Vote" >
+    <input type="hidden" id="issueOpWatch" value="Watch Issue" >
+    <input type="hidden" id="issueOpUnwatch" value="Stop Watching" >
+    <input type="hidden" id="i18nVote" value="Vote" >
+    <input type="hidden" id="i18nVoted" value="Voted" >
+    <input type="hidden" id="i18nWatch" value="Watch" >
+    <input type="hidden" id="i18nWatching" value="Watching" >
+</fieldset>
+
+<div id="stalker"  class="stalker">
+    <div class="item-header">
+    
+        
+
+
+
+
+
+
+
+
+
+
+
+
+<h1 class="item-name avatar" style="background-image:url(/jira/secure/projectavatar?pid=10000&amp;avatarId=10011&amp;size=large)">
+        
+            <img id="project-avatar" alt="" class="project-avatar-48" height="48" src="/jira/secure/projectavatar?pid=10000&amp;avatarId=10011&amp;size=large" width="48" />
+        
+        <span>Stripes</span>
+</h1>
+
+
+<ul class="breadcrumbs">
+    <li><a id="project-name-val" href="/jira/browse/STS">Stripes</a></li>
+    
+    <li><a id="key-val" rel="10505" href="/jira/browse/STS-417">STS-417</a></li>
+</ul>
+
+<h2 id="issue_header_summary" class="item-summary"><a href="/jira/browse/STS-417">Add boolean &#39;enabled&#39; (optional) attribute to stripes:link tag</a></h2>
+
+    
+    </div>
+    
+
+
+
+
+    <div class="command-bar">
+        <div class="ops-cont">
+            <div class="ops-menus">
+                
+                
+                    <ul id="opsbar-login" class="first ops">
+                        <li id="ops-login" class="last">
+                            <a id="ops-login-lnk" class="button first last" href="/jira/login.jsp?os_destination=%2Fbrowse%2FSTS-417">Log In</a>
+                        </li>
+                    </ul>
+                
+                
+                    
+                        
+                    
+                
+                    
+                        
+                    
+                
+                
+                    
+                        <ul class="ops" id="view-drop">
+                            <li>
+                                <div class="aui-dd-parent">
+                                    <a href="#" title="View this issue in another format" class="drop lnk aui-dd-link standard icon-views"><span>Views</span></a>
+                                        <div class="aui-dropdown standard hidden">
+                                        <ul class="first last">
+                                            
+                                                <li class="dropdown-item">
+                                                    <a class="item-link" rel="nofollow" href="/jira/si/jira.issueviews:issue-xml/STS-417/STS-417.xml">XML</a>
+                                                </li>
+                                            
+                                                <li class="dropdown-item">
+                                                    <a class="item-link" rel="nofollow" href="/jira/si/jira.issueviews:issue-word/STS-417/STS-417.doc">Word</a>
+                                                </li>
+                                            
+                                                <li class="dropdown-item">
+                                                    <a class="item-link" rel="nofollow" href="/jira/si/jira.issueviews:issue-html/STS-417/STS-417.html">Printable</a>
+                                                </li>
+                                            
+                                        </ul>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    
+                
+            </div>
+        </div>
+    </div>          
+
+
+    <div class="btm"></div>
+</div>
+<div id="main-content">
+    <div class="active-area">
+        <div class="column" id="primary">
+            <div class="content">
+                
+
+
+                
+                
+                
+                
+
+                    <div id="details-module" class="module toggle-wrap">
+                        <div class="mod-header">
+                            <h3 class="toggle-title">Details</h3>
+                        </div>
+                        <div class="mod-content">
+                            <ul id="issuedetails" class="property-list two-cols">
+    <li class="item">
+        <div class="wrap">
+            <strong class="name">Type:</strong>
+            <span id="type-val" class="value">
+                                                        <img alt="New Feature" height="16" src="/jira/images/icons/newfeature.gif" title="New Feature - A new feature of the product, which has yet to be developed." width="16" />
+             New Feature
+            </span>
+        </div>
+    </li>
+    <li class="item item-right">
+        <div class="wrap">
+            <strong class="name">Status:</strong>
+            <span id="status-val" class="value">
+                                                        <img alt="Closed" height="16" src="/jira/images/icons/status_closed.gif" title="Closed - The issue is considered finished, the resolution is correct. Issues which are closed can be reopened." width="16" />
+             Closed
+            </span>
+        </div>
+    </li>
+            <li class="item">
+            <div class="wrap">
+                <strong class="name">Priority:</strong>
+                <span id="priority-val" class="value">
+                                                                <img alt="Minor" height="16" src="/jira/images/icons/priority_minor.gif" title="Minor - Minor loss of function, or other problem where easy workaround is present." width="16" />
+             Minor
+                </span>
+            </div>
+        </li>
+                                <li class="item item-right">
+            <div class="wrap">
+                <strong class="name">Resolution:</strong>
+                <span id="resolution-val" class="value resolved" >
+                                         Won&#39;t Fix
+                                </span>
+            </div>
+        </li>
+                <li class="item">
+            <div class="wrap">
+                <strong class="name">Affects Version/s:</strong>
+                <span id="versions-val" class="value">
+                                            <span class="shorten" id="versions-field">
+                                                            <span title="Release 1.5 A major functionality release of Stripes">Release 1.5</span>                                                    </span>
+                                    </span>
+            </div>
+        </li>
+                <li class="item item-right">
+            <div class="wrap">
+                <strong class="name">Fix Version/s:</strong>
+                <span id="fixfor-val" class="value">
+                                            None
+                                    </span>
+            </div>
+        </li>
+                <li class="item">
+            <div class="wrap">
+                <strong class="name">Component/s:</strong>
+                <span id="components-val" class="value">
+                                            <span class="shorten" id="components-field">
+                                                            <a href="/jira/browse/STS/component/10000" title="Tag Library The Stripes Tag Library and supporting classes.">Tag Library</a>                                                    </span>
+                                    </span>
+            </div>
+        </li>
+                    <li class="item full-width">
+            <div class="wrap" id="wrap-labels">
+                <strong class="name">Labels:</strong>
+                    <div class="labels-wrap value">
+            <span class="labels" id="labels-10505-value">None</span>
+                </div>
+            </div>
+        </li>
+        </ul>
+
+
+                            
+                        </div>
+                    </div>
+
+                    
+
+
+
+
+<div id="descriptionmodule" class="module toggle-wrap">
+    <div class="mod-header">
+        <h3 class="toggle-title">Description</h3>
+    </div>
+    <div id="issue-description" class="mod-content">
+        <p>As discussed in this thread:<br/>
+<a href="http://thread.gmane.org/gmane.comp.java.stripes.user/4612">http://thread.gmane.org/gmane.comp.java.stripes.user/4612</a></p>
+
+<p>I suggest adding a boolean attribute, 'enabled', to the stripes:link tag. This attribute would be optional and true by default. If set to false, the tag renders the body but not the link, such that the link appears as plain text only. This is useful, for example, to enable links based on some dynamic condition, e.g. user rights.</p>
+
+<p>&lt;stripes:link href="..." enabled="${user.allowed}"&gt;Link&lt;/stripes:link&gt;</p>
+
+<p>Very easy to implement, for example, against SVN trunk version 608:</p>
+
+<p>Index: src/net/sourceforge/stripes/tag/LinkTag.java<br/>
+===================================================================<br/>
+&#8212; src/net/sourceforge/stripes/tag/LinkTag.java        (revision 608)<br/>
++++ src/net/sourceforge/stripes/tag/LinkTag.java        (working copy)<br/>
+@@ -31,6 +31,7 @@</p>
+<ul>
+	<li>@author Tim Fennell<br/>
+  */<br/>
+ public class LinkTag extends LinkTagSupport implements BodyTag {<br/>
++    private boolean enabled = true;</li>
+</ul>
+
+
+<p>     /**</p>
+<ul>
+	<li>Does nothing.<br/>
+@@ -62,13 +63,17 @@<br/>
+     @Override<br/>
+     public int doEndTag() throws JspException {<br/>
+         try {</li>
+</ul>
+<ul class="alternate" type="square">
+	<li>set("href", buildUrl());</li>
+	<li>writeOpenTag(getPageContext().getOut(), "a");<br/>
++            if (enabled) {
++                set("href", buildUrl());
++                writeOpenTag(getPageContext().getOut(), "a");
++            }<br/>
+             String body = getBodyContentAsString();<br/>
+             if (body != null) {
+                 getPageContext().getOut().write(body.trim());
+             }</li>
+	<li>writeCloseTag(getPageContext().getOut(), "a");<br/>
++            if (enabled) {
++                writeCloseTag(getPageContext().getOut(), "a");
++            }<br/>
+         }<br/>
+         catch (IOException ioe) {
+             throw new StripesJspException("IOException while writing output in LinkTag.", ioe);
+@@ -80,6 +85,12 @@
+         return EVAL_PAGE;
+     }</li>
+</ul>
+
+
+<p>+    /** Sets the (optional) flag that indicates if the link is enabled. */<br/>
++    public void setEnabled(boolean enabled) { this.enabled = enabled; }<br/>
++<br/>
++    /** Gets the (optional) flag that indicates if the link is enabled. */<br/>
++    public boolean isEnabled() { return enabled; }<br/>
++<br/>
+     /** Pass through to {@link LinkTagSupport#setUrl(String)}. */<br/>
+     public void   setHref(String href) { setUrl(href); }<br/>
+     /** Pass through to {@link LinkTagSupport#getUrl()}. */<br/>
+Index: resources/stripes.tld<br/>
+===================================================================<br/>
+&#8212; resources/stripes.tld       (revision 608)<br/>
++++ resources/stripes.tld       (working copy)<br/>
+@@ -807,6 +807,16 @@<br/>
+             &lt;type&gt;java.lang.Object&lt;/type&gt;<br/>
+         &lt;/attribute&gt;<br/>
+         &lt;attribute&gt;<br/>
++            &lt;description&gt;<br/>
++                An optional flag indicating whether or not the link should be enabled. If set to<br/>
++                false, the link is considered to be disabled, and the link tags will not be<br/>
++                rendered; the link body will be rendered as plain text.<br/>
++                Default value is true.<br/>
++            &lt;/description&gt;<br/>
++            &lt;name&gt;enabled&lt;/name&gt;&lt;required&gt;false&lt;/required&gt;&lt;rtexprvalue&gt;true&lt;/rtexprvalue&gt;<br/>
++            &lt;type&gt;boolean&lt;/type&gt;<br/>
++        &lt;/attribute&gt;<br/>
++        &lt;attribute&gt;<br/>
+             &lt;description&gt;The character set used to encode the referenced page. (HTML Pass-through)&lt;/description&gt;<br/>
+             &lt;name&gt;charset&lt;/name&gt;&lt;required&gt;false&lt;/required&gt;&lt;rtexprvalue&gt;true&lt;/rtexprvalue&gt;<br/>
+         &lt;/attribute&gt;</p>
+
+<p>What do you think?</p>
+
+<p>Thanks,<br/>
+Freddy</p>
+    </div>
+</div>
+
+
+
+
+
+                    
+                        
+                    
+
+                    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    
+
+
+
+
+
+
+
+
+
+
+                
+
+
+                <div id="activitymodule" class="module toggle-wrap">
+                    <div class="mod-header">
+                        <h3 class="toggle-title">Activity</h3>
+                    </div>
+                    <div class="mod-content">
+                        
+
+
+
+    <div class="tabwrap tabs2">
+        
+            <div class="sortwrap">
+                
+                    <a class="icon icon-sort-down" rel="nofollow" href="/jira/browse/STS-417?actionOrder=desc#issue-tabs" title="Ascending order - Click to sort in descending order"><span>Ascending order - Click to sort in descending order</span></a>
+                
+                
+            </div>
+        
+        <ul id="issue-tabs" class="tabs horizontal">
+        
+            
+            
+                <li><a id="all-tabpanel" href="/jira/browse/STS-417?page=com.atlassian.jira.plugin.system.issuetabpanels%3Aall-tabpanel#issue-tabs"><strong>All</strong></a></li>
+            
+        
+            
+                <li id="comment-tabpanel" class="active"><strong>Comments</strong></li>
+            
+            
+        
+            
+            
+                <li><a id="changehistory-tabpanel" href="/jira/browse/STS-417?page=com.atlassian.jira.plugin.system.issuetabpanels%3Achangehistory-tabpanel#issue-tabs"><strong>History</strong></a></li>
+            
+        
+            
+            
+                <li><a id="activity-stream-issue-tab" href="/jira/browse/STS-417?page=com.atlassian.streams.streams-jira-plugin%3Aactivity-stream-issue-tab#issue-tabs"><strong>Activity</strong></a></li>
+            
+        
+        </ul>
+    </div>
+    
+        <div class="issuePanelContainer" id="issue_actions_container">
+        
+            
+                
+                <div id="comment-10796" class="issue-data-block activity-comment twixi-block expanded">
+    <div class="twixi-wrap verbose actionContainer">
+        <a href="#" class="twixi"><span class="icon twixi-opened"><span>Hide</span></span></a>
+        <div class="action-links">
+            <a href="/jira/browse/STS-417?focusedCommentId=10796&page=com.atlassian.jira.plugin.system.issuetabpanels:comment-tabpanel#comment-10796" title="A permanent link to this comment." class="icon icon-perma"><span>Permalink</span></a>
+                                </div>
+        <div class="action-details">    
+    
+    
+                
+    <a class="user-hover user-avatar" rel="bengunter" style="background-image:url(/jira/secure/useravatar?size=small&ownerId=bengunter&avatarId=10028&loggedout=true);" id="comment_10796_header_bengunter" href="/jira/secure/ViewProfile.jspa?name=bengunter">Ben Gunter</a>
+ added a comment  - <span class=subText><span class=date>11/Sep/07 6:10 AM</span></span>  </div>
+        <div class="action-body flooded"><p>I like it</p> </div>
+    </div>
+    <div class="twixi-wrap concise actionContainer">
+        <a href="#" class="twixi"><span class="icon twixi-closed"><span>Show</span></span></a>
+        <div class="action-details flooded">
+                
+    
+    
+                
+    <a class="user-hover user-avatar" rel="bengunter" style="background-image:url(/jira/secure/useravatar?size=small&ownerId=bengunter&avatarId=10028&loggedout=true);" id="comment_10796_header_bengunter" href="/jira/secure/ViewProfile.jspa?name=bengunter">Ben Gunter</a>
+ added a comment  - <span class=subText><span class=date>11/Sep/07 6:10 AM</span></span>               I like it         </div>
+    </div>
+</div>
+
+                
+            
+                
+                <div id="comment-10797" class="issue-data-block activity-comment twixi-block expanded">
+    <div class="twixi-wrap verbose actionContainer">
+        <a href="#" class="twixi"><span class="icon twixi-opened"><span>Hide</span></span></a>
+        <div class="action-links">
+            <a href="/jira/browse/STS-417?focusedCommentId=10797&page=com.atlassian.jira.plugin.system.issuetabpanels:comment-tabpanel#comment-10797" title="A permanent link to this comment." class="icon icon-perma"><span>Permalink</span></a>
+                                </div>
+        <div class="action-details">    
+    
+    
+                
+    <a class="user-hover user-avatar" rel="bengunter" style="background-image:url(/jira/secure/useravatar?size=small&ownerId=bengunter&avatarId=10028&loggedout=true);" id="comment_10797_header_bengunter" href="/jira/secure/ViewProfile.jspa?name=bengunter">Ben Gunter</a>
+ added a comment  - <span class=subText><span class=date>11/Sep/07 6:23 AM</span></span>  </div>
+        <div class="action-body flooded"><p>There would be issues in how to handle the other tag attributes. E.g., the "class" and/or "style" attributes. If there is no surrounding tag, then how would one apply styles to the text? What about event handlers (onclick, onmouseover, onmouseout, etc)? The text could be enclosed in a &lt;SPAN&gt;&lt;/SPAN&gt; and the HTML pass-through attributes applied to that element. Any problems with that?</p> </div>
+    </div>
+    <div class="twixi-wrap concise actionContainer">
+        <a href="#" class="twixi"><span class="icon twixi-closed"><span>Show</span></span></a>
+        <div class="action-details flooded">
+                
+    
+    
+                
+    <a class="user-hover user-avatar" rel="bengunter" style="background-image:url(/jira/secure/useravatar?size=small&ownerId=bengunter&avatarId=10028&loggedout=true);" id="comment_10797_header_bengunter" href="/jira/secure/ViewProfile.jspa?name=bengunter">Ben Gunter</a>
+ added a comment  - <span class=subText><span class=date>11/Sep/07 6:23 AM</span></span>               There would be issues in how to handle the other tag attributes. E.g., the "class" and/or "style" attributes. If there is no surrounding tag, then how would one apply styles to the text? What about event handlers (onclick, onmouseover, onmouseout, etc)? The text could be enclosed in a &lt;SPAN&gt;&lt;/SPAN&gt; and the HTML pass-through attributes applied to that element. Any problems with that?         </div>
+    </div>
+</div>
+
+                
+            
+                
+                <div id="comment-10798" class="issue-data-block activity-comment twixi-block expanded">
+    <div class="twixi-wrap verbose actionContainer">
+        <a href="#" class="twixi"><span class="icon twixi-opened"><span>Hide</span></span></a>
+        <div class="action-links">
+            <a href="/jira/browse/STS-417?focusedCommentId=10798&page=com.atlassian.jira.plugin.system.issuetabpanels:comment-tabpanel#comment-10798" title="A permanent link to this comment." class="icon icon-perma"><span>Permalink</span></a>
+                                </div>
+        <div class="action-details">    
+    
+    
+                
+    <a class="user-hover user-avatar" rel="fdaoud" style="background-image:url(/jira/secure/useravatar?size=small&ownerId=fdaoud&avatarId=10028&loggedout=true);" id="comment_10798_header_fdaoud" href="/jira/secure/ViewProfile.jspa?name=fdaoud">Frederic Daoud</a>
+ added a comment  - <span class=subText><span class=date>11/Sep/07 6:52 AM</span></span>  </div>
+        <div class="action-body flooded"><p>That's a good point.</p>
+
+<p>Seems to me that replacing &lt;a&gt;&lt;/a&gt; by &lt;span&gt;&lt;/span&gt; with the same attributes, as you suggest, would work.<br/>
+Definitely better than only removing the &lt;a&gt;&lt;/a&gt; altogether.</p>
+
+<p>Good stuff.</p>
+
+<p>Thanks,<br/>
+Freddy</p> </div>
+    </div>
+    <div class="twixi-wrap concise actionContainer">
+        <a href="#" class="twixi"><span class="icon twixi-closed"><span>Show</span></span></a>
+        <div class="action-details flooded">
+                
+    
+    
+                
+    <a class="user-hover user-avatar" rel="fdaoud" style="background-image:url(/jira/secure/useravatar?size=small&ownerId=fdaoud&avatarId=10028&loggedout=true);" id="comment_10798_header_fdaoud" href="/jira/secure/ViewProfile.jspa?name=fdaoud">Frederic Daoud</a>
+ added a comment  - <span class=subText><span class=date>11/Sep/07 6:52 AM</span></span>               That's a good point.
+
+Seems to me that replacing &lt;a&gt;&lt;/a&gt; by &lt;span&gt;&lt;/span&gt; with the same attributes, as you suggest, would work.
+Definitely better than only removing the &lt;a&gt;&lt;/a&gt; altogether.
+
+Good stuff.
+
+Thanks,
+Freddy         </div>
+    </div>
+</div>
+
+                
+            
+                
+                <div id="comment-10799" class="issue-data-block activity-comment twixi-block expanded">
+    <div class="twixi-wrap verbose actionContainer">
+        <a href="#" class="twixi"><span class="icon twixi-opened"><span>Hide</span></span></a>
+        <div class="action-links">
+            <a href="/jira/browse/STS-417?focusedCommentId=10799&page=com.atlassian.jira.plugin.system.issuetabpanels:comment-tabpanel#comment-10799" title="A permanent link to this comment." class="icon icon-perma"><span>Permalink</span></a>
+                                </div>
+        <div class="action-details">    
+    
+    
+                
+    <a class="user-hover user-avatar" rel="fdaoud" style="background-image:url(/jira/secure/useravatar?size=small&ownerId=fdaoud&avatarId=10028&loggedout=true);" id="comment_10799_header_fdaoud" href="/jira/secure/ViewProfile.jspa?name=fdaoud">Frederic Daoud</a>
+ added a comment  - <span class=subText><span class=date>11/Sep/07 7:00 AM</span></span>  </div>
+        <div class="action-body flooded"><p>The code in LinkTag.java becomes:</p>
+
+<p>            String tag = (enabled) ? "a" : "span";<br/>
+            if (enabled) {
+                set("href", buildUrl());
+            }<br/>
+            writeOpenTag(getPageContext().getOut(), tag);<br/>
+            String body = getBodyContentAsString();<br/>
+            if (body != null) {
+                getPageContext().getOut().write(body.trim());
+            }<br/>
+            writeCloseTag(getPageContext().getOut(), tag);</p> </div>
+    </div>
+    <div class="twixi-wrap concise actionContainer">
+        <a href="#" class="twixi"><span class="icon twixi-closed"><span>Show</span></span></a>
+        <div class="action-details flooded">
+                
+    
+    
+                
+    <a class="user-hover user-avatar" rel="fdaoud" style="background-image:url(/jira/secure/useravatar?size=small&ownerId=fdaoud&avatarId=10028&loggedout=true);" id="comment_10799_header_fdaoud" href="/jira/secure/ViewProfile.jspa?name=fdaoud">Frederic Daoud</a>
+ added a comment  - <span class=subText><span class=date>11/Sep/07 7:00 AM</span></span>               The code in LinkTag.java becomes:
+
+            String tag = (enabled) ? "a" : "span";
+            if (enabled) {
+                set("href", buildUrl());
+            }
+            writeOpenTag(getPageContext().getOut(), tag);
+            String body = getBodyContentAsString();
+            if (body != null) {
+                getPageContext().getOut().write(body.trim());
+            }
+            writeCloseTag(getPageContext().getOut(), tag);         </div>
+    </div>
+</div>
+
+                
+            
+                
+                <div id="comment-10800" class="issue-data-block activity-comment twixi-block expanded">
+    <div class="twixi-wrap verbose actionContainer">
+        <a href="#" class="twixi"><span class="icon twixi-opened"><span>Hide</span></span></a>
+        <div class="action-links">
+            <a href="/jira/browse/STS-417?focusedCommentId=10800&page=com.atlassian.jira.plugin.system.issuetabpanels:comment-tabpanel#comment-10800" title="A permanent link to this comment." class="icon icon-perma"><span>Permalink</span></a>
+                                </div>
+        <div class="action-details">    
+    
+    
+                
+    <a class="user-hover user-avatar" rel="nstuart" style="background-image:url(/jira/secure/useravatar?size=small&ownerId=nstuart&avatarId=10017&loggedout=true);" id="comment_10800_header_nstuart" href="/jira/secure/ViewProfile.jspa?name=nstuart">Nick Stuart</a>
+ added a comment  - <span class=subText><span class=date>11/Sep/07 7:13 AM</span></span>  </div>
+        <div class="action-body flooded"><p>I can think of one problem with still allowing the javascript to still be functioning. Some times the links are just JS calls (ajax or whatever), so if we disable them I would want everything disabled, no onclick or anything.</p>
+
+<p>Just a thought. Still should have the &lt;a&gt; for styling the links, but should remove all the functionality not just the href.</p> </div>
+    </div>
+    <div class="twixi-wrap concise actionContainer">
+        <a href="#" class="twixi"><span class="icon twixi-closed"><span>Show</span></span></a>
+        <div class="action-details flooded">
+                
+    
+    
+                
+    <a class="user-hover user-avatar" rel="nstuart" style="background-image:url(/jira/secure/useravatar?size=small&ownerId=nstuart&avatarId=10017&loggedout=true);" id="comment_10800_header_nstuart" href="/jira/secure/ViewProfile.jspa?name=nstuart">Nick Stuart</a>
+ added a comment  - <span class=subText><span class=date>11/Sep/07 7:13 AM</span></span>               I can think of one problem with still allowing the javascript to still be functioning. Some times the links are just JS calls (ajax or whatever), so if we disable them I would want everything disabled, no onclick or anything.
+
+Just a thought. Still should have the &lt;a&gt; for styling the links, but should remove all the functionality not just the href.         </div>
+    </div>
+</div>
+
+                
+            
+                
+                <div id="comment-10801" class="issue-data-block activity-comment twixi-block expanded">
+    <div class="twixi-wrap verbose actionContainer">
+        <a href="#" class="twixi"><span class="icon twixi-opened"><span>Hide</span></span></a>
+        <div class="action-links">
+            <a href="/jira/browse/STS-417?focusedCommentId=10801&page=com.atlassian.jira.plugin.system.issuetabpanels:comment-tabpanel#comment-10801" title="A permanent link to this comment." class="icon icon-perma"><span>Permalink</span></a>
+                                </div>
+        <div class="action-details">    
+    
+    
+                
+    <a class="user-hover user-avatar" rel="fdaoud" style="background-image:url(/jira/secure/useravatar?size=small&ownerId=fdaoud&avatarId=10028&loggedout=true);" id="comment_10801_header_fdaoud" href="/jira/secure/ViewProfile.jspa?name=fdaoud">Frederic Daoud</a>
+ added a comment  - <span class=subText><span class=date>11/Sep/07 7:45 AM</span></span>  </div>
+        <div class="action-body flooded"><p>I see what you mean. How do we determine which attributes to keep and which to remove for a disabled link?<br/>
+However, I would still replace &lt;a&gt; by &lt;span&gt;.</p> </div>
+    </div>
+    <div class="twixi-wrap concise actionContainer">
+        <a href="#" class="twixi"><span class="icon twixi-closed"><span>Show</span></span></a>
+        <div class="action-details flooded">
+                
+    
+    
+                
+    <a class="user-hover user-avatar" rel="fdaoud" style="background-image:url(/jira/secure/useravatar?size=small&ownerId=fdaoud&avatarId=10028&loggedout=true);" id="comment_10801_header_fdaoud" href="/jira/secure/ViewProfile.jspa?name=fdaoud">Frederic Daoud</a>
+ added a comment  - <span class=subText><span class=date>11/Sep/07 7:45 AM</span></span>               I see what you mean. How do we determine which attributes to keep and which to remove for a disabled link?
+However, I would still replace &lt;a&gt; by &lt;span&gt;.         </div>
+    </div>
+</div>
+
+                
+            
+                
+                <div id="comment-10802" class="issue-data-block activity-comment twixi-block expanded">
+    <div class="twixi-wrap verbose actionContainer">
+        <a href="#" class="twixi"><span class="icon twixi-opened"><span>Hide</span></span></a>
+        <div class="action-links">
+            <a href="/jira/browse/STS-417?focusedCommentId=10802&page=com.atlassian.jira.plugin.system.issuetabpanels:comment-tabpanel#comment-10802" title="A permanent link to this comment." class="icon icon-perma"><span>Permalink</span></a>
+                                </div>
+        <div class="action-details">    
+    
+    
+                
+    <a class="user-hover user-avatar" rel="machak" style="background-image:url(/jira/secure/useravatar?size=small&ownerId=machak&avatarId=10028&loggedout=true);" id="comment_10802_header_machak" href="/jira/secure/ViewProfile.jspa?name=machak">m.j.milicevic</a>
+ added a comment  - <span class=subText><span class=date>11/Sep/07 7:58 AM</span></span>  </div>
+        <div class="action-body flooded"><p>well, I would say, keep it simple (eg. remove all attributes except styling)<br/>
+I can even think of lot of situations where you don't want to display any text at all.<br/>
+For more specific stuff, there's always workaround... (jstl etc)</p> </div>
+    </div>
+    <div class="twixi-wrap concise actionContainer">
+        <a href="#" class="twixi"><span class="icon twixi-closed"><span>Show</span></span></a>
+        <div class="action-details flooded">
+                
+    
+    
+                
+    <a class="user-hover user-avatar" rel="machak" style="background-image:url(/jira/secure/useravatar?size=small&ownerId=machak&avatarId=10028&loggedout=true);" id="comment_10802_header_machak" href="/jira/secure/ViewProfile.jspa?name=machak">m.j.milicevic</a>
+ added a comment  - <span class=subText><span class=date>11/Sep/07 7:58 AM</span></span>               well, I would say, keep it simple (eg. remove all attributes except styling)
+I can even think of lot of situations where you don't want to display any text at all.
+For more specific stuff, there's always workaround... (jstl etc)         </div>
+    </div>
+</div>
+
+                
+            
+                
+                <div id="comment-10803" class="issue-data-block activity-comment twixi-block expanded">
+    <div class="twixi-wrap verbose actionContainer">
+        <a href="#" class="twixi"><span class="icon twixi-opened"><span>Hide</span></span></a>
+        <div class="action-links">
+            <a href="/jira/browse/STS-417?focusedCommentId=10803&page=com.atlassian.jira.plugin.system.issuetabpanels:comment-tabpanel#comment-10803" title="A permanent link to this comment." class="icon icon-perma"><span>Permalink</span></a>
+                                </div>
+        <div class="action-details">    
+    
+    
+                
+    <a class="user-hover user-avatar" rel="rtgacki" style="background-image:url(/jira/secure/useravatar?size=small&ownerId=rtgacki&avatarId=10028&loggedout=true);" id="comment_10803_header_rtgacki" href="/jira/secure/ViewProfile.jspa?name=rtgacki">Robert Gacki</a>
+ added a comment  - <span class=subText><span class=date>12/Sep/07 1:15 AM</span></span>  </div>
+        <div class="action-body flooded"><p>From a users point of view, I have some notes:</p>
+
+<p>What is about...</p>
+
+<p>&lt;c:if test="${user.allowed}" &gt;<br/>
+&lt;s:link....&gt;&lt;/s:link&gt;<br/>
+&lt;/c:if&gt;<br/>
+&lt;c:if test="${!user.allowed}" &gt;<br/>
+&lt;span....&gt;&lt;/span&gt;<br/>
+&lt;/c:if&gt;</p>
+
+<p>Or think about how often a list of links is rendered by a HTML-list? Then you'd like to write a span into the &lt;li&gt;. Why?</p>
+
+<p>And I totally agree to Nicholas. JS would query this functionality, too. Like:</p>
+
+<p>&lt;s:link href="/my/Action.jspa" oncklick="useTheLinkForSth(this.href);return false"&gt;...&lt;/a&gt;</p> </div>
+    </div>
+    <div class="twixi-wrap concise actionContainer">
+        <a href="#" class="twixi"><span class="icon twixi-closed"><span>Show</span></span></a>
+        <div class="action-details flooded">
+                
+    
+    
+                
+    <a class="user-hover user-avatar" rel="rtgacki" style="background-image:url(/jira/secure/useravatar?size=small&ownerId=rtgacki&avatarId=10028&loggedout=true);" id="comment_10803_header_rtgacki" href="/jira/secure/ViewProfile.jspa?name=rtgacki">Robert Gacki</a>
+ added a comment  - <span class=subText><span class=date>12/Sep/07 1:15 AM</span></span>               From a users point of view, I have some notes:
+
+What is about...
+
+&lt;c:if test="${user.allowed}" &gt;
+&lt;s:link....&gt;&lt;/s:link&gt;
+&lt;/c:if&gt;
+&lt;c:if test="${!user.allowed}" &gt;
+&lt;span....&gt;&lt;/span&gt;
+&lt;/c:if&gt;
+
+Or think about how often a list of links is rendered by a HTML-list? Then you'd like to write a span into the &lt;li&gt;. Why?
+
+And I totally agree to Nicholas. JS would query this functionality, too. Like:
+
+&lt;s:link href="/my/Action.jspa" oncklick="useTheLinkForSth(this.href);return false"&gt;...&lt;/a&gt;         </div>
+    </div>
+</div>
+
+                
+            
+                
+                <div id="comment-10804" class="issue-data-block activity-comment twixi-block expanded">
+    <div class="twixi-wrap verbose actionContainer">
+        <a href="#" class="twixi"><span class="icon twixi-opened"><span>Hide</span></span></a>
+        <div class="action-links">
+            <a href="/jira/browse/STS-417?focusedCommentId=10804&page=com.atlassian.jira.plugin.system.issuetabpanels:comment-tabpanel#comment-10804" title="A permanent link to this comment." class="icon icon-perma"><span>Permalink</span></a>
+                                </div>
+        <div class="action-details">    
+    
+    
+                
+    <a class="user-hover user-avatar" rel="machak" style="background-image:url(/jira/secure/useravatar?size=small&ownerId=machak&avatarId=10028&loggedout=true);" id="comment_10804_header_machak" href="/jira/secure/ViewProfile.jspa?name=machak">m.j.milicevic</a>
+ added a comment  - <span class=subText><span class=date>12/Sep/07 2:02 AM</span></span>  </div>
+        <div class="action-body flooded"><p>"Or think about how often a list of links is rendered by a HTML-list? Then you'd like to write a span into the &lt;li&gt;. Why?"</p>
+
+<p>bit offtopic but this is used  quite often, one example you'll often find is when you are using image replacement<br/>
+( see <a href="http://www.alistapart.com/articles/fir/">http://www.alistapart.com/articles/fir/</a> )</p>
+
+<p>simple, not so useful  example:</p>
+
+<p>ul span {float:left; display:block; width:20px; height:20px;}<br/>
+ul li.nl span{background:url('us.gif') no-repeat top left;}<br/>
+ul li.en span{background:url('en.gif') no-repeat top left;}</p>
+
+<p>&lt;ul&gt;<br/>
+&lt;li class="us"&gt;&lt;span&gt;united states&lt;/span&gt;&lt;/li&gt;<br/>
+&lt;li class="en"&gt;&lt;span&gt;england&lt;/span&gt;&lt;/li&gt;<br/>
+&lt;/ul&gt;</p>
+
+ </div>
+    </div>
+    <div class="twixi-wrap concise actionContainer">
+        <a href="#" class="twixi"><span class="icon twixi-closed"><span>Show</span></span></a>
+        <div class="action-details flooded">
+                
+    
+    
+                
+    <a class="user-hover user-avatar" rel="machak" style="background-image:url(/jira/secure/useravatar?size=small&ownerId=machak&avatarId=10028&loggedout=true);" id="comment_10804_header_machak" href="/jira/secure/ViewProfile.jspa?name=machak">m.j.milicevic</a>
+ added a comment  - <span class=subText><span class=date>12/Sep/07 2:02 AM</span></span>               "Or think about how often a list of links is rendered by a HTML-list? Then you'd like to write a span into the &lt;li&gt;. Why?"
+
+bit offtopic but this is used  quite often, one example you'll often find is when you are using image replacement
+( see <a href="http://www.alistapart.com/articles/fir/">http://www.alistapart.com/articles/fir/</a> )
+
+simple, not so useful  example:
+
+ul span {float:left; display:block; width:20px; height:20px;}
+ul li.nl span{background:url('us.gif') no-repeat top left;}
+ul li.en span{background:url('en.gif') no-repeat top left;}
+
+&lt;ul&gt;
+&lt;li class="us"&gt;&lt;span&gt;united states&lt;/span&gt;&lt;/li&gt;
+&lt;li class="en"&gt;&lt;span&gt;england&lt;/span&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+         </div>
+    </div>
+</div>
+
+                
+            
+                
+                <div id="comment-10805" class="issue-data-block activity-comment twixi-block expanded">
+    <div class="twixi-wrap verbose actionContainer">
+        <a href="#" class="twixi"><span class="icon twixi-opened"><span>Hide</span></span></a>
+        <div class="action-links">
+            <a href="/jira/browse/STS-417?focusedCommentId=10805&page=com.atlassian.jira.plugin.system.issuetabpanels:comment-tabpanel#comment-10805" title="A permanent link to this comment." class="icon icon-perma"><span>Permalink</span></a>
+                                </div>
+        <div class="action-details">    
+    
+    
+                
+    <a class="user-hover user-avatar" rel="fdaoud" style="background-image:url(/jira/secure/useravatar?size=small&ownerId=fdaoud&avatarId=10028&loggedout=true);" id="comment_10805_header_fdaoud" href="/jira/secure/ViewProfile.jspa?name=fdaoud">Frederic Daoud</a>
+ added a comment  - <span class=subText><span class=date>12/Sep/07 5:34 AM</span></span>  </div>
+        <div class="action-body flooded"><p>"What is about..."</p>
+
+<p>&lt;c:if test="${user.allowed}" &gt;<br/>
+&lt;s:link....&gt;&lt;/s:link&gt;<br/>
+&lt;/c:if&gt;<br/>
+&lt;c:if test="${!user.allowed}" &gt;<br/>
+&lt;span....&gt;&lt;/span&gt;<br/>
+&lt;/c:if&gt;</p>
+
+<p>That's exactly what enabled="" would be for, so that you do NOT write this kind of repetitive code.</p> </div>
+    </div>
+    <div class="twixi-wrap concise actionContainer">
+        <a href="#" class="twixi"><span class="icon twixi-closed"><span>Show</span></span></a>
+        <div class="action-details flooded">
+                
+    
+    
+                
+    <a class="user-hover user-avatar" rel="fdaoud" style="background-image:url(/jira/secure/useravatar?size=small&ownerId=fdaoud&avatarId=10028&loggedout=true);" id="comment_10805_header_fdaoud" href="/jira/secure/ViewProfile.jspa?name=fdaoud">Frederic Daoud</a>
+ added a comment  - <span class=subText><span class=date>12/Sep/07 5:34 AM</span></span>               "What is about..."
+
+&lt;c:if test="${user.allowed}" &gt;
+&lt;s:link....&gt;&lt;/s:link&gt;
+&lt;/c:if&gt;
+&lt;c:if test="${!user.allowed}" &gt;
+&lt;span....&gt;&lt;/span&gt;
+&lt;/c:if&gt;
+
+That's exactly what enabled="" would be for, so that you do NOT write this kind of repetitive code.         </div>
+    </div>
+</div>
+
+                
+            
+                
+                <div id="comment-10806" class="issue-data-block activity-comment twixi-block expanded">
+    <div class="twixi-wrap verbose actionContainer">
+        <a href="#" class="twixi"><span class="icon twixi-opened"><span>Hide</span></span></a>
+        <div class="action-links">
+            <a href="/jira/browse/STS-417?focusedCommentId=10806&page=com.atlassian.jira.plugin.system.issuetabpanels:comment-tabpanel#comment-10806" title="A permanent link to this comment." class="icon icon-perma"><span>Permalink</span></a>
+                                </div>
+        <div class="action-details">    
+    
+    
+                
+    <a class="user-hover user-avatar" rel="rtgacki" style="background-image:url(/jira/secure/useravatar?size=small&ownerId=rtgacki&avatarId=10028&loggedout=true);" id="comment_10806_header_rtgacki" href="/jira/secure/ViewProfile.jspa?name=rtgacki">Robert Gacki</a>
+ added a comment  - <span class=subText><span class=date>12/Sep/07 7:21 AM</span></span>  </div>
+        <div class="action-body flooded"><p>The point is: As a &lt;a&gt;-replacement (prepend the context...), the LinkTag should be as clean as possible. So if I need this disabling-functionality, I just create a custom Tag which extends LinkTag or the LinkTagSupport.<br/>
+I meant that because I (as a user) see Stripes as a basic MVC tool. In my eyes, you limit usability if you add complexity. Okay, that enable/disable-parameter is simple. But what if I do not want to have a &lt;span&gt; to be rendered if I use this parameter? So I'll need another parameter to set the html-tag (like a div) being used if link is disabled or I need to fall back to the c:if-way again. And then think about a team of frontend-developers where each developer uses another approach.....</p>
+
+<p>I suggest to create another tag (linkButton...,) eg. in a extended taglib. That taglib then may contain more complex components like datetime-fields or such link-generators with higher logic then just rendering html like expected......</p>
+
+<p>And sorry, if I create so much noise about this little request. But I really love the simplicity of Stripes and see problems where you begin to add complexity to the base functionality. <img class="emoticon" src="/jira/images/icons/emoticons/wink.gif" height="20" width="20" align="absmiddle" alt="" border="0"/></p> </div>
+    </div>
+    <div class="twixi-wrap concise actionContainer">
+        <a href="#" class="twixi"><span class="icon twixi-closed"><span>Show</span></span></a>
+        <div class="action-details flooded">
+                
+    
+    
+                
+    <a class="user-hover user-avatar" rel="rtgacki" style="background-image:url(/jira/secure/useravatar?size=small&ownerId=rtgacki&avatarId=10028&loggedout=true);" id="comment_10806_header_rtgacki" href="/jira/secure/ViewProfile.jspa?name=rtgacki">Robert Gacki</a>
+ added a comment  - <span class=subText><span class=date>12/Sep/07 7:21 AM</span></span>               The point is: As a &lt;a&gt;-replacement (prepend the context...), the LinkTag should be as clean as possible. So if I need this disabling-functionality, I just create a custom Tag which extends LinkTag or the LinkTagSupport.
+I meant that because I (as a user) see Stripes as a basic MVC tool. In my eyes, you limit usability if you add complexity. Okay, that enable/disable-parameter is simple. But what if I do not want to have a &lt;span&gt; to be rendered if I use this parameter? So I'll need another parameter to set the html-tag (like a div) being used if link is disabled or I need to fall back to the c:if-way again. And then think about a team of frontend-developers where each developer uses another approach.....
+
+I suggest to create another tag (linkButton...,) eg. in a extended taglib. That taglib then may contain more complex components like datetime-fields or such link-generators with higher logic then just rendering html like expected......
+
+And sorry, if I create so much noise about this little request. But I really love the simplicity of Stripes and see problems where you begin to add complexity to the base functionality. <img class="emoticon" src="/jira/images/icons/emoticons/wink.gif" height="20" width="20" align="absmiddle" alt="" border="0"/>         </div>
+    </div>
+</div>
+
+                
+            
+                
+                <div id="comment-10807" class="issue-data-block activity-comment twixi-block expanded">
+    <div class="twixi-wrap verbose actionContainer">
+        <a href="#" class="twixi"><span class="icon twixi-opened"><span>Hide</span></span></a>
+        <div class="action-links">
+            <a href="/jira/browse/STS-417?focusedCommentId=10807&page=com.atlassian.jira.plugin.system.issuetabpanels:comment-tabpanel#comment-10807" title="A permanent link to this comment." class="icon icon-perma"><span>Permalink</span></a>
+                                </div>
+        <div class="action-details">    
+    
+    
+                
+    <a class="user-hover user-avatar" rel="fdaoud" style="background-image:url(/jira/secure/useravatar?size=small&ownerId=fdaoud&avatarId=10028&loggedout=true);" id="comment_10807_header_fdaoud" href="/jira/secure/ViewProfile.jspa?name=fdaoud">Frederic Daoud</a>
+ added a comment  - <span class=subText><span class=date>12/Sep/07 9:13 AM</span></span>  </div>
+        <div class="action-body flooded"><p>I understand what you are saying, but I still think it would be a useful feature.</p>
+
+<ul class="alternate" type="square">
+	<li>The enabled tag is optional, so would not limit usability.</li>
+	<li>Does not affect backward compatibility.</li>
+	<li>I don't think it adds complexity, it's just a boolean value.</li>
+	<li>I think &lt;span&gt; is a good option, more flexible than &lt;div&gt; as &lt;div&gt; by default is a block, will not render side-by-side.</li>
+	<li>I think the basic implementation will help in the majority of use cases.</li>
+	<li>For those use cases where it does not do what you want, you can just use a different way of getting the desired result.</li>
+</ul>
+
+
+<p>Best regards,<br/>
+Freddy</p> </div>
+    </div>
+    <div class="twixi-wrap concise actionContainer">
+        <a href="#" class="twixi"><span class="icon twixi-closed"><span>Show</span></span></a>
+        <div class="action-details flooded">
+                
+    
+    
+                
+    <a class="user-hover user-avatar" rel="fdaoud" style="background-image:url(/jira/secure/useravatar?size=small&ownerId=fdaoud&avatarId=10028&loggedout=true);" id="comment_10807_header_fdaoud" href="/jira/secure/ViewProfile.jspa?name=fdaoud">Frederic Daoud</a>
+ added a comment  - <span class=subText><span class=date>12/Sep/07 9:13 AM</span></span>               I understand what you are saying, but I still think it would be a useful feature.
+
+<ul class="alternate" type="square">
+	<li>The enabled tag is optional, so would not limit usability.</li>
+	<li>Does not affect backward compatibility.</li>
+	<li>I don't think it adds complexity, it's just a boolean value.</li>
+	<li>I think &lt;span&gt; is a good option, more flexible than &lt;div&gt; as &lt;div&gt; by default is a block, will not render side-by-side.</li>
+	<li>I think the basic implementation will help in the majority of use cases.</li>
+	<li>For those use cases where it does not do what you want, you can just use a different way of getting the desired result.</li>
+</ul>
+
+
+Best regards,
+Freddy         </div>
+    </div>
+</div>
+
+                
+            
+                
+                <div id="comment-10808" class="issue-data-block activity-comment twixi-block expanded">
+    <div class="twixi-wrap verbose actionContainer">
+        <a href="#" class="twixi"><span class="icon twixi-opened"><span>Hide</span></span></a>
+        <div class="action-links">
+            <a href="/jira/browse/STS-417?focusedCommentId=10808&page=com.atlassian.jira.plugin.system.issuetabpanels:comment-tabpanel#comment-10808" title="A permanent link to this comment." class="icon icon-perma"><span>Permalink</span></a>
+                                </div>
+        <div class="action-details">    
+    
+    
+                
+    <a class="user-hover user-avatar" rel="nstuart" style="background-image:url(/jira/secure/useravatar?size=small&ownerId=nstuart&avatarId=10017&loggedout=true);" id="comment_10808_header_nstuart" href="/jira/secure/ViewProfile.jspa?name=nstuart">Nick Stuart</a>
+ added a comment  - <span class=subText><span class=date>12/Sep/07 9:48 AM</span></span>  </div>
+        <div class="action-body flooded"><p>Is there any reason why we couldn't just leave it inside in essientaly empty 'a' tag? This would be the easist solution on from both the stripes implementation and frontend development concerns.</p>
+
+<p>Any one have any reasons why this wouldn't be a good idea?</p> </div>
+    </div>
+    <div class="twixi-wrap concise actionContainer">
+        <a href="#" class="twixi"><span class="icon twixi-closed"><span>Show</span></span></a>
+        <div class="action-details flooded">
+                
+    
+    
+                
+    <a class="user-hover user-avatar" rel="nstuart" style="background-image:url(/jira/secure/useravatar?size=small&ownerId=nstuart&avatarId=10017&loggedout=true);" id="comment_10808_header_nstuart" href="/jira/secure/ViewProfile.jspa?name=nstuart">Nick Stuart</a>
+ added a comment  - <span class=subText><span class=date>12/Sep/07 9:48 AM</span></span>               Is there any reason why we couldn't just leave it inside in essientaly empty 'a' tag? This would be the easist solution on from both the stripes implementation and frontend development concerns.
+
+Any one have any reasons why this wouldn't be a good idea?         </div>
+    </div>
+</div>
+
+                
+            
+                
+                <div id="comment-10809" class="issue-data-block activity-comment twixi-block expanded">
+    <div class="twixi-wrap verbose actionContainer">
+        <a href="#" class="twixi"><span class="icon twixi-opened"><span>Hide</span></span></a>
+        <div class="action-links">
+            <a href="/jira/browse/STS-417?focusedCommentId=10809&page=com.atlassian.jira.plugin.system.issuetabpanels:comment-tabpanel#comment-10809" title="A permanent link to this comment." class="icon icon-perma"><span>Permalink</span></a>
+                                </div>
+        <div class="action-details">    
+    
+    
+                
+    <a class="user-hover user-avatar" rel="fdaoud" style="background-image:url(/jira/secure/useravatar?size=small&ownerId=fdaoud&avatarId=10028&loggedout=true);" id="comment_10809_header_fdaoud" href="/jira/secure/ViewProfile.jspa?name=fdaoud">Frederic Daoud</a>
+ added a comment  - <span class=subText><span class=date>12/Sep/07 11:02 AM</span></span>  </div>
+        <div class="action-body flooded"><p>Sounds like a good idea to me. Not sure if there would be any issues...?<br/>
+Indeed &lt;a&gt;Some text&lt;/a&gt; renders as plain text (not a clickable link).<br/>
+However, as Ben mentioned earlier, there might be some attributes that we would like to keep?<br/>
+Such as class=""? Perhaps others?</p>
+ </div>
+    </div>
+    <div class="twixi-wrap concise actionContainer">
+        <a href="#" class="twixi"><span class="icon twixi-closed"><span>Show</span></span></a>
+        <div class="action-details flooded">
+                
+    
+    
+                
+    <a class="user-hover user-avatar" rel="fdaoud" style="background-image:url(/jira/secure/useravatar?size=small&ownerId=fdaoud&avatarId=10028&loggedout=true);" id="comment_10809_header_fdaoud" href="/jira/secure/ViewProfile.jspa?name=fdaoud">Frederic Daoud</a>
+ added a comment  - <span class=subText><span class=date>12/Sep/07 11:02 AM</span></span>               Sounds like a good idea to me. Not sure if there would be any issues...?
+Indeed &lt;a&gt;Some text&lt;/a&gt; renders as plain text (not a clickable link).
+However, as Ben mentioned earlier, there might be some attributes that we would like to keep?
+Such as class=""? Perhaps others?
+         </div>
+    </div>
+</div>
+
+                
+            
+                
+                <div id="comment-10810" class="issue-data-block activity-comment twixi-block expanded">
+    <div class="twixi-wrap verbose actionContainer">
+        <a href="#" class="twixi"><span class="icon twixi-opened"><span>Hide</span></span></a>
+        <div class="action-links">
+            <a href="/jira/browse/STS-417?focusedCommentId=10810&page=com.atlassian.jira.plugin.system.issuetabpanels:comment-tabpanel#comment-10810" title="A permanent link to this comment." class="icon icon-perma"><span>Permalink</span></a>
+                                </div>
+        <div class="action-details">    
+    
+    
+                
+    <a class="user-hover user-avatar" rel="ave!" style="background-image:url(/jira/secure/useravatar?size=small&ownerId=ave%21&avatarId=10028&loggedout=true);" id="comment_10810_header_ave!" href="/jira/secure/ViewProfile.jspa?name=ave%21">Iwao AVE!</a>
+ added a comment  - <span class=subText><span class=date>12/Sep/07 7:59 PM</span></span>  </div>
+        <div class="action-body flooded"><p>Replacing &lt;a/&gt; with &lt;span/&gt; is essential to this feature, I think.<br/>
+Here's my thoughts.</p>
+
+<p>About html attributes, only 'id', 'class' and 'style' should be kept.<br/>
+There are many &lt;a/&gt; specific attributes and removing them one by one might be wasting.</p>
+
+<p>The first reason why I want to keep the class attribute is because I can reduce my task by defining styles like the following.<br/>
+It will benefit many of us.</p>
+
+<p>a.linkToSomewhere {<br/>
+  color: blue;<br/>
+}<br/>
+span.linkToSomewhere {<br/>
+  color: #999;<br/>
+}</p>
+
+<p>The second reason is that it would work very well with prototype's $$() or getElementsBySelector.<br/>
+i.e.<br/>
+$$('a.linkToSomewhere')<br/>
+$$('span.linkToSomewhere')</p>
+
+<p>For style attributes, I want to keep it because I sometimes do some minor adjustment (margin, padding, etc.) for one particular tag and I will need them even if the link function is disabled.</p>
+
+<p>I also think event handlers should be removed.<br/>
+We can still use prototype to add event handlers as long as the tag has the same ID [ Event.observe($('elementId'), 'click', xxx); ].</p>
+
+<p>What do you think?</p> </div>
+    </div>
+    <div class="twixi-wrap concise actionContainer">
+        <a href="#" class="twixi"><span class="icon twixi-closed"><span>Show</span></span></a>
+        <div class="action-details flooded">
+                
+    
+    
+                
+    <a class="user-hover user-avatar" rel="ave!" style="background-image:url(/jira/secure/useravatar?size=small&ownerId=ave%21&avatarId=10028&loggedout=true);" id="comment_10810_header_ave!" href="/jira/secure/ViewProfile.jspa?name=ave%21">Iwao AVE!</a>
+ added a comment  - <span class=subText><span class=date>12/Sep/07 7:59 PM</span></span>               Replacing &lt;a/&gt; with &lt;span/&gt; is essential to this feature, I think.
+Here's my thoughts.
+
+About html attributes, only 'id', 'class' and 'style' should be kept.
+There are many &lt;a/&gt; specific attributes and removing them one by one might be wasting.
+
+The first reason why I want to keep the class attribute is because I can reduce my task by defining styles like the following.
+It will benefit many of us.
+
+a.linkToSomewhere {
+  color: blue;
+}
+span.linkToSomewhere {
+  color: #999;
+}
+
+The second reason is that it would work very well with prototype's $$() or getElementsBySelector.
+i.e.
+$$('a.linkToSomewhere')
+$$('span.linkToSomewhere')
+
+For style attributes, I want to keep it because I sometimes do some minor adjustment (margin, padding, etc.) for one particular tag and I will need them even if the link function is disabled.
+
+I also think event handlers should be removed.
+We can still use prototype to add event handlers as long as the tag has the same ID [ Event.observe($('elementId'), 'click', xxx); ].
+
+What do you think?         </div>
+    </div>
+</div>
+
+                
+            
+                
+                <div id="comment-10811" class="issue-data-block activity-comment twixi-block expanded">
+    <div class="twixi-wrap verbose actionContainer">
+        <a href="#" class="twixi"><span class="icon twixi-opened"><span>Hide</span></span></a>
+        <div class="action-links">
+            <a href="/jira/browse/STS-417?focusedCommentId=10811&page=com.atlassian.jira.plugin.system.issuetabpanels:comment-tabpanel#comment-10811" title="A permanent link to this comment." class="icon icon-perma"><span>Permalink</span></a>
+                                </div>
+        <div class="action-details">    
+    
+    
+                
+    <a class="user-hover user-avatar" rel="machak" style="background-image:url(/jira/secure/useravatar?size=small&ownerId=machak&avatarId=10028&loggedout=true);" id="comment_10811_header_machak" href="/jira/secure/ViewProfile.jspa?name=machak">m.j.milicevic</a>
+ added a comment  - <span class=subText><span class=date>13/Sep/07 1:08 AM</span></span>  </div>
+        <div class="action-body flooded"><p>$$('linkToSomewhere').addEvent('click', doSomeAjaxcall());  <img class="emoticon" src="/jira/images/icons/emoticons/wink.gif" height="20" width="20" align="absmiddle" alt="" border="0"/></p>
+
+<p>without joking, <br/>
+suggestion to leave link tag as it is, and making different one for these kind of situations is maybe not so bad idea after all..</p> </div>
+    </div>
+    <div class="twixi-wrap concise actionContainer">
+        <a href="#" class="twixi"><span class="icon twixi-closed"><span>Show</span></span></a>
+        <div class="action-details flooded">
+                
+    
+    
+                
+    <a class="user-hover user-avatar" rel="machak" style="background-image:url(/jira/secure/useravatar?size=small&ownerId=machak&avatarId=10028&loggedout=true);" id="comment_10811_header_machak" href="/jira/secure/ViewProfile.jspa?name=machak">m.j.milicevic</a>
+ added a comment  - <span class=subText><span class=date>13/Sep/07 1:08 AM</span></span>               $$('linkToSomewhere').addEvent('click', doSomeAjaxcall());  <img class="emoticon" src="/jira/images/icons/emoticons/wink.gif" height="20" width="20" align="absmiddle" alt="" border="0"/>
+
+without joking, 
+suggestion to leave link tag as it is, and making different one for these kind of situations is maybe not so bad idea after all..         </div>
+    </div>
+</div>
+
+                
+            
+                
+                <div id="comment-10812" class="issue-data-block activity-comment twixi-block expanded">
+    <div class="twixi-wrap verbose actionContainer">
+        <a href="#" class="twixi"><span class="icon twixi-opened"><span>Hide</span></span></a>
+        <div class="action-links">
+            <a href="/jira/browse/STS-417?focusedCommentId=10812&page=com.atlassian.jira.plugin.system.issuetabpanels:comment-tabpanel#comment-10812" title="A permanent link to this comment." class="icon icon-perma"><span>Permalink</span></a>
+                                </div>
+        <div class="action-details">    
+    
+    
+                
+    <a class="user-hover user-avatar" rel="ave!" style="background-image:url(/jira/secure/useravatar?size=small&ownerId=ave%21&avatarId=10028&loggedout=true);" id="comment_10812_header_ave!" href="/jira/secure/ViewProfile.jspa?name=ave%21">Iwao AVE!</a>
+ added a comment  - <span class=subText><span class=date>13/Sep/07 5:41 AM</span></span>  </div>
+        <div class="action-body flooded"><p>All right, my use case might be too complicated. I'll take back my comment.<br/>
+Even an empty &lt;a/&gt; tag would be enough for many cases.</p> </div>
+    </div>
+    <div class="twixi-wrap concise actionContainer">
+        <a href="#" class="twixi"><span class="icon twixi-closed"><span>Show</span></span></a>
+        <div class="action-details flooded">
+                
+    
+    
+                
+    <a class="user-hover user-avatar" rel="ave!" style="background-image:url(/jira/secure/useravatar?size=small&ownerId=ave%21&avatarId=10028&loggedout=true);" id="comment_10812_header_ave!" href="/jira/secure/ViewProfile.jspa?name=ave%21">Iwao AVE!</a>
+ added a comment  - <span class=subText><span class=date>13/Sep/07 5:41 AM</span></span>               All right, my use case might be too complicated. I'll take back my comment.
+Even an empty &lt;a/&gt; tag would be enough for many cases.         </div>
+    </div>
+</div>
+
+                
+            
+                
+                <div id="comment-10817" class="issue-data-block activity-comment twixi-block expanded">
+    <div class="twixi-wrap verbose actionContainer">
+        <a href="#" class="twixi"><span class="icon twixi-opened"><span>Hide</span></span></a>
+        <div class="action-links">
+            <a href="/jira/browse/STS-417?focusedCommentId=10817&page=com.atlassian.jira.plugin.system.issuetabpanels:comment-tabpanel#comment-10817" title="A permanent link to this comment." class="icon icon-perma"><span>Permalink</span></a>
+                                </div>
+        <div class="action-details">    
+    
+    
+                
+    <a class="user-hover user-avatar" rel="kai" style="background-image:url(/jira/secure/useravatar?size=small&ownerId=kai&avatarId=10028&loggedout=true);" id="comment_10817_header_kai" href="/jira/secure/ViewProfile.jspa?name=kai">Kai Grabfelder</a>
+ added a comment  - <span class=subText><span class=date>23/Sep/07 4:23 AM</span></span>  </div>
+        <div class="action-body flooded"><p>so we can consider this closed, wont't fix, right?</p> </div>
+    </div>
+    <div class="twixi-wrap concise actionContainer">
+        <a href="#" class="twixi"><span class="icon twixi-closed"><span>Show</span></span></a>
+        <div class="action-details flooded">
+                
+    
+    
+                
+    <a class="user-hover user-avatar" rel="kai" style="background-image:url(/jira/secure/useravatar?size=small&ownerId=kai&avatarId=10028&loggedout=true);" id="comment_10817_header_kai" href="/jira/secure/ViewProfile.jspa?name=kai">Kai Grabfelder</a>
+ added a comment  - <span class=subText><span class=date>23/Sep/07 4:23 AM</span></span>               so we can consider this closed, wont't fix, right?         </div>
+    </div>
+</div>
+
+                
+            
+                
+                <div id="comment-10825" class="issue-data-block activity-comment twixi-block expanded">
+    <div class="twixi-wrap verbose actionContainer">
+        <a href="#" class="twixi"><span class="icon twixi-opened"><span>Hide</span></span></a>
+        <div class="action-links">
+            <a href="/jira/browse/STS-417?focusedCommentId=10825&page=com.atlassian.jira.plugin.system.issuetabpanels:comment-tabpanel#comment-10825" title="A permanent link to this comment." class="icon icon-perma"><span>Permalink</span></a>
+                                </div>
+        <div class="action-details">    
+    
+    
+                
+    <a class="user-hover user-avatar" rel="machak" style="background-image:url(/jira/secure/useravatar?size=small&ownerId=machak&avatarId=10028&loggedout=true);" id="comment_10825_header_machak" href="/jira/secure/ViewProfile.jspa?name=machak">m.j.milicevic</a>
+ added a comment  - <span class=subText><span class=date>02/Oct/07 5:47 AM</span></span>  </div>
+        <div class="action-body flooded"><p>Kai Grabfelder wrote: "so we can consider this closed, wont't fix, right?"</p>
+
+<p>well, it seems there are different needs for different people/situations (e.g. one needs to display text, other one to display nothing, otherone to display &lt;span&gt; etc..)</p>
+
+<p>I would rather see some extra tag added with (e.g. &lt;stripes:super_uber_extended_link&gt;) which does these things. ..just a personal opinion... </p>
+
+
+ </div>
+    </div>
+    <div class="twixi-wrap concise actionContainer">
+        <a href="#" class="twixi"><span class="icon twixi-closed"><span>Show</span></span></a>
+        <div class="action-details flooded">
+                
+    
+    
+                
+    <a class="user-hover user-avatar" rel="machak" style="background-image:url(/jira/secure/useravatar?size=small&ownerId=machak&avatarId=10028&loggedout=true);" id="comment_10825_header_machak" href="/jira/secure/ViewProfile.jspa?name=machak">m.j.milicevic</a>
+ added a comment  - <span class=subText><span class=date>02/Oct/07 5:47 AM</span></span>               Kai Grabfelder wrote: "so we can consider this closed, wont't fix, right?"
+
+well, it seems there are different needs for different people/situations (e.g. one needs to display text, other one to display nothing, otherone to display &lt;span&gt; etc..)
+
+I would rather see some extra tag added with (e.g. &lt;stripes:super_uber_extended_link&gt;) which does these things. ..just a personal opinion... 
+
+
+         </div>
+    </div>
+</div>
+
+                
+            
+                
+                <div id="comment-10826" class="issue-data-block activity-comment twixi-block expanded">
+    <div class="twixi-wrap verbose actionContainer">
+        <a href="#" class="twixi"><span class="icon twixi-opened"><span>Hide</span></span></a>
+        <div class="action-links">
+            <a href="/jira/browse/STS-417?focusedCommentId=10826&page=com.atlassian.jira.plugin.system.issuetabpanels:comment-tabpanel#comment-10826" title="A permanent link to this comment." class="icon icon-perma"><span>Permalink</span></a>
+                                </div>
+        <div class="action-details">    
+    
+    
+                
+    <a class="user-hover user-avatar" rel="gdboling" style="background-image:url(/jira/secure/useravatar?size=small&ownerId=gdboling&avatarId=10028&loggedout=true);" id="comment_10826_header_gdboling" href="/jira/secure/ViewProfile.jspa?name=gdboling">Gregg Bolinger</a>
+ added a comment  - <span class=subText><span class=date>02/Oct/07 9:54 AM</span></span>  </div>
+        <div class="action-body flooded"><p>My suggestion is to add 2 attributes, both optional.</p>
+
+<p>enabled - used as described above.  I'd never see myself using this so I cannot comment on span vs a vs bla bla.  </p>
+
+<p>rendered - either the link shows up or it doesn't.  I've already implemented this myself in the LinkTag.java the following way:</p>
+
+<p>@Override<br/>
+    public int doEndTag() throws JspException {<br/>
+      if (isRendered()) {<br/>
+        try {<br/>
+            set("href", buildUrl());<br/>
+            writeOpenTag(getPageContext().getOut(), "a");<br/>
+            String body = getBodyContentAsString();<br/>
+            if (body != null) {
+                getPageContext().getOut().write(body.trim());
+            }<br/>
+            writeCloseTag(getPageContext().getOut(), "a");<br/>
+        }<br/>
+        catch (IOException ioe) {
+            throw new StripesJspException("IOException while writing output in LinkTag.", ioe);
+        }<br/>
+       }<br/>
+        // Restore state and go on with the page<br/>
+        getAttributes().remove("href");<br/>
+        clearParameters();<br/>
+        return EVAL_PAGE;<br/>
+    }</p>
+
+<p>there is a boolean rendered attribute in the LinkTagSupport class and I added the attribute to the tld file.  There may be a better place to check for isRendered() but this worked fine for me.  So I much prefer:</p>
+
+<p>&lt;stripes:link rendered="${ actionBean.someBooleanCheck }" ...&gt;Link&lt;/stripes:link&gt;<br/>
+<br/>
+over<br/>
+<br/>
+&lt;c:if test="${ actionBean.someBooleanCheck }"&gt;<br/>
+   &lt;stripes:link  ...&gt;Link&lt;/stripes:link&gt;<br/>
+&lt;/c:if&gt;</p>
+
+<p>And then imagine the nastiness that ensues with a c:choose/c:when. <img class="emoticon" src="/jira/images/icons/emoticons/smile.gif" height="20" width="20" align="absmiddle" alt="" border="0"/></p>
+
+<p>Gregg</p> </div>
+    </div>
+    <div class="twixi-wrap concise actionContainer">
+        <a href="#" class="twixi"><span class="icon twixi-closed"><span>Show</span></span></a>
+        <div class="action-details flooded">
+                
+    
+    
+                
+    <a class="user-hover user-avatar" rel="gdboling" style="background-image:url(/jira/secure/useravatar?size=small&ownerId=gdboling&avatarId=10028&loggedout=true);" id="comment_10826_header_gdboling" href="/jira/secure/ViewProfile.jspa?name=gdboling">Gregg Bolinger</a>
+ added a comment  - <span class=subText><span class=date>02/Oct/07 9:54 AM</span></span>               My suggestion is to add 2 attributes, both optional.
+
+enabled - used as described above.  I'd never see myself using this so I cannot comment on span vs a vs bla bla.  
+
+rendered - either the link shows up or it doesn't.  I've already implemented this myself in the LinkTag.java the following way:
+
+@Override
+    public int doEndTag() throws JspException {
+      if (isRendered()) {
+        try {
+            set("href", buildUrl());
+            writeOpenTag(getPageContext().getOut(), "a");
+            String body = getBodyContentAsString();
+            if (body != null) {
+                getPageContext().getOut().write(body.trim());
+            }
+            writeCloseTag(getPageContext().getOut(), "a");
+        }
+        catch (IOException ioe) {
+            throw new StripesJspException("IOException while writing output in LinkTag.", ioe);
+        }
+       }
+        // Restore state and go on with the page
+        getAttributes().remove("href");
+        clearParameters();
+        return EVAL_PAGE;
+    }
+
+there is a boolean rendered attribute in the LinkTagSupport class and I added the attribute to the tld file.  There may be a better place to check for isRendered() but this worked fine for me.  So I much prefer:
+
+&lt;stripes:link rendered="${ actionBean.someBooleanCheck }" ...&gt;Link&lt;/stripes:link&gt;
+
+over
+
+&lt;c:if test="${ actionBean.someBooleanCheck }"&gt;
+   &lt;stripes:link  ...&gt;Link&lt;/stripes:link&gt;
+&lt;/c:if&gt;
+
+And then imagine the nastiness that ensues with a c:choose/c:when. <img class="emoticon" src="/jira/images/icons/emoticons/smile.gif" height="20" width="20" align="absmiddle" alt="" border="0"/>
+
+Gregg         </div>
+    </div>
+</div>
+
+                
+            
+                
+                <div id="comment-11493" class="issue-data-block activity-comment twixi-block expanded">
+    <div class="twixi-wrap verbose actionContainer">
+        <a href="#" class="twixi"><span class="icon twixi-opened"><span>Hide</span></span></a>
+        <div class="action-links">
+            <a href="/jira/browse/STS-417?focusedCommentId=11493&page=com.atlassian.jira.plugin.system.issuetabpanels:comment-tabpanel#comment-11493" title="A permanent link to this comment." class="icon icon-perma"><span>Permalink</span></a>
+                                </div>
+        <div class="action-details">    
+    
+    
+                
+    <a class="user-hover user-avatar" rel="fdaoud" style="background-image:url(/jira/secure/useravatar?size=small&ownerId=fdaoud&avatarId=10028&loggedout=true);" id="comment_11493_header_fdaoud" href="/jira/secure/ViewProfile.jspa?name=fdaoud">Frederic Daoud</a>
+ added a comment  - <span class=subText><span class=date>02/Oct/08 8:10 AM</span></span>  </div>
+        <div class="action-body flooded"><p>Closing my own issue. There are too many 'if's, 'but's, or 'maybe's involved and this would end up causing more harm than good, IMO. Let's keep Stripes simple and straightforward.</p> </div>
+    </div>
+    <div class="twixi-wrap concise actionContainer">
+        <a href="#" class="twixi"><span class="icon twixi-closed"><span>Show</span></span></a>
+        <div class="action-details flooded">
+                
+    
+    
+                
+    <a class="user-hover user-avatar" rel="fdaoud" style="background-image:url(/jira/secure/useravatar?size=small&ownerId=fdaoud&avatarId=10028&loggedout=true);" id="comment_11493_header_fdaoud" href="/jira/secure/ViewProfile.jspa?name=fdaoud">Frederic Daoud</a>
+ added a comment  - <span class=subText><span class=date>02/Oct/08 8:10 AM</span></span>               Closing my own issue. There are too many 'if's, 'but's, or 'maybe's involved and this would end up causing more harm than good, IMO. Let's keep Stripes simple and straightforward.         </div>
+    </div>
+</div>
+
+                
+            
+        
+        
+        </div>
+    
+
+
+                    </div>
+                </div>
+
+                
+            </div>
+        </div>
+
+        <div class="column" id="secondary">
+            <div class="content">
+                
+                    
+                        <div id="peoplemodule" class="module toggle-wrap">
+    <div class="mod-header">
+        <h3 class="toggle-title">People</h3>
+    </div>
+    <div class="mod-content">
+        <ul class="item-details" id="peopledetails">
+            <li class="people-details">
+                                <dl>
+                    <dt>Assignee:</dt>
+                    <dd id="assignee-val">
+                        Unassigned
+                    </dd>
+                </dl>
+                                                <dl>
+                    <dt>Reporter:</dt>
+                    <dd id="reporter-val">
+                                <a class="user-hover" rel="fdaoud" id="issue_summary_reporter_fdaoud" href="/jira/secure/ViewProfile.jspa?name=fdaoud">Frederic Daoud</a>
+                    </dd>
+                </dl>
+                                            </li>
+        </ul>
+                <div id="votes-val">
+                                        <span id="vote-label" title="You cannot vote or change your vote on resolved issues."><span class="icon icon-vote-disabled"></span><span class="action-text">Vote</span></span>
+                        
+                                        (<span id="vote-data">1</span>)
+                    </div>
+                        <div id="watchers-val">
+                            <span id="watch-label" title="You have to be logged in to watch an issue."><span class="icon icon-watch-disabled"></span>Watch</span>
+            
+                        
+                            (<span id="watcher-data">0</span>)
+                    </div>
+            </div>
+</div>
+
+                        
+<div id="datesmodule" class="module toggle-wrap">
+    <div class="mod-header">
+        <h3 class="toggle-title">Dates</h3>
+    </div>
+    <div class="mod-content">
+        <ul class="item-details">
+            <li>
+            
+                <dl class="dates">
+                    <dt>Created:</dt>
+                    <dd id="create-date" class="date">11/Sep/07 6:03 AM</dd>
+                </dl>
+                <dl class="dates">
+                    <dt>Updated:</dt>
+                    <dd id="updated-date" class="date">02/Oct/08 8:10 AM</dd>
+                </dl>
+            
+                <dl class="dates">
+                    <dt>Resolved:</dt>
+                    <dd id="resolved-date" class="date">02/Oct/08 8:10 AM</dd>
+                </dl>
+            
+            
+            </li>
+        </ul>
+    </div>
+</div>
+
+
+
+                        
+
+
+                    
+                
+            </div>
+        </div>
+        
+            
+                
+            
+        
+
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+<div class="footer">
+<div class="poweredbymessage">
+        <a href="http://www.atlassian.com/software/jira" class="smalltext">Atlassian JIRA</a>
+        <span id="footer-build-information"  style="color: #666666;" >(v4.2#587)</span>
+        | <a href="http://support.atlassian.com/secure/CreateIssue.jspa?issuetype=1&amp;pid=10000">Report a problem</a>
+    </div>
+            <div class="licensemessage">
+                    Powered by a free Atlassian <a href='http://www.atlassian.com/software/jira'>JIRA</a> open source license for Stripes Framework. Try JIRA - <a href='http://www.atlassian.com/software/jira'>bug tracking software</a> for <i>your</i> team.
+
+                </div>
+    </div>
+
+<form id="jira_request_timing_info" class="dont-default-focus" >
+	<fieldset class="hidden">
+		<input type="hidden" name="jira.request.start.millis" value="1366006025372" />
+		<input type="hidden" name="jira.request.server.time" value="90" />
+		<input type="hidden" name="jira.session.expiry.time" value="1366009617523" />
+		<input type="hidden" name="jira.session.expiry.in.mins" value="59" />
+	</fieldset>
+</form>
+<!--
+	                 REQUEST ID : 67x7120x1
+	          REQUEST TIMESTAMP : [15/Apr/2013:01:07:05 -0500]
+	               REQUEST TIME : 0.0900
+	                 ASESSIONID : 6e0xsl
+	        CONCURRENT REQUESTS : 1
+-->
+</body>
+</html>

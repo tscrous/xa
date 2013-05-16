@@ -1,5 +1,6 @@
 package com.xa.webui.service.factory;
 
+import com.xa.webui.exception.ResolutionException;
 import com.xa.webui.exception.service.ServiceEventException;
 import com.xa.webui.persistence.domain.component.page.PageDescriptor;
 import com.xa.webui.persistence.domain.resource.ResolvableObject;
@@ -8,7 +9,6 @@ import com.xa.webui.persistence.domain.resource.resolution.ResolutionDescriptor;
 import com.xa.webui.persistence.domain.resource.resolution.ResolutionType;
 import com.xa.webui.system.Constants;
 import com.xa.webui.system.SystemError;
-import javax.enterprise.inject.ResolutionException;
 import net.sourceforge.stripes.action.ActionBean;
 import net.sourceforge.stripes.action.ErrorResolution;
 import net.sourceforge.stripes.action.ForwardResolution;

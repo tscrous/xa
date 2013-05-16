@@ -1,9 +1,9 @@
 package com.xa.webui.persistence.domain.resource.resolution;
 
+import com.xa.webui.exception.ResolutionException;
 import com.xa.webui.persistence.domain.IdentifiableEntity;
 import com.xa.webui.persistence.domain.resource.ResolvableObject;
 import java.util.Arrays;
-import javax.enterprise.inject.ResolutionException;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;

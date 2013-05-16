@@ -1,7 +1,7 @@
 package com.xa.webui.presentation.action.impl;
 
+import com.xa.webui.exception.ResolutionException;
 import com.xa.webui.persistence.domain.resource.resolution.ResolutionResource;
-import javax.enterprise.inject.ResolutionException;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import net.sourceforge.stripes.action.Resolution;
