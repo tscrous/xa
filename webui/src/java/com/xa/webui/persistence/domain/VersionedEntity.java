@@ -1,12 +1,11 @@
 package com.xa.webui.persistence.domain;
 
-import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.MappedSuperclass;
 import javax.persistence.Version;
 
 @MappedSuperclass
-public abstract class VersionedEntity implements Serializable {
+public abstract class VersionedEntity implements SerializableEntity {
 
     public long getVersion() {
         return version;

@@ -67,8 +67,6 @@ public class WorkflowActionBean implements SessionActionBean {
                 resolution = ResolutionFactory.getResolution(SystemError.WORKFLOW_VIEW_RESOLUTION_ERROR);
             }
         } catch (Exception e) {
-//            TODO: use proper logger for stack trace
-            e.printStackTrace();
             resolution = ResolutionFactory.getResolution(SystemError.WORKFLOW_VIEW_EXECUTION_ERROR);
         }
         return resolution;

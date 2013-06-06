@@ -1,3 +1,18 @@
+<%@page import="com.xa.webui.persistence.domain.component.page.PageDescriptor"%>
+<%@ taglib prefix="stripes" uri="http://stripes.sourceforge.net/stripes.tld" %>
+
+<jsp:useBean id="pageDescriptor" class="com.xa.webui.persistence.domain.component.page.BasicPageDescriptor" scope="page">
+    <jsp:setProperty name="pageDescriptor" property="content" value="${actionBean.descriptor.content}"/>  
+</jsp:useBean>
+
+<%
+    String currentPage = pageDescriptor.getContent() != null ? pageDescriptor.getContent().getValue().getValue() : null;
+    boolean isHome = currentPage == null || currentPage.contains("home");
+    boolean isAbout = currentPage.contains("about");
+    boolean isOpenCases = currentPage.contains("open");
+    boolean isContactUs = currentPage.contains("contact");
+    boolean isHomeOption = currentPage.contains("q_");
+%>
     <!-------------------------- Start: PAGE body -------------------------->
     <table class="table table-hover table-condensed">
         <thead>
@@ -12,67 +27,59 @@
             </tr>
         </thead>
         <tbody>
-            <tr ckass="row">
-                <td>Duty increase</td>
-                <td>Frozen Chicken Meat</td>
-                <td>0207.12.20, 0207.12.90, 0207.14.10, 0207.14.20, 0207.14.90</td>
-                <td class="row-1 col-3">Maximum of 82%</td>
-                <td class="row-1 col-4">All</td>
-                <td class="row-1 col-5">The South African Poultry Association</td>
-                <td>03/05/2013</td>
+            <tr>
+                <td>Duty Reduction</td>
+                <td>Laminates of Phenolic Resins with a basis of paper</td>
+                <td>3921.90.05</td>
+                <td>10% to free of duty</td>
+                <td>All</td>
+                <td>FX Veneers CC</td>
+                <td>21/06/2013</td>
             </tr>
-            <tr ckass="row">
-                <td>Interim Review of Anti-Dumping Duties</td>
-                <td>Ropes and Cables</td>
-                <td>7312.10.40</td>
-                <td>No AD Duty</td>
-                <td>Germany</td>
-                <td>Casar Drahtseilwerk Saar Gmbh</td>
-                <td>06/05/2013</td>
+            <tr>
+                <td>Duty Increase</td>
+                <td>Certain screws, bolts and nuts</td>
+                <td>7318.15.39<br/>7318.15.43<br/>7318.16.80</td>
+                <td>10% to 30% bound rate</td>
+                <td>All</td>
+                <td>CBC Fasteners</td>
+                <td>21/06/2013</td>
             </tr>
             <tr>
                 <td>Rebate</td>
-                <td>Woven Fabrics</td>
-                <td>5407.91</td>
-                <td>Full duty</td>
+                <td>Polyurethane flat shapes</td>
+                <td>3919.10.07</td>
+                <td>Full rebate</td>
                 <td>All</td>
-                <td>Bravo Group Manufacturing</td>
-                <td>17/05/2013</td>
+                <td>3M South Africa</td>
+                <td>21/06/2013</td>
             </tr>
             <tr>
                 <td>Rebate</td>
-                <td>Textile Fabrics otherwise impregnated, coated or covered</td>
-                <td>5907.00.90</td>
-                <td>Full duty</td>
+                <td>Silicone elastomeric straps</td>
+                <td>3926.90.90</td>
+                <td>Full rebate</td>
                 <td>All</td>
-                <td>Bravo Group Manufacturing</td>
-                <td>17/05/2013</td>
+                <td>3M South Africa</td>
+                <td>21/06/2013</td>
             </tr>
             <tr>
-                <td>Rebate</td><td>Textile Fabrics impregnated, coated or covered or laminated with polyurethane</td>
-                <td>5903.20.90</td>
-                <td>Full duty</td>
+                <td>Rebate</td>
+                <td>Natural rubber straps</td>
+                <td>4016.99.90</td>
+                <td>Full rebate</td>
                 <td>All</td>
-                <td>Bravo Group Manufacturing</td>
-                <td>17/05/2013</td>
+                <td>3M South Africa</td>
+                <td>21/06/2013</td>
             </tr>
             <tr>
-                <td>Rebate provision</td>
-                <td>Palm oil, refined, bleached and deodorised but not fractioned</td>
-                <td>1511.90, 1517.90</td>
-                <td>Full duty</td>
+                <td>Rebate</td>
+                <td>Inner and outer shells of non-woven material</td>
+                <td>6307.90.10</td>
+                <td>Full rebate</td>
                 <td>All</td>
-                <td>Sime Darby Hudson &amp; Knight (Pty) Ltd</td>
-                <td>17/05/2013</td>
-            </tr>
-            <tr>
-                <td>Sunset Review</td>
-                <td>Welded Link Chain</td>
-                <td>7315.82</td>
-                <td>Termination of duty</td>
-                <td>China</td>
-                <td>Scaw Metals Group Chain Products</td>
-                <td>26/05/2013</td>
+                <td>3M South Africa</td>
+                <td>21/06/2013</td>
             </tr>
         </tbody>
     </table>

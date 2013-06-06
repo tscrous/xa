@@ -1,12 +1,9 @@
-/* =================================================================== */
-/* Style.css  - Main Style File
-By : Aslam - http://uexel.com 
-====================================================================== */
-
 @import url("http://fonts.googleapis.com/css?family=Carrois+Gothic");
 
 html, body {
     height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 body {
 -webkit-user-select: none; /* Chrome/Safari */
@@ -25,7 +22,7 @@ body {
 .body-background-img {
     position: absolute;
     /*top: 145px;*/
-    top: 20%;
+    top: 127px;
     left: 0;
     width: 100%;
     height: 80%;
@@ -34,92 +31,44 @@ body {
 }
 
 
-
 ::-webkit-scrollbar {
     width: 10px;
 }
-
 ::-webkit-scrollbar-track {
   visibility: hidden; /* doesn't seem to work */
   background-color: rgba(80, 13, 13, 0);
 }
-
 ::-webkit-scrollbar-thumb {
     border-radius: 4px;
     background: rgba(30, 30, 30, 0.8);
     border-width: 1px;
 }
-
 ::-webkit-scrollbar:window-inactive {
     visibility: hidden;
 }
     
 
-
-.row-fluid [class*="span"] {
-    margin: 0;
-}
-
-.span1, span2, span3, span4, span5, span6, span7, span8, span9, span10, span11, span12 {
-    margin: 0;
-}
-
-.brand {
-    border: none;
+.page-content{
+    position: relative;
     float: left;
+    left: 8%;
+    width: 84%;
+    height: 100%;
 }
-.brand_large {
-    display: block;
-}
-.brand_small {
-    display: none;
-}
+
 
 /* ---------- Top Navigator ---------- */
 
 .topnav {
+    position: fixed;
+    top: 0;
     height: 25px;
+    width: 100%;
     margin: 0;
     z-index: 9999;
     background-color: #0D0D0D;
     border-bottom: 1px solid #404040;
 }
-.topnav .container {
-    list-style: none;
-    color: rgb(218, 201, 201);
-    vertical-align: middle;
-}
-
-.topnav .brand {
-    width: auto;
-    height: 100%;
-}
-.brand .small_large {
-    width: auto;
-    height: 100%;
-}
-.brand .brand_large {
-    width: auto;
-    height: 100%;
-}
-.topnav .brand > a {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    padding-top: 3px;
-    color: white;
-    font-size: 12px;
-    vertical-align: middle;
-}
-.topnav .brand a > img {
-    height: 23px;
-    float: left;
-    border: none;
-}
-.topnav .brand a > span {
-    float: left;
-}
-
 .topnav .top-menu {
     padding-top: 3px;
     font-size: 12px;
@@ -155,159 +104,118 @@ body {
     padding-top: 10px;
 }
 
-/* ---------- Top Navigator \ Alternative Main Menu---------- */
-
-.topnav .main-menu-alt {
-    display: none;
-    
-}
-.topnav .main-menu-alt .nav {
-    position: absolute;
-    padding: 0;
-    margin-top: 2;
-}
-.topnav .main-menu-alt .nav a {
-    border-top-left-radius: 8px;
-    border-top-right-radius: 8px;
-    font-size: 16px;
-    height: 14px;
-}
-.topnav .main-menu-alt .nav .active > a{
-    background-color: #1B1B1B;
-    color: #D46D00;
-    text-shadow: none;
-    border-top: 1px solid #FFE0BF;
-    border-left: 1px solid #FFE0BF;
-    border-bottom: none;
-    border-right: 1px solid #FFE0BF;
-}
-.topnav .main-menu-alt .nav .active > a:hover {
-    background-color: #1B1B1B;
-    color: #D46D00;
-    text-shadow: none;
-    border-top: 1px solid #FFE0BF;
-    border-left: 1px solid #FFE0BF;
-    border-right: 1px solid #FFE0BF;
-}   
-
-.topnav .main-menu-alt .nav > ul {
-    list-style:none;
-}
-.topnav .main-menu-alt .nav > li {
-    list-style:none;
-    float: left;
-}
-.topnav .main-menu-alt .nav > li > a {
-    float: none;
-    border: none;
-    display: block;
-    padding: 3px 10px 6px;
-    color: white;
-    text-shadow: none;
-    list-style:none;
-}
-.topnav .main-menu-alt .nav > li > a:hover {
-    background-color: #423628;
-    color: white;
-    text-shadow: none;
-    border: none;
-    list-style:none;
-}
-
-.topnav .main-menu-alt .nav > li > stripes:link {
-    float: none;
-    border: none;
-    display: block;
-    padding: 3px 10px 6px;
-    color: white;
-    text-shadow: none;
-}
-
 
 /* ---------- Main Navigation ---------- */
 
 .navbar {
-    height: 120px;
+    z-index: 5000;
+    position: fixed;
+    top: 25px;
+    left: 0px;
+    height: 100px;
+    width: 100%;
     background: url("../image/landing_header.jpeg") repeat scroll #393939;
     background-color: #121212;
     border-bottom: 1px solid #FFE0BF;
     -webkit-box-shadow: inset 0px -3px 15px 0px rgba(0, 0, 0, 1);
     box-shadow: inset 0px -3px 15px 0px rgba(0, 0, 0, 1);
+    overflow-x: hidden;
+    overflow-y: visible;
 }
-
 .navbar .brand {
-    padding-top: 12px;
-}
-.navbar .brand > a {
-    color: white;
-    font-size: 50px;
-    text-shadow: 0 1px 0 #FFFFFF;
-    cursor: default;
+    position: absolute;
+    top: 3px;
+    left: 0;
+    width: 130px;
+    height: auto;
+    display: inline-block;
+    white-space: normal;
 }
 .navbar .brand > img {
-    width: auto;
     border: none;
-    padding-top: 15px;
-    padding-bottom: 15px;
 }
 
 /* ---------- Main Navigation \ NavBar ---------- */
 
-.navbar .nav {
-    border: none; 
-    margin: 0;
-    padding-top: 92px;
-}
-.navbar .nav-tabs {
-    margin: 0;
+.navbar .page-content {
+    width: 84%;
+    overflow-y: hidden;
 }
 
-.navbar .nav a {
+.navbar .nav-tabs {
+    z-index: 5001;
+    position: fixed;
+    /*width: 200px;*/
+    width: 100%;
+    border: none;
+    left: 10%;
+    margin: 0;
+    margin-top: 80px;
+    margin-left: 150px;
+    display: inline-block;
+}
+.navbar .nav-tabs > li {
+    margin: 0;
+    border: none;
+    display: inline-block;
+    white-space: normal;
+}
+
+.navbar .nav-tabs > li > a {
     border-top-left-radius: 8px;
     border-top-right-radius: 8px;
     font-size: 16px;
-    height: 14px;
 }
-.navbar .nav .active > a {
+.navbar .nav-tabs .active > a {
     background-color: #0D0D0D;
     color: #D46D00;
     text-shadow: none;
+    text-decoration: none;
     border-top: 1px solid #FFE0BF;
     border-left: 1px solid #FFE0BF;
     border-bottom: none;
     border-right: 1px solid #FFE0BF;
     -webkit-box-shadow:  0px -3px 15px 1px rgba(0, 0, 0, 1);
     box-shadow:  0px -5px 10px 0px rgba(0, 0, 0, 1);
+    padding: 5px 8px 2px;
 }
-.navbar .nav .active > a:hover {
+.navbar .nav-tabs .active > a:hover {
     background-color: #0D0D0D;
     color: #D46D00;
     text-shadow: none;
+    text-decoration: none;
     border-top: 1px solid #FFE0BF;
     border-left: 1px solid #FFE0BF;
     border-bottom: none;
     border-right: 1px solid #FFE0BF;
+    padding: 5px 8px 2px;
 }   
 
-.navbar .nav > li {
+.navbar .nav-tabs > li {
     float: left;
     list-style:none;
-    min-width: 80px;
+    /*min-width: 80px;*/
     text-align: center;
+    text-decoration: none;
+    display: inline;
 }
-.navbar .nav > li > a {
+.navbar .nav-tabs > li > a {
     float: none;
     border: none;
     display: block;
-    padding: 6px 10px 8px;
+    padding: 5px 8px 1px;
     color: white;
     text-shadow: none;
+    text-decoration: none;
+    display: inline;
 }
-.navbar .nav > li > a:hover {
+.navbar .nav-tabs > li > a:hover {
     background-color: #423628;
     color: white;
-    text-shadow: none;
     border: none;
+    text-shadow: none;
+    text-decoration: none;
+    padding: 5px 8px 1px;
 }
 
 
@@ -414,7 +322,7 @@ body {
     position: relative;
     width: 100%;
     height: 67%;
-    margin-top: 30px;
+    margin-top: 150px;
     margin-bottom: 20px;
     border-radius: 5px;
     border: 1px solid rgba(80, 80, 80, 1.0);
@@ -456,6 +364,57 @@ body {
 }
 
 .canvas p {
+    color: rgb(180, 180, 180);
+    margin: 7px;
+    margin-top: 15px;
+    margin-left: 10px;
+}
+
+
+/* ---------- Clear Canvas ---------- */
+
+.canvas-clear {
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    height: 67%;
+    margin-top: 150px;
+    margin-bottom: 20px;
+    cursor: default;
+}
+.canvas-clear .scroll-pane {
+    position:absolute; 
+    top: 10px; 
+    bottom: 10px; 
+    left: 10px; 
+    right: 10px; 
+    overflow-y: auto;
+}
+
+.canvas-clear h1 {
+    color: rgb(75, 187, 224);
+    margin-top: 25px;
+    margin-bottom: 15px;
+    text-align: center;
+    text-shadow: 0px 0px 30px rgba(0, 0, 0, 0.8);
+    filter: dropshadow(color= rgba(0, 0, 0, 0.8), offx=0, offy=0);    
+}
+.canvas-clear h1:first-child {
+    margin: 0;
+    margin-bottom: 15px;
+}
+
+.canvas-clear h2 {
+    color: rgb(105, 116, 122);
+    margin-left: 40px;
+    margin-top: 25px;
+    margin-bottom: 0;
+    text-align: left;
+    text-shadow: 0px 0px 30px rgba(0, 0, 0, 0.8);
+    filter: dropshadow(color= rgba(0, 0, 0, 0.8), offx=0, offy=0);    
+}
+
+.canvas-clear p {
     color: rgb(180, 180, 180);
     margin: 7;
     margin-top: 15px;

@@ -8,6 +8,7 @@ import com.xa.webui.persistence.domain.component.FooterMenu;
 import com.xa.webui.persistence.domain.component.ItemGroup;
 import com.xa.webui.persistence.domain.component.Menu;
 import com.xa.webui.persistence.domain.component.OptionItemGroup;
+import com.xa.webui.persistence.domain.component.WebComponent;
 import com.xa.webui.persistence.domain.component.page.BasicPageDescriptor;
 import com.xa.webui.persistence.domain.component.page.PageDescriptor;
 
@@ -19,16 +20,38 @@ public class WebComponentManager extends AbstractEntityService {
     
     public WebComponentManager() {
         webObjectCache = WebObjectCache.getInstance();
+        webComponentDao = new CrudDao<WebComponent>(WebComponent.class);
         pageDao = new CrudDao<BasicPageDescriptor>(BasicPageDescriptor.class);
         menuDao = new CrudDao<Menu>(Menu.class);
         footerMenuDao = new CrudDao<FooterMenu>(FooterMenu.class);
         optionsDao = new CrudDao<OptionItemGroup>(OptionItemGroup.class);
     }
     
+    public WebComponent getByName(String name) {
+        QueryParameters parameters = createQueryParameters("name", name);
+        WebComponent component;
+        try {
+            component = (WebComponent) webObjectCache.get(name);
+            if (component != null) {
+                return component;
+            }
+        } catch (ClassCastException e) {
+            component = null;
+        }
+        /* get resource from DB */
+        if (component == null) {
+            component = getSingle(webComponentDao.getByValues(parameters));
+        }
+        /* update cache & return */
+        if (component != null) {
+            webObjectCache.add(component);
+        }
+        return component;
+    }
+    
     /* PathResource */
     
     public PageDescriptor getPageDescriptorByName(String name) {
-        QueryParameters parameters = createQueryParameters("name", name);
         PageDescriptor page;
         try {
             page = (BasicPageDescriptor) webObjectCache.get(name);
@@ -37,6 +60,7 @@ public class WebComponentManager extends AbstractEntityService {
         }
         /* get component from DB */
         if (page == null) {
+            QueryParameters parameters = createQueryParameters("name", name);
             page = getSingle(pageDao.getByValues(parameters));
             /* update cache & return */
             if (page != null) {
@@ -45,6 +69,8 @@ public class WebComponentManager extends AbstractEntityService {
         }
         return page;
     }
+    
+    /* ItemGroup */
     
     public ItemGroup getItemGroupByName(String name) {
         QueryParameters parameters = createQueryParameters("name", name);
@@ -73,8 +99,8 @@ public class WebComponentManager extends AbstractEntityService {
     
     private WebObjectCache webObjectCache;
     
+    private CrudDao<WebComponent> webComponentDao;
     private CrudDao<BasicPageDescriptor> pageDao;
-    
     private CrudDao<Menu> menuDao;
     private CrudDao<FooterMenu> footerMenuDao;
     private CrudDao<OptionItemGroup> optionsDao;

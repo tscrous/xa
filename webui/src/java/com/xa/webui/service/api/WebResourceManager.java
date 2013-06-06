@@ -16,14 +16,36 @@ public class WebResourceManager extends AbstractEntityService {
     
     public WebResourceManager() {
         webObjectCache = WebObjectCache.getInstance();
+        webResourceDao = new CrudDao<WebResource>(WebResource.class);
         pathResourceDao = new CrudDao<PathResource>(PathResource.class);
         resolutionResourceDao = new CrudDao<ResolutionResource>(ResolutionResource.class);
+    }
+    
+   public WebResource getByName(String name) {
+        QueryParameters parameters = createQueryParameters("name", name);
+        WebResource resource;
+        try {
+            resource = (WebResource) webObjectCache.get(name);
+            if (resource != null) {
+                return resource;
+            }
+        } catch (ClassCastException e) {
+            resource = null;
+        }
+        /* get resource from DB */
+        if (resource == null) {
+            resource = getSingle(webResourceDao.getByValues(parameters));
+        }
+        /* update cache & return */
+        if (resource != null) {
+            webObjectCache.add(resource);
+        }
+        return resource;
     }
     
     /* PathResource */
     
     public WebResource<?> getResourceByName(String name) {
-        QueryParameters parameters = createQueryParameters("name", name);
         WebResource<?> resource;
         try {
             resource = (WebResource) webObjectCache.get(name);
@@ -31,6 +53,7 @@ public class WebResourceManager extends AbstractEntityService {
             resource = null;
         }
         /* get resource from DB */
+        QueryParameters parameters = createQueryParameters("name", name);
         if (resource == null) {
             resource = getSingle(pathResourceDao.getByValues(parameters));
         }
@@ -45,6 +68,7 @@ public class WebResourceManager extends AbstractEntityService {
     }
     
     private WebObjectCache webObjectCache;
+    private CrudDao<WebResource> webResourceDao;
     private CrudDao<PathResource> pathResourceDao;
     private CrudDao<ResolutionResource> resolutionResourceDao;
 

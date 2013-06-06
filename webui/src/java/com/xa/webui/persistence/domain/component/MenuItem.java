@@ -7,11 +7,17 @@ import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Transient;
 
 @Entity
 public class MenuItem extends Item {
 
     public MenuItem() {
+    }
+    
+    public MenuItem(String name, String label) {
+        this.name = name;
+        this.label = label;
     }
     
     public MenuItem(String name, String label, String description, int itemIndex, Alignment alignment) {
@@ -72,6 +78,20 @@ public class MenuItem extends Item {
         this.parent = parent;
     }
 
+    public String getIcon() {
+        return icon;
+    }
+    public void setIcon(String icon) {
+        this.icon = icon;
+    }
+
+    public boolean isAlwaysShowIcon() {
+        return alwaysShowIcon;
+    }
+    public void setAlwaysShowIcon(boolean alwaysShowIcon) {
+        this.alwaysShowIcon = alwaysShowIcon;
+    }
+
     @Column(name="item_index")
     private int itemIndex = 0;
     
@@ -82,5 +102,11 @@ public class MenuItem extends Item {
     @ManyToOne
     @JoinColumn(name="parent_id", referencedColumnName="id")
     private MenuItem parent;
+    
+    @Transient
+    private String icon;
+    
+    @Transient
+    private boolean alwaysShowIcon;
 
 }

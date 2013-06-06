@@ -1,7 +1,5 @@
 package com.xa.webui.persistence.domain.component.page;
 
-import com.xa.webui.persistence.domain.component.FooterMenu;
-import com.xa.webui.persistence.domain.component.Menu;
 import com.xa.webui.persistence.domain.component.WebComponent;
 import com.xa.webui.persistence.domain.resource.path.PathResource;
 import javax.persistence.Entity;
@@ -23,15 +21,6 @@ public class BasicPageDescriptor extends WebComponent<PathResource> implements P
     }
 
     @Override
-    public Menu getTopMenu() {
-        return topMenu;
-    }
-    @Override
-    public void setTopMenu(Menu topMenu) {
-        this.topMenu = topMenu;
-    }
-
-    @Override
     public PathResource getContent() {
         return content;
     }
@@ -40,15 +29,6 @@ public class BasicPageDescriptor extends WebComponent<PathResource> implements P
         this.content = content;
     }
     
-    @Override
-    public FooterMenu getFooterMenu() {
-        return footerMenu;
-    }
-    @Override
-    public void setFooterMenu(FooterMenu footerMenu) {
-        this.footerMenu = footerMenu;
-    }
-
     /* Implementation for: WebComponent */
 
     @Override
@@ -63,15 +43,7 @@ public class BasicPageDescriptor extends WebComponent<PathResource> implements P
     protected PathResource page;
 
     @ManyToOne
-    @JoinColumn(name="top_menu_id", referencedColumnName="id")
-    protected Menu topMenu;
-
-    @ManyToOne
     @JoinColumn(name="content_id", referencedColumnName="id")
     protected PathResource content;
-
-    @ManyToOne
-    @JoinColumn(name="footer_menu_id", referencedColumnName="id")
-    protected FooterMenu footerMenu;
-
+    
 }

@@ -1,7 +1,7 @@
 package com.xa.webui.exception.service;
 
 import com.xa.webui.persistence.dao.QueryParameters;
-import com.xa.webui.persistence.domain.IdentifiableEntity;
+import com.xa.webui.persistence.domain.SerializableEntity;
 import com.xa.webui.system.utils.ValidationUtils;
 import java.util.List;
 
@@ -20,7 +20,7 @@ public class AbstractEntityService {
         return parameters;
     }
     
-    protected <T extends IdentifiableEntity> T getSingle(List<T> list) {
+    protected <T extends SerializableEntity> T getSingle(List<T> list) {
         if (ValidationUtils.isNullOrEmpty(list)) {
             return null;
         } else if (list.size() > 1) {
@@ -28,13 +28,13 @@ public class AbstractEntityService {
         }
         return list.get(0);
     }
-    protected <T extends IdentifiableEntity> T getFirst(List<T> list) {
+    protected <T extends SerializableEntity> T getFirst(List<T> list) {
         if (ValidationUtils.isNullOrEmpty(list)) {
             return null;
         }
         return list.get(0);
     }
-    protected <T extends IdentifiableEntity> T getLast(List<T> list) {
+    protected <T extends SerializableEntity> T getLast(List<T> list) {
         if (ValidationUtils.isNullOrEmpty(list)) {
             return null;
         }

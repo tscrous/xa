@@ -4,6 +4,7 @@ import com.xa.webui.exception.NotImplementedException;
 import com.xa.webui.persistence.domain.WebObject;
 import com.xa.webui.persistence.domain.resource.WebResource;
 import com.xa.webui.persistence.domain.resource.skin.Skin;
+import com.xa.webui.service.api.WebObjectDependencyManager;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -13,6 +14,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 @Entity
 @Table(name="web_component")
@@ -26,6 +28,14 @@ public class WebComponent<T extends WebResource> extends WebObject<T> implements
     @Override
     public T getValue() {
         throw new NotImplementedException("Method not supported on current level of hierarchy. Implementation in subclass required!");
+    }
+
+    @Override
+    public WebObjectDependencyManager getDependencyManager() {
+        if (dependencyManager == null) {
+            dependencyManager = new WebObjectDependencyManager();
+        }
+        return dependencyManager;
     }
 
     @Override
@@ -50,7 +60,7 @@ public class WebComponent<T extends WebResource> extends WebObject<T> implements
     public void setSkin(Skin skin) {
         this.skin = skin;
     }
-    
+
     @Column(name="visible")
     protected boolean visible = true;
     
@@ -63,5 +73,8 @@ public class WebComponent<T extends WebResource> extends WebObject<T> implements
         inverseJoinColumns={ @JoinColumn(name="skin_id", nullable=true) }
     )
     protected Skin skin;
+    
+    @Transient
+    protected WebObjectDependencyManager dependencyManager;
     
 }

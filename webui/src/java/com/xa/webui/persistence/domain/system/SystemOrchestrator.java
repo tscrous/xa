@@ -2,6 +2,7 @@ package com.xa.webui.persistence.domain.system;
 
 import com.xa.webui.exception.NotSupportedException;
 import com.xa.webui.persistence.domain.WebObject;
+import com.xa.webui.service.api.WebObjectDependencyManager;
 
 /**
  *
@@ -20,6 +21,11 @@ public class SystemOrchestrator extends WebObject {
         
     }
     
+    @Override
+    public WebObjectDependencyManager getDependencyManager() {
+        return null;
+    }
+
     @Override
     public String getName() {
         return "system.orchestrator";

@@ -20,6 +20,7 @@ public abstract class Constants {
     /* pages */
     public static final String BASIC_PAGE_ID = "template.page.basic";
     public static final String CANVAS_PAGE_ID = "template.page.canvas";
+    public static final String CLEAR_CANVAS_PAGE_ID = "template.page.clear.canvas";
 
     public static final String HOME_PAGE_TARGET_ID = "page.home";
     public static final String ABOUT_XA_PAGE_TARGET_ID = "page.about";
