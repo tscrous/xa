@@ -4,6 +4,7 @@ import com.xa.webui.service.api.WebObjectDependencyManager;
 import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.MappedSuperclass;
+import javax.persistence.Transient;
 
 /**
  *
@@ -26,6 +27,13 @@ public abstract class WebObject<T extends Object> extends IdentifiableEntity {
         this.description = description;
     }
     
+    public boolean isActive() {
+        return active;
+    }
+    public void setActive(boolean active) {
+        this.active = active;
+    }
+
     public void setDependency(WebObject dependency) {
         getDependencyManager().setDependency(this, dependency);
     }
@@ -86,5 +94,8 @@ public abstract class WebObject<T extends Object> extends IdentifiableEntity {
     
     @Column(name="description")
     protected String description;
+    
+    @Transient
+    protected boolean active;
     
 }

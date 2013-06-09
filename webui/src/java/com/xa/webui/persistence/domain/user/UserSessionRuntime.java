@@ -18,7 +18,7 @@ public class UserSessionRuntime extends IdentifiableEntity {
     public UserSessionRuntime(UserSession userSession) {
         this.userSession = userSession;
     }
-    
+
     public void reset() {
         setCurrentWorkflow(null);
         getEventLogFromSession().clear();

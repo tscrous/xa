@@ -54,11 +54,12 @@ public class WorkflowActionBean implements SessionActionBean {
     public Resolution view() {
         Resolution resolution = null;
         try {
-            UserSessionRuntime runtime = getUserSession().getRuntime();
-            WorkflowRule rule = determineRule(runtime.getCurrentWorkflow(), getWorkflowTriggerId());
+            UserSession session = getUserSession();
+            updateRuntimeInfo(session);
+            WorkflowRule rule = determineRule(session.getRuntime().getCurrentWorkflow(), getWorkflowTriggerId());
             Object targetObject = getTargetObject(rule);
             if (targetObject instanceof PageDescriptor) {
-                return ResolutionFactory.getResolution((PageDescriptor) targetObject);
+                resolution = ResolutionFactory.getResolution((PageDescriptor) targetObject);
             } else if (targetObject instanceof WebResource) {
                 ResolvableObject resource = ((WebResource) targetObject).getValue();
                 resolution = ResolutionFactory.getResolution(resource);
@@ -115,6 +116,10 @@ public class WorkflowActionBean implements SessionActionBean {
             }
         }
         return targetObject;
+    }
+    
+    protected void updateRuntimeInfo(UserSession session) {
+        session.getRuntimeInfo().setValue(Constants.WORKFLOW_LATEST_TRIGGER, getWorkflowTriggerId());
     }
     
 

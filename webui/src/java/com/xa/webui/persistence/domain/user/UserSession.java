@@ -64,6 +64,10 @@ public class UserSession extends IdentifiableEntity {
         this.sessionProperties = sessionProperties;
     }
 
+    public RuntimeInfo getRuntimeInfo() {
+        return runtimeInfo;
+    }
+
     public UserSessionRuntime getRuntime() {
         return runtime;
     }
@@ -97,6 +101,9 @@ public class UserSession extends IdentifiableEntity {
     @Transient
     private UserSessionSessionProperties sessionProperties;
 
+    @Transient
+    private RuntimeInfo runtimeInfo = new RuntimeInfo();
+    
     @Transient
     private UserSessionRuntime runtime;
     

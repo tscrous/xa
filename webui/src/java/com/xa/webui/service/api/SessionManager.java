@@ -74,7 +74,7 @@ public class SessionManager extends AbstractEntityService {
     public void flush() {
         sessionCache.clear();
     }
-    
+
     /* utilities */
     
     private String getGuestUsername(HttpServletRequest request) {

@@ -18,41 +18,45 @@ public abstract class Cache<T extends Object> {
     
     public void add(T object) {
         ValidationUtils.ensureNotNull("object", object);
-        cache.put(generateCacheKey(object).getId(), object);
-    }
-    
+        if (object instanceof CacheKey) {
+            add((CacheKey) object, object);
+        } else {
+            cache.put(generateCacheKey(object).getId(), object);
+        }
+    }    
     public void add(Object key, T value) {
         ValidationUtils.ensureNotNull("key", key);
         ValidationUtils.ensureNotNull("value", value);
-        cache.put(generateCacheKey(key).getId(), value);
-    }
-    
+        if (key instanceof CacheKey) {
+            add((CacheKey) key, value);
+        } else {
+            cache.put(generateCacheKey(key).getId(), value);
+        }
+    }    
     public void add(CacheKey key, T value) {
         ValidationUtils.ensureNotNull("key", key);
         ValidationUtils.ensureNotNull("value", value);
         cache.put(key.getId(), value);
     }
     
-    public T get(Object key) {
-        ValidationUtils.ensureNotNull("key", key);
-        return cache.get(generateCacheKey(key).getId());
+    public boolean isCached(CacheKey key) {
+        return cache.containsKey(key.getId());
+    }
+    public boolean isEmpty() {
+        return cache.isEmpty();
     }
     
+    public T get(Object key) {
+        ValidationUtils.ensureNotNull("key", key);
+        CacheKey cacheKey = key instanceof CacheKey ? (CacheKey) key : generateCacheKey(key);
+        return cache.get(cacheKey.getId());
+    }
     public T get(CacheKey key) {
         ValidationUtils.ensureNotNull("key", key);
         return cache.get(key.getId());
     }
-    
     public List<T> getAll() {
         return new ArrayList<T>(cache.values());
-    }
-    
-    public boolean isCached(CacheKey key) {
-        return cache.containsKey(key);
-    }
-    
-    public boolean isEmpty() {
-        return cache.isEmpty();
     }
     
     public abstract CacheKey generateCacheKey(Object obj);

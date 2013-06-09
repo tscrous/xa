@@ -2,9 +2,11 @@ package com.xa.webui.persistence.domain.component.page;
 
 import com.xa.webui.persistence.domain.component.WebComponent;
 import com.xa.webui.persistence.domain.resource.path.PathResource;
+import com.xa.webui.persistence.domain.user.RuntimeInfo;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Transient;
 
 @Entity
 public class BasicPageDescriptor extends WebComponent<PathResource> implements PageDescriptor {
@@ -28,6 +30,13 @@ public class BasicPageDescriptor extends WebComponent<PathResource> implements P
     public void setContent(PathResource content) {
         this.content = content;
     }
+
+    public RuntimeInfo getRuntimeInfo() {
+        return runtimeInfo;
+    }
+    public void setRuntimeInfo(RuntimeInfo runtimeInfo) {
+        this.runtimeInfo = runtimeInfo;
+    }
     
     /* Implementation for: WebComponent */
 
@@ -45,5 +54,8 @@ public class BasicPageDescriptor extends WebComponent<PathResource> implements P
     @ManyToOne
     @JoinColumn(name="content_id", referencedColumnName="id")
     protected PathResource content;
+    
+    @Transient
+    protected RuntimeInfo runtimeInfo;
     
 }

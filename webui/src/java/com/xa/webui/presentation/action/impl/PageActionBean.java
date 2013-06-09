@@ -2,6 +2,7 @@ package com.xa.webui.presentation.action.impl;
 
 import com.xa.webui.persistence.domain.component.page.BasicPageDescriptor;
 import com.xa.webui.persistence.domain.user.UserSession;
+import com.xa.webui.persistence.domain.user.RuntimeInfo;
 import com.xa.webui.presentation.action.SessionActionBean;
 import com.xa.webui.service.api.SessionManager;
 import com.xa.webui.service.api.WebComponentManager;
@@ -51,7 +52,10 @@ public class PageActionBean implements SessionActionBean {
     protected BasicPageDescriptor retrievePageDescriptor() {
         WebComponentManager webComponentManager = new WebComponentManager();
         String name = context.getRequest().getParameter(Constants.PAGE_DESCRIPTOR_NAME);
-        return (BasicPageDescriptor) webComponentManager.getPageDescriptorByName(name);
+        BasicPageDescriptor pageDescriptor = (BasicPageDescriptor) webComponentManager.getPageDescriptorByName(name);
+        RuntimeInfo info = getUserSession().getRuntimeInfo();
+        pageDescriptor.setRuntimeInfo(info);
+        return pageDescriptor;
     }
     
     private ActionBeanContext context;

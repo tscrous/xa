@@ -3,7 +3,6 @@ package com.xa.webui.persistence.domain.component;
 import com.xa.webui.persistence.domain.resource.WebResource;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.Transient;
 
 /**
  *
@@ -24,17 +23,12 @@ public abstract class Item extends WebComponent<WebResource> {
         throw new UnsupportedOperationException("Not supported!");
     }
 
-    public boolean isActive() {
-        return active;
-    }
-    public void setActive(boolean active) {
-        this.active = active;
+    @Override
+    protected Object clone() throws CloneNotSupportedException {
+        return this.clone();
     }
 
     @Column(name="label")
     protected String label;
-    
-    @Transient
-    protected boolean active;
     
 }

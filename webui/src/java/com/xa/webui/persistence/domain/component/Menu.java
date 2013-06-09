@@ -19,5 +19,5 @@ public class Menu extends ItemGroup<MenuItem> {
         this.description = description;
         this.items = items;
     }
-    
+
 }

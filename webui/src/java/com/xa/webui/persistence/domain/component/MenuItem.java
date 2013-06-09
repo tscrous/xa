@@ -92,6 +92,11 @@ public class MenuItem extends Item {
         this.alwaysShowIcon = alwaysShowIcon;
     }
 
+    @Override
+    public MenuItem clone() throws CloneNotSupportedException {
+        return (MenuItem) this.clone();
+    }
+    
     @Column(name="item_index")
     private int itemIndex = 0;
     

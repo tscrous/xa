@@ -42,6 +42,9 @@ public abstract class Constants {
     public static final String PAGE_DESCRIPTOR_NAME = "parm.page.descriptor.name";
     public static final Class<PageActionBean> PAGE_ACTION_BEAN_CLASS = PageActionBean.class;
     
+    /* runtime info */
+    public static final String WORKFLOW_LATEST_TRIGGER = "parm.workflow.trigger.latest";
+    
     
     /* other parameters */    
     public static final String SKIN_DEFAULT_NAME = "skin.default.name";
